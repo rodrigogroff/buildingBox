@@ -337,6 +337,8 @@
     <Content Include="images\loading.gif" />
     <Content Include="images\icon-copy.png" />
     <Content Include="images\icon-paste.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logoBig.png" />
     <Content Include="images\progressbar.gif" />
     <Content Include="images\user.png" />
     <Content Include="img\error.png" />
@@ -800,7 +802,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DevKit.DataAccess\BuildingBox.DataAccess.csproj">
+    <ProjectReference Include="..\BuildingBox.DataAccess\BuildingBox.DataAccess.csproj">
       <Project>{12e2ce82-0027-4152-abdf-fcebe99ae4f7}</Project>
       <Name>BuildingBox.DataAccess</Name>
     </ProjectReference>
