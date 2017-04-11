@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace DevKit.Web.Controllers
+namespace BuildingBox.Web.Controllers
 {
 	[Authorize]
 	public abstract class ApiControllerBase : ApiController

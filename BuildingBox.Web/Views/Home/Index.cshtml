@@ -18,125 +18,28 @@
 </head>
 <body>	
 	<div>				
-		<div align="center">
+		<div align="center" ng-controller="HomeController">
 			<br />
-			<a href="videos.html" class="btn btn-sm btn-primary">Checkout the preview!</a>&nbsp;&nbsp;&nbsp;
-			<a href="signUp.html" class="btn btn-sm btn-primary">Sign-up or register &nbsp;<i class="fa fa-arrow-right"></i></a>
+			<a ui-sref="home" class="btn btn-sm {{btnHomeStyle}}" style="color:black">Home</a>&nbsp;&nbsp;&nbsp;
+			<a ui-sref="videos" class="btn btn-sm {{btnVideoStyle}}" style="color:black">Videos</a>&nbsp;&nbsp;&nbsp;
+			<a ui-sref="simulation" class="btn btn-sm" style="color:black">Simulation</a>&nbsp;&nbsp;&nbsp;
+			<a ui-sref="about" class="btn btn-sm" style="color:black">About</a>&nbsp;&nbsp;&nbsp;
+			<a ui-sref="signUp" class="btn btn-sm btn-primary" style="color:white">Sign-up or register &nbsp;<i class="fa fa-arrow-right"></i></a>&nbsp;&nbsp;&nbsp;
 			<br />
 			<br />
-		</div>
+		</div> 
 		<div align="center">
 			<img src='../../images/logoBig.png' />
 		</div>		
-		<div id="about" class="widget widget-white widget-about">
+		<div id="about" class="widget widget-white">
 			<div align="center">
-				<br />
-				<h2><strong>Turn key, starting software solutions!</strong></h2>
-				<p>
-					A next generation <strong>task management software kit</strong> ready to give your team the tools to build great applications.
-				</p>
-				<br />
-				<br />
-				<table>
-					<tr>
-						<td valign="top">
-							<div style="padding-top:28px">
-								<img src='../../images/wrench.png' height="87px" />
-							</div>
-						</td>
-						<td width="20px"></td>
-						<td width="240px">
-							<table class="table table-hover">
-								<tr>
-									<td><span style="color:black">Exclusive private network</span></td>
-								</tr>
-								<tr>
-									<td><span style="color:black">No user limitations</span></td>
-								</tr>
-								<tr>
-									<td><span style="color:black">Monthly subscription</span></td>
-								</tr>
-								<tr>
-									<td><span style="color:black">Scalable archictecture</span></td>
-								</tr>
-							</table>
-						</td>
-						<td width="80px"></td>
-						<td valign="top">
-							<div style="padding-top:28px">
-								<img src='../../images/wand.png' height="87px" />
-							</div>
-						</td>
-						<td width="20px"></td>
-						<td width="240px">
-							<table class="table table-hover">
-								<tr>
-									<td><span style="color:black">No limitations in customizations</span></td>
-								</tr>
-								<tr>
-									<td><span style="color:black">Affordable development kits</span></td>
-								</tr>
-								<tr>
-									<td><span style="color:black">CMMI compliance & Agile templates</span></td>
-								</tr>
-								<tr>
-									<td><span style="color:black">Unique repository for your contract</span></td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-				<br />
-				<br />
-				<br />
-			</div>
-		</div>
-		<div id="about" class="widget widget-white widget-about">
-			<div align="center">
-				<br />
-				<table>
-					<tr>
-						<td colspan="7">
-							<br />
-							<table>
-								<tr>
-									<td width="300px"><h2>Technology </h2></td>
-									<td>
-										<img src='../../images/boot.png' height="90px" />&nbsp;&nbsp;&nbsp;
-										<img src='../../images/angularjs.png' height="90px" />&nbsp;&nbsp;&nbsp;
-										<img src='../../images/mvc_logo.png' height="90px" />&nbsp;&nbsp;&nbsp;
-										<img src='../../images/postgresql.png' height="120px" />
-									</td>
-								</tr>
-							</table>
-							<br />
-						</td>
-					</tr>
-					<tr>
-						<td colspan="7">
-							<br />
-							<table>
-								<tr>
-									<td width="300px"><h2>Infrastructure</h2></td>
-									<td>
-										Global Servers provided by<br />
-										<br />
-										<img src='../../images/vultr.png' height="90px" />
-									</td>
-								</tr>
-							</table>
-							<br />
-						</td>
-					</tr>
-				</table>
-				<br />
-				<br />
-				<br />
+				<div id="ui-view" style="width:100%" ui-view></div>
 			</div>
 		</div>		
+		@Scripts.Render("~/bundles/app")
 		<div align="center">
 			<br />
-			<h2 style="color:white"> Building Box 2017</h2>
+			<h3 style="color:white"> Building Box @@ 2017</h3>
 		</div>		
 	</div>
 </body>

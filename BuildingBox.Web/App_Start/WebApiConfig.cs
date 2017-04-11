@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Serialization;
 using System.Web.Http;
 
-namespace DevKit.Web
+namespace BuildingBox.Web
 {
 	public static class WebApiConfig
 	{

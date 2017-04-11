@@ -6,11 +6,13 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 {
     $stateProvider
 
-    .state('home', { url: '/', templateUrl: 'app/home/home.html' })
+	.state('home', { url: '/', templateUrl: 'app/home/home.html', controller: 'HomeController', data: {} })
+	.state('videos', { url: '/videos', templateUrl: 'app/videos/videos.html', controller: 'VideosController', data: { } })
+	 
+//	.state('login', { url: '/login', templateUrl: 'app/login/login.html', controller: 'LoginController', data: {} })
 
-	.state('login', { url: '/login', templateUrl: 'app/login/login.html', controller: 'LoginController', data: {} })
-			
-	.state('otherwise', { url: '*path', templateUrl: 'app/_shared/404.html', controller: 'Erro404Controller' });
+	.state('otherwise', { url: '/', templateUrl: 'app/home/home.html', controller: 'HomeController', data: {} })
+
 
     $locationProvider.html5Mode(true);
 

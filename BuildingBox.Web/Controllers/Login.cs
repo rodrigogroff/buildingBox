@@ -6,7 +6,7 @@ using System.Threading;
 using System.Linq;
 using System.Security.Claims;
 
-namespace DevKit.Web
+namespace BuildingBox.Web
 {
 	public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
 	{

@@ -12,11 +12,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DevKit.Web")]
+[assembly: AssemblyTitle("BuildingBox.Web")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DevKit.Web")]
+[assembly: AssemblyProduct("BuildingBox.Web")]
 [assembly: AssemblyCopyright("Copyright © 2017 ")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

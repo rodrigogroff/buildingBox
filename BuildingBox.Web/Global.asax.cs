@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Optimization;
 
-namespace DevKit.Web
+namespace BuildingBox.Web
 {
 	public class Application : HttpApplication
 	{
@@ -22,7 +22,7 @@ namespace DevKit.Web
 				name: "Default",
 				url: "{*url}",
 				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional  },
-				namespaces: new[] { "DevKit.Web.Controllers" }
+				namespaces: new[] { "BuildingBox.Web.Controllers" }
 			);
 		}
 	}
