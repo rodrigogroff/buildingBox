@@ -1,0 +1,116 @@
+﻿@{
+	// Build version
+	var assembly = System.Reflection.Assembly.GetAssembly(typeof(Application));
+	var version = assembly.GetName().Version.ToString(3);
+}
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<base href="/">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title ng-bind="title">DevKit</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+	<meta name="description">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	@Styles.Render("~/bundles/css")
+	@Scripts.Render("~/bundles/scripts")
+</head>
+<body class="background">
+	<div class="header" ng-show="exibirMenu" ng-controller="MenuController">
+		<div class="logo" style="padding-top:-4px; padding-left:-60px">
+			<img src='../../images/logo.png' height="112px" />
+		</div>
+		<header class="page-header">
+			<div class="navbar" style="height:38px; padding-left:175px;padding-top:-4px;">
+				<table width="100%">
+					<tr>
+						<td width="200px">
+							<span style="color:black">Welcome, <b>{{authentication.nameUser}}</b> &nbsp;&nbsp;&nbsp;&nbsp;</span>
+						</td>
+						<td width="130px">
+							<button class="btn btn-success btn-xs" title="Total open tasks" ng-click="tasksClick()">{{projectTasks}}</button> Project tasks
+						</td>
+						<td></td>
+						<td width="20px"></td>
+						<td width="130px">
+							<button class="btn btn-primary btn-xs" title="Tasks associated to you" ng-click="tasksClick()">{{userTasks}}</button> User Tasks
+						</td>
+						<td width="20px"></td>
+						<td width="250px">
+							<table>
+								<tr>
+									<td>
+										<input type="text" width="150px" class="form-control input-transparent" ng-model="searchParam" />
+									</td>
+									<td width="20px"></td>
+									<td>
+										<button class="btn btn-success btn-xs" ng-click="searchSystem()">Search</button>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td width="20px"></td>
+						<td align="right" valign="top">
+							<span style="color:white">Sign Out</span> &nbsp;&nbsp;<a href="login" ng-click="logOut()"><i style="font-size:16px" class="glyphicon glyphicon-off"></i></a>
+						<td>
+					</tr>
+				</table>
+			</div>
+		</header>
+		<nav id="sidebar" class="sidebar nav-collapse collapse" style="padding-top:60px;padding-left:-200px">
+			<section class="widget" style="height:100%;font-size:11px">
+				<ul id="side-nav" class="side-nav" style="color:black">
+					<li class="panel">
+						<a class="accordion-toggle " data-toggle="collapse"
+						   data-parent="#side-nav" href="#forms-collapseSystem"><span class="name">System</span></a>
+						<ul id="forms-collapseSystem" class="panel-collapse collapse">
+							<li><a ui-sref="setup"><span>Setup</span></a></li>
+							<li><a ui-sref="users"><span>Users</span></a></li>
+							<li><a ui-sref="profiles"><span>Profiles</span></a></li>
+						</ul>
+					</li>
+					<li class="panel">
+						<a class="accordion-toggle " data-toggle="collapse"
+						   data-parent="#side-nav" href="#forms-collapseSetup"><span class="name">Configuration</span></a>
+						<ul id="forms-collapseSetup" class="panel-collapse collapse">
+							<li><a ui-sref="projects"><span>Projects</span></a></li>
+							<li><a ui-sref="taskTypes"><span>Task Types</span></a></li>
+						</ul>
+					</li>
+					<li class="panel">
+						<a class="accordion-toggle " data-toggle="collapse"
+						   data-parent="#side-nav" href="#forms-collapseTask"><span class="name">Tasks</span></a>
+						<ul id="forms-collapseTask" class="panel-collapse collapse">
+							<li><a ui-sref="task-new"><span>New Task</span></a></li>
+							<li><a ui-sref="tasks"><span>Listing</span></a></li>
+							<li><a ui-sref="userKanban"><span>Kanban</span></a></li>
+							<li><a ui-sref="management"><span>Management</span></a></li>
+							<li><a ui-sref="timesheet"><span>Timesheet</span></a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul><li>&nbsp;</li></ul>
+				<ul><li>&nbsp;</li></ul>
+				<ul>
+					<li>
+						<span style="color:grey;text-align:center;padding-left:20px">Version {{version}}</span>
+					</li>
+				</ul>
+				<ul><li></li></ul>
+			</section>			
+		</nav>
+	</div>
+	<table align="left" style="width:100%">
+		<tr>
+			<td>
+				<div id="ui-view" style="width:100%" ui-view></div>
+			</td>
+		</tr>
+	</table>
+	@Scripts.Render("~/bundles/app")
+	<script>
+		app.constant('version', '@version'); // Version constant
+	</script>
+</body>
+</html>
