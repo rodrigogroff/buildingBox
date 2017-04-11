@@ -1,6 +1,4 @@
 ﻿using DataModel;
-using LinqToDB;
-using System;
 
 namespace GetStarted
 {
