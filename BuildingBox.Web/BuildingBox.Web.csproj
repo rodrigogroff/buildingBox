@@ -299,7 +299,9 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\angularjs.png" />
     <Content Include="images\arrow_left.png" />
+    <Content Include="images\boot.png" />
     <Content Include="images\Check-icon.png" />
     <Content Include="images\file.png" />
     <Content Include="images\folder-closed.png" />
@@ -339,8 +341,13 @@
     <Content Include="images\icon-paste.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logoBig.png" />
+    <Content Include="images\mvc_logo.png" />
+    <Content Include="images\postgresql.png" />
     <Content Include="images\progressbar.gif" />
     <Content Include="images\user.png" />
+    <Content Include="images\Vultr.png" />
+    <Content Include="images\wand.png" />
+    <Content Include="images\wrench.png" />
     <Content Include="img\error.png" />
     <Content Include="img\error.svg" />
     <Content Include="img\loading.gif" />
