@@ -1,38 +1,6 @@
 
 --- Building Box ----------
 
-# Starter solutions -----------------------------------------
-     
-     - exclusive private network
-     - no user limitations
-	 - monthly subscription
-	 - scalable archictecture
-
-# Software delivered -----------------------------------------
-
-	- unique templates (CMMI (2 to 5), Agile, Maintenance)
-	- projects, sprints, phases, versions, task types and categories
-	- administrative, kanban and timesheet views
-		 
-# Custom development -----------------------------------------
-
-    - unique source code branch
-	- software development kits (20 hours)
-	- we implement changes in documentation requirements 
-    
-
-# Infrastructure -----------------------------------------
-
-    - internet availability using VULTR hosts
-    - storage scalability (up to terabytes)
-    - processing scalability (load balancing)
-
-# Technology -----------------------------------------
-
-    - angularJS, MVC 5, Web API
-    - Advanced bootstrap template
-    - PostgreSQL / LinqToDB
-
 # Availability per proximity  -----------------------------------------
 
     - continents: america, europe, australia, asia

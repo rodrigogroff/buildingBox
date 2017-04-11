@@ -1,5 +1,5 @@
 ﻿'use strict';
-angular.module('app.controllers').controller('VideosController',
+angular.module('app.controllers').controller('AboutController',
 ['$scope', '$rootScope', '$location', 'AuthService', 
 function ($scope, $rootScope, $location, AuthService)
 {

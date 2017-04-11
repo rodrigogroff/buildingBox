@@ -235,8 +235,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\about\about.html" />
+    <Content Include="app\about\AboutController.js" />
     <Content Include="app\app.js" />
     <Content Include="app\home\HomeController.js" />
+    <Content Include="app\simulation\simulation.html" />
+    <Content Include="app\simulation\SimulationController.js" />
     <Content Include="app\videos\videos.html" />
     <Content Include="app\videos\VideosController.js" />
     <Content Include="app\_shared\filtro\diretivaNgFiltro.js" />

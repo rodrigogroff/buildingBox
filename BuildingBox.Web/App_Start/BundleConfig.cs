@@ -97,7 +97,9 @@ namespace BuildingBox.Web
 				"~/app/app.js",
 
 				"~/app/home/HomeController.js",
-				"~/app/videos/VideosController.js"
+				"~/app/videos/VideosController.js",
+				"~/app/simulation/SimulationController.js",
+				"~/app/about/AboutController.js"
 
 				));
 
