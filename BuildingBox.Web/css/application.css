@@ -13884,12 +13884,14 @@ textarea + .help-block,
 /***************************/
 .table .table {
   /*background-color: #eeeeee;*/
+  color: black;
 }
 
 .table-hover tbody td, .table-hover tbody th {
   -webkit-transition: background-color 0.2s;
   -o-transition: background-color 0.2s;
   transition: background-color 0.2s;
+  color: black;
 }
 
 .table thead > tr > th {
