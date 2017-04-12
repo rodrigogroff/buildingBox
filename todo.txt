@@ -38,7 +38,7 @@
         - maintenance = 10$
         - total: 310 US$ / month (4WP)
 
-    *** Advanced solution  -----------------------------------------
+    *** Premium solution  -----------------------------------------
 
         (up to ~300 users)
 
