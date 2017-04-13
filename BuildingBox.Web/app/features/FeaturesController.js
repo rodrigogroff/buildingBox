@@ -1,5 +1,5 @@
 ﻿'use strict';
-angular.module('app.controllers').controller('VideosController',
+angular.module('app.controllers').controller('FeaturesController',
 ['$scope', '$rootScope', '$location', 'AuthService', 
 function ($scope, $rootScope, $location, AuthService)
 {
@@ -58,4 +58,5 @@ function ($scope, $rootScope, $location, AuthService)
 			$rootScope.btnAboutStyle = 'btn-warning';
 		}
 	}
+		
 }]);

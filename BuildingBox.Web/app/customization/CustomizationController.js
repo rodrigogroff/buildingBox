@@ -1,5 +1,5 @@
 ﻿'use strict';
-angular.module('app.controllers').controller('VideosController',
+angular.module('app.controllers').controller('CustomizationController',
 ['$scope', '$rootScope', '$location', 'AuthService', 
 function ($scope, $rootScope, $location, AuthService)
 {
@@ -20,7 +20,7 @@ function ($scope, $rootScope, $location, AuthService)
 		else if (absUrl == '/features') {
 			$rootScope.btnHomeStyle = '';
 			$rootScope.btnFeatureStyle = 'btn-warning';
-			$rootScope.btnCustomStyle = '';
+			$rootScope.btnCustomStyle = '';			
 			$rootScope.btnVideoStyle = '';
 			$rootScope.btnSimStyle = '';
 			$rootScope.btnAboutStyle = '';
