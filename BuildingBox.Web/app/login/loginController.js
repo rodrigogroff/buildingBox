@@ -8,6 +8,13 @@ function ($scope, $rootScope, $location, AuthService )
 	function init()
 	{
 		$rootScope.showLogo = false;
+
+		$rootScope.btnHomeStyle = '';
+		$rootScope.btnFeatureStyle = '';
+		$rootScope.btnCustomStyle = '';
+		$rootScope.btnVideoStyle = '';
+		$rootScope.btnSimStyle = '';
+		$rootScope.btnAboutStyle = '';
 	}
 
 	$scope.loading = false;

@@ -355,6 +355,7 @@
     <Content Include="images\logo.png" />
     <Content Include="images\logoBig.png" />
     <Content Include="images\logoLetras.png" />
+    <Content Include="images\logoRegister.png" />
     <Content Include="images\mvc_logo.png" />
     <Content Include="images\postgresql.png" />
     <Content Include="images\progressbar.gif" />
@@ -658,6 +659,7 @@
     <Content Include="css\bootstrap-select.css.map" />
     <Content Include="css\toastr.css.map" />
     <Content Include="logoBig.psd" />
+    <Content Include="logoLetras.psd" />
     <None Include="Properties\PublishProfiles\Publish.pubxml" />
     <None Include="scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="scripts\jquery-2.1.0.js" />
@@ -803,6 +805,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Enums\CountryController.cs" />
+    <Compile Include="Controllers\Enums\MonthController.cs" />
     <Compile Include="Controllers\Login.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="GlobalExtensions.cs" />

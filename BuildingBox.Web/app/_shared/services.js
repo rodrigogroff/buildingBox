@@ -88,7 +88,8 @@ angular.module('app.services', ['ngResource'])
 
 	return {
 		
-		User: $resource('api/user/:id', {}, opcoes)
+		User: $resource('api/user/:id', {}, opcoes),
+		Country: $resource('api/country/:id', {}, opcoes)
 
 	};
 }]);
