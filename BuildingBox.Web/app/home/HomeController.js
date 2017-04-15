@@ -7,6 +7,8 @@ function ($scope, $rootScope, $location, AuthService)
 
 	function init()
 	{
+		$rootScope.showLogo = true;
+
 		var absUrl = $location.path();
 
 		if (absUrl == '/home' || absUrl == '/') {

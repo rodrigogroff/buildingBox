@@ -1,66 +1,68 @@
 
---- Building Box ----------
+// Register
 
-# Availability per proximity  -----------------------------------------
+Client Name		[             ]
+Country			[             ] // text
+GMT				<             >
+Contact Email	[             ]
+Login Name		[             ]	
+Password		[			  ]
 
-    - continents: america, europe, australia, asia
+[ Register ]	
 
-    - cities (america): Dallas, Miami, Silicon Valley, Atlanta, Chicago, Los-Angeles, New York (NJ), Seattle
-    - cities (europe): Frankfurt (Germany), Paris (France), Amsterdam (Netherlands), London (UK)
-    - cities (australia): Sydney
-    - cities (asia): Singapore (Singapore), Tokyo (Japan)
+-------------------------------------------------------------
 
-# Internet processing  -----------------------------------------
+// Login 
 
-    - standard compute (4CPU) = 70 US$
-    - premium compute (6CPU) = 110 US$
-    - standard storage (500GB) = 50 US$
-    - premium storage (1TB) = 70 US$
-   
-    *** Economy solution  -----------------------------------------
+Login Name		[             ]	
+Password		[			  ]
 
-        (up to 70 users) // 1WP = 35 users
+[ Login ]
 
-        - task management module = 150 US$
-        - premium compute (6CPU, 200GB) = 110 US$
-            (2 worker process + database)
-        - maintenance = 5$
-        - total: 265 US$ / month (2WP)
+---------------------------------------------------------------
 
-    *** Basic solution  -----------------------------------------
+// Main screen
 
-        (up to 140 users)
+// abas
+[ Tickets ] [ Contracts ] [ Customizations ]
 
-        - task management module = 150 US$
-        - standard compute (4CPU) = 50 US$
-        - standard compute (4CPU) = 50 US$ (database machine)
-        - standard storage (500GB) = 50 US$
-        - maintenance = 10$
-        - total: 310 US$ / month (4WP)
+[ News ] [ Surveys ]
 
-    *** Premium solution  -----------------------------------------
+---------------------------------------------------------------
 
-        (up to ~300 users)
+Customizations: 
 
-        - task management module = 150 US$
-        - network load balancer (2CPU) = 40 US$
-        - standard compute (4CPU) = 70 US$ x 2 = 140 US$
-        - standard compute (4CPU) = 70 US$ (database machine)
-        - standard storage (500GB) = 30 US$
-        - maintenance = 20$
-        - total: 450 US$ / month (9WP)
+- Current documentation  [download]
+- 
 
-    *** Premium solution  -----------------------------------------
+---------------------------------------------------------------
 
-        (up to ~800 users)
 
-        - task management module = 150 US$
-        - network load balancer (2CPU) = 40 US$ (1 worker process)
-        - standard compute (4CPU) = 70 US$ x 6 = 420 US$ (*)
-        - premium compute (6CPU, 200GB) = 110 US$ (database machine) (**)
-        - premium storage (1TB) = 70 US$ x 2 = 140 US$
-        - maintenance = 50$
-        - total: 910 US$ / month (25WP)
+    - continents: 
+		- america, europe, australia, asia
 
-        (*) add as many as needed
-        (**) can be upgraded as high as 20 CPU)
+    - america: 
+		- country (US)
+			- city: Dallas, Miami, Silicon Valley, Atlanta, Chicago, Los-Angeles, New York (NJ), Seattle
+
+    - europe: 
+		- country: (Germany), 
+			- city: Frankfurt 
+		- country: (France)
+			- city: Paris
+		- country: (Netherlands)
+			- city: Amsterdam
+		- country: (UK)
+			- city: London
+			
+    - australia:
+		- country (australia)
+			- city: Sydney
+    - asia: 
+		- country (Singapore)
+			- city: Singapore, 
+		- country: (Japan)
+			- city: Tokyo
+
+
+

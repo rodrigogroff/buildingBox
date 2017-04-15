@@ -95,14 +95,13 @@ namespace BuildingBox.Web
 				"~/app/_shared/MenuController.js",
 				"~/app/_shared/NgSelectsService.js",
 				"~/app/app.js",
-
 				"~/app/home/HomeController.js",
 				"~/app/features/FeaturesController.js",
 				"~/app/customization/CustomizationController.js",
 				"~/app/videos/VideosController.js",
+				"~/app/register/RegisterController.js",
 				"~/app/simulation/SimulationController.js",
 				"~/app/about/AboutController.js"
-
 				));
 
 			BundleTable.EnableOptimizations = false;

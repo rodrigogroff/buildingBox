@@ -5,10 +5,6 @@ namespace DataModel
 {
 	public partial class BuildingBoxDB
 	{				
-		// ----------------------------------
-		// Current system user 
-		// ----------------------------------
-
 		public User currentUser = null;
 
 		public User GetCurrentUser()

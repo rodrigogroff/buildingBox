@@ -243,6 +243,8 @@
     <Content Include="app\features\features.html" />
     <Content Include="app\features\FeaturesController.js" />
     <Content Include="app\home\HomeController.js" />
+    <Content Include="app\register\register.html" />
+    <Content Include="app\register\RegisterController.js" />
     <Content Include="app\simulation\simulation.html" />
     <Content Include="app\simulation\SimulationController.js" />
     <Content Include="app\videos\videos.html" />
@@ -352,6 +354,7 @@
     <Content Include="images\icon-paste.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logoBig.png" />
+    <Content Include="images\logoLetras.png" />
     <Content Include="images\mvc_logo.png" />
     <Content Include="images\postgresql.png" />
     <Content Include="images\progressbar.gif" />

@@ -1,80 +1,75 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta charset="utf-8">
-	<script type="text/javascript"> </script>
-	<style>
-		body {
-			font-weight: 400;
-			padding-bottom: 100px;
-			background-color: #2b6e80 20%;
-			background-image: radial-gradient(farthest-side ellipse at 10% 0, #2b6e80 20%, #0c3252);
-			background-image: -webkit-radial-gradient(10% 0, farthest-side ellipse, #2b6e80 20%, #0c3252);
-			background-image: -moz-radial-gradient(10% 0, farthest-side ellipse, #2b6e80 20%, #0c3252);
-			background-attachment: fixed, fixed;
-		}
-	</style>
-</head>
-<body class="background-white" >
-	<div align="center" style="padding-top:150px;">
-		<div align="center" style="width:400px;height:460px;background-color:#e0e0e0;" ng-show="!loginOK">
-			<form id="validate" style="width:300px;">
-				<fieldset>
-					<br /><br />
-					<br />
-					<div style="padding-left:90px">
-						<img src='../../images/logo.png' height="120px" /><br />
-					</div>					
-					<table>
-						<tr height="24px"></tr>
-						<tr height="48px">
-							<td width="90px">
-								<p for="login" style="color: black">Login</p>
-							</td>
-							<td width="210px">
-								<div class="input-group input-group-lg">
-									<span class="input-group-addon"  style="width:45px"><i class="fa fa-user"></i></span>
-									<input id="login-username" style="font-size: 12px; border: 1px solid #ccc;" type="text"
-										   class="form-control" name="username" ng-model="loginData.userName" value="" autofocus>
-								</div>
-							</td>
-						</tr>
-						<tr height="48px">
-							<td>
-								<p for="pass" style="color: black">Password</p>
-							</td>
-							<td>
-								<div class="input-group input-group-lg">
-									<span class="input-group-addon" style="width:45px"><i class="fa fa-lock"></i></span>
-									<input id="login-password" style="font-size: 12px; border: 1px solid #ccc;" type="password"
-										   class="form-control" name="password" ng-model="loginData.password" >
-								</div>
-							</td>
-						</tr>
-						<tr height="24px"></tr>
-						<tr height="48px">
-							<td colspan="2" align="center">
-								<button type="submit" id="btn-login" class="btn btn-block btn-lg btn-primary" ng-click="login()">
-									<div ng-show="!loading">Submit </div> <div ng-show="loading">Processing login... <i class="fa fa-spinner fa-spin"></i></div> 									
-								</button>
-							</td>
-						</tr>
-						<tr height="48px">
-							<td colspan="2">
-								<div align="center">
-									<span style="color:#ff0000;">{{mensagem}}</span>
-								</div>
-							</td>
-						</tr>
-					</table>
-				</fieldset>
-				<span style="color:grey;text-align:center">Version {{version}}</span>
-			</form>
-		</div>
-	</div>
-</body>
-</html>
+﻿<div align="center">
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<form id="validate">
+		<fieldset>
+			<table>
+				<tr>
+					<td valign="top">
+						<br />
+						<br />
+						<br />
+						<img src='../../images/logoLetras.png' />
+					</td>
+					<td width="120px"></td>
+					<td valign="top" width="520px">
+						<h3>Please provide your credentials</h3>
+						<table>
+							<tr height="24px"></tr>
+							<tr height="48px">
+								<td width="90px">
+									<p for="login" style="color: black">Login</p>
+								</td>
+								<td width="210px">
+									<div class="input-group input-group-lg">
+										<span class="input-group-addon" style="width:45px"><i class="fa fa-user"></i></span>
+										<input id="login-username" style="font-size: 12px; border: 1px solid #ccc;" type="text"
+											   class="form-control" name="username" ng-model="loginData.userName" value="" autofocus>
+									</div>
+								</td>
+							</tr>
+							<tr height="48px">
+								<td>
+									<p for="pass" style="color: black">Password</p>
+								</td>
+								<td>
+									<div class="input-group input-group-lg">
+										<span class="input-group-addon" style="width:45px"><i class="fa fa-lock"></i></span>
+										<input id="login-password" style="font-size: 12px; border: 1px solid #ccc;" type="password"
+											   class="form-control" name="password" ng-model="loginData.password">
+									</div>
+								</td>
+							</tr>
+							<tr height="24px"></tr>
+							<tr height="48px">
+								<td colspan="2" align="left">
+									<button type="submit" id="btn-login" class="btn btn-lg btn-primary" ng-click="login()">
+										<div style="color:white" ng-show="!loading">Submit </div> <div style="color:white" ng-show="loading">Processing login... <i class="fa fa-spinner fa-spin"></i></div>
+									</button>
+								</td>
+							</tr>
+							<tr height="48px">
+								<td colspan="2">
+									<div align="center">
+										<span style="color:#ff0000;">{{mensagem}}</span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+</div>
