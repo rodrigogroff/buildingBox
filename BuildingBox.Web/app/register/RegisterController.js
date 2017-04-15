@@ -42,12 +42,15 @@ function ($scope, $rootScope, $location, AuthService, ngSelects, Api)
 		$scope.fkGMT_fail = $scope.viewModel.fkDesiredGMT == undefined;
 
 		if (!$scope.stCompanyName_fail &&
+			!$scope.stCity_fail &&
+			!$scope.stEmail_fail &&
+			!$scope.stPassword_fail &&
 			!$scope.fkCountry_fail &&
 			!$scope.fkGMT_fail)
 		{
-			Api.User.add($scope.viewModel, function (data)
+			Api.Register.add($scope.viewModel, function (data)
 			{
-					
+				
 			},
 			function (response) {
 				toastr.error(response.data.message, 'Error');

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using System.Threading;
 
 namespace DataModel
@@ -15,6 +16,20 @@ namespace DataModel
 							   select ne).FirstOrDefault();
 
 			return currentUser;
+		}
+
+		// ----------------------------------
+		// Tables by Id (using cache)
+		// ----------------------------------
+
+		Hashtable Cache = new Hashtable();
+
+		public User User(long? id)
+		{
+			if (id == null) return null;
+			var tag = "User" + id; var ret = Cache[tag] as User;
+			if (ret == null) { ret = Users.Find((long)id); Cache[tag] = ret; }
+			return ret;
 		}
 	}
 }

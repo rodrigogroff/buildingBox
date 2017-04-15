@@ -88,6 +88,7 @@ angular.module('app.services', ['ngResource'])
 
 	return {
 		
+		Register: $resource('api/register/:id', {}, opcoes),
 		User: $resource('api/user/:id', {}, opcoes),
 		Country: $resource('api/country/:id', {}, opcoes),
 		GMT: $resource('api/gmt/:id', {}, opcoes),

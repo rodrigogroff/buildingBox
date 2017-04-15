@@ -70,7 +70,13 @@
     <Compile Include="DataModel\Enums\GMT_enum.cs" />
     <Compile Include="DataModel\Enums\Month_enum.cs" />
     <Compile Include="DataModel\Enums\Priority_enum.cs" />
+    <Compile Include="DataModel\Tables\User\User_ComposedFilters.cs" />
+    <Compile Include="DataModel\Tables\User\User_Create.cs" />
+    <Compile Include="DataModel\Tables\User\User_DTO.cs" />
+    <Compile Include="DataModel\Tables\User\User_Extras.cs" />
+    <Compile Include="DataModel\Tables\User\User_LoadAssociations.cs" />
     <Compile Include="DataModel\Tables\User\User_Login.cs" />
+    <Compile Include="DataModel\Tables\User\User_Update.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
