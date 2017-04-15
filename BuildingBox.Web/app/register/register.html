@@ -11,11 +11,12 @@
 					</td>
 					<td width="120px"></td>
 					<td valign="top" width="520px">						
-						<h2>Registering is free</h2>
+						<h2>Register into Building Box</h2>
+						<i>To start using our products, please fill the form below:</i><br />
 						<br />
 						<br />
 						<table style="background-color:#eeeeee;box-shadow: 2px 2px 5px #888888;" >
-							<tr height="32px"></tr>
+							<tr height="24px"></tr>
 							<tr height="38px">
 								<td width="30px"></td>
 								<td width="140px">
@@ -45,7 +46,20 @@
 							<tr height="38px">
 								<td width="30px"></td>
 								<td>
-									<b>Desired GMT</b>
+									<b>City</b>
+								</td>
+								<td width="20px">
+									<button class="btn btn-xs btn-danger" style="color:white" ng-show="stCity_fail">!</button>
+								</td>
+								<td width="300px">
+									<input type="text" class="form-control input" maxlength="150" ng-model="viewModel.stCityName" />
+								</td>
+								<td width="20px"></td>
+							</tr>
+							<tr height="38px">
+								<td width="30px"></td>
+								<td>
+									<b>Default GMT</b>
 								</td>
 								<td width="20px">
 									<button class="btn btn-xs btn-danger" style="color:white" ng-show="fkGMT_fail">!</button>
@@ -55,7 +69,46 @@
 								</td>
 								<td width="20px"></td>
 							</tr>
-							<tr height="32px"></tr>
+							<tr height="38px">
+								<td width="30px"></td>
+								<td>
+									<b>Contact Email</b>
+								</td>
+								<td width="20px">
+									<button class="btn btn-xs btn-danger" style="color:white" ng-show="stEmail_fail">!</button>
+								</td>
+								<td width="300px">
+									<input type="text" class="form-control input" maxlength="150" ng-model="viewModel.stContactEmail" />
+								</td>
+								<td width="20px"></td>
+							</tr>
+							<tr height="38px">
+								<td width="30px"></td>
+								<td>
+									<b>Password</b>
+								</td>
+								<td width="20px">
+									<button class="btn btn-xs btn-danger" style="color:white" ng-show="stPassword_fail">!</button>
+								</td>
+								<td width="300px">
+									<input type="password" class="form-control input" maxlength="150" ng-model="viewModel.stPassword" />
+								</td>
+								<td width="20px"></td>
+							</tr>
+							<tr height="38px">
+								<td width="30px"></td>
+								<td>
+									<b>Confirm Password</b>
+								</td>
+								<td width="20px">
+									<button class="btn btn-xs btn-danger" style="color:white" ng-show="stConf_fail">!</button>
+								</td>
+								<td width="300px">
+									<input type="password" class="form-control input" maxlength="150" ng-model="viewModel.stPasswordConf" />
+								</td>
+								<td width="20px"></td>
+							</tr>														
+							<tr height="24px"></tr>
 							<tr height="38px">
 								<td></td>
 								<td>

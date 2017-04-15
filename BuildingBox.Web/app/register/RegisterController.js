@@ -35,6 +35,9 @@ function ($scope, $rootScope, $location, AuthService, ngSelects, Api)
 	$scope.register = function () 
 	{
 		$scope.stCompanyName_fail = invalidCheck($scope.viewModel.stClientName);
+		$scope.stCity_fail = invalidCheck($scope.viewModel.stCity);
+		$scope.stEmail_fail = invalidCheck($scope.viewModel.stContactEmail);
+		$scope.stPassword_fail = invalidCheck($scope.viewModel.stPassword);
 		$scope.fkCountry_fail = $scope.viewModel.fkCountry == undefined;
 		$scope.fkGMT_fail = $scope.viewModel.fkDesiredGMT == undefined;
 
