@@ -4,6 +4,7 @@ angular.module('app.controllers').controller('RegisterController',
 function ($scope, $rootScope, $location, AuthService, ngSelects, Api)
 {
 	$scope.selectCountry = ngSelects.obterConfiguracao(Api.Country, {});
+	$scope.selectGMT = ngSelects.obterConfiguracao(Api.GMT, {});
 
 	init();
 
@@ -35,9 +36,11 @@ function ($scope, $rootScope, $location, AuthService, ngSelects, Api)
 	{
 		$scope.stCompanyName_fail = invalidCheck($scope.viewModel.stClientName);
 		$scope.fkCountry_fail = $scope.viewModel.fkCountry == undefined;
+		$scope.fkGMT_fail = $scope.viewModel.fkDesiredGMT == undefined;
 
 		if (!$scope.stCompanyName_fail &&
-			!$scope.fkCountry_fail)
+			!$scope.fkCountry_fail &&
+			!$scope.fkGMT_fail)
 		{
 			Api.User.add($scope.viewModel, function (data)
 			{

@@ -14,7 +14,7 @@
 						<h2>Registering is free</h2>
 						<br />
 						<br />
-						<table style="background-color:#eeeeee;border-color:red;border-width:1px" >
+						<table style="background-color:#eeeeee;box-shadow: 2px 2px 5px #888888;" >
 							<tr height="32px"></tr>
 							<tr height="38px">
 								<td width="30px"></td>
@@ -39,6 +39,19 @@
 								</td>
 								<td width="300px">
 									<input type="hidden" name="country" style="width:100%" ui-select2="selectCountry" ng-model="viewModel.fkCountry" />
+								</td>
+								<td width="20px"></td>
+							</tr>
+							<tr height="38px">
+								<td width="30px"></td>
+								<td>
+									<b>Desired GMT</b>
+								</td>
+								<td width="20px">
+									<button class="btn btn-xs btn-danger" style="color:white" ng-show="fkGMT_fail">!</button>
+								</td>
+								<td width="300px">
+									<input type="hidden" name="gmt" style="width:100%" ui-select2="selectGMT" ng-model="viewModel.fkDesiredGMT" />
 								</td>
 								<td width="20px"></td>
 							</tr>

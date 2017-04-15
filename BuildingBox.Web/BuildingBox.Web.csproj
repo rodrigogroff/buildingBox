@@ -805,6 +805,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Enums\GMTController.cs" />
     <Compile Include="Controllers\Enums\CountryController.cs" />
     <Compile Include="Controllers\Enums\MonthController.cs" />
     <Compile Include="Controllers\Login.cs" />
