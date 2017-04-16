@@ -15,7 +15,7 @@ namespace DataModel
 
 		public EnumCountry()
 		{
-			int t = 0;
+			int t = 1;
 			lst.Add(new Country() { id = t++, stName = "Afghanistan" });
 			lst.Add(new Country() { id = t++, stName = "Albania" });
 			lst.Add(new Country() { id = t++, stName = "Algeria" });

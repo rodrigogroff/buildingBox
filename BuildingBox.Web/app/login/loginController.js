@@ -2,20 +2,16 @@
 angular.module('app.controllers').controller('LoginController',
 ['$scope', '$rootScope', '$location', 'AuthService', 
 function ($scope, $rootScope, $location, AuthService )
-{	
-	init();
+{
+	$rootScope.loggedIn = undefined;
+	$rootScope.showLogo = false;
 
-	function init()
-	{
-		$rootScope.showLogo = false;
-
-		$rootScope.btnHomeStyle = '';
-		$rootScope.btnFeatureStyle = '';
-		$rootScope.btnCustomStyle = '';
-		$rootScope.btnVideoStyle = '';
-		$rootScope.btnSimStyle = '';
-		$rootScope.btnAboutStyle = '';
-	}
+	$rootScope.btnHomeStyle = '';
+	$rootScope.btnFeatureStyle = '';
+	$rootScope.btnCustomStyle = '';
+	$rootScope.btnVideoStyle = '';
+	$rootScope.btnSimStyle = '';
+	$rootScope.btnAboutStyle = '';
 
 	$scope.loading = false;
 	$scope.mensagem = "";
@@ -40,7 +36,7 @@ function ($scope, $rootScope, $location, AuthService )
 		{
 			AuthService.login($scope.loginData).then(function (response)
 			{
-				$location.path('/user');
+				$rootScope.loggedIn = true;
 			},
 			function (err) {
 				$scope.loading = false;

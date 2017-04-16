@@ -23,14 +23,15 @@ namespace DataModel
 
 		public bool Create(BuildingBoxDB db, ref string resp)
 		{
-			var user = db.GetCurrentUser();
-
 			if (CheckDuplicate(this, db))
 			{
-				resp = "Login already taken";
+				resp = "Contact email already taken";
 				return false;
 			}
-			
+
+			dtCreation = DateTime.Now;
+			fkClientType = 1;
+
 			id = Convert.ToInt64(db.InsertWithIdentity(this));
 
 			return true;

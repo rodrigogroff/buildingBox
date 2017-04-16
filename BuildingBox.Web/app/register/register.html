@@ -15,111 +15,123 @@
 						<i>To start using our products, please fill the form below:</i><br />
 						<br />
 						<br />
-						<table style="background-color:#eeeeee;box-shadow: 2px 2px 5px #888888;" >
-							<tr height="24px"></tr>
-							<tr height="38px">
-								<td width="30px"></td>
-								<td width="140px">
-									<b>Company Name</b>
-								</td>
-								<td width="20px">
-									<button class="btn btn-xs btn-danger" style="color:white" ng-show="stCompanyName_fail">!</button>
-								</td>
-								<td width="300px">
-									<input type="text" class="form-control input" maxlength="150" ng-model="viewModel.stClientName">
-								</td>
-								<td width="20px"></td>
-							</tr>
-							<tr height="38px">
-								<td width="30px"></td>
-								<td>
-									<b>Country</b>
-								</td>
-								<td width="20px">
-									<button class="btn btn-xs btn-danger" style="color:white" ng-show="fkCountry_fail">!</button>
-								</td>
-								<td width="300px">
-									<input type="hidden" name="country" style="width:100%" ui-select2="selectCountry" ng-model="viewModel.fkCountry" />
-								</td>
-								<td width="20px"></td>
-							</tr>
-							<tr height="38px">
-								<td width="30px"></td>
-								<td>
-									<b>City</b>
-								</td>
-								<td width="20px">
-									<button class="btn btn-xs btn-danger" style="color:white" ng-show="stCity_fail">!</button>
-								</td>
-								<td width="300px">
-									<input type="text" class="form-control input" maxlength="150" ng-model="viewModel.stCityName" />
-								</td>
-								<td width="20px"></td>
-							</tr>
-							<tr height="38px">
-								<td width="30px"></td>
-								<td>
-									<b>Default GMT</b>
-								</td>
-								<td width="20px">
-									<button class="btn btn-xs btn-danger" style="color:white" ng-show="fkGMT_fail">!</button>
-								</td>
-								<td width="300px">
-									<input type="hidden" name="gmt" style="width:100%" ui-select2="selectGMT" ng-model="viewModel.fkDesiredGMT" />
-								</td>
-								<td width="20px"></td>
-							</tr>
-							<tr height="38px">
-								<td width="30px"></td>
-								<td>
-									<b>Contact Email</b>
-								</td>
-								<td width="20px">
-									<button class="btn btn-xs btn-danger" style="color:white" ng-show="stEmail_fail">!</button>
-								</td>
-								<td width="300px">
-									<input type="text" class="form-control input" maxlength="150" ng-model="viewModel.stContactEmail" />
-								</td>
-								<td width="20px"></td>
-							</tr>
-							<tr height="38px">
-								<td width="30px"></td>
-								<td>
-									<b>Password</b>
-								</td>
-								<td width="20px">
-									<button class="btn btn-xs btn-danger" style="color:white" ng-show="stPassword_fail">!</button>
-								</td>
-								<td width="300px">
-									<input type="password" class="form-control input" maxlength="150" ng-model="viewModel.stPassword" />
-								</td>
-								<td width="20px"></td>
-							</tr>
-							<tr height="38px">
-								<td width="30px"></td>
-								<td>
-									<b>Confirm Password</b>
-								</td>
-								<td width="20px">
-									<button class="btn btn-xs btn-danger" style="color:white" ng-show="stConf_fail">!</button>
-								</td>
-								<td width="300px">
-									<input type="password" class="form-control input" maxlength="150" ng-model="viewModel.stPasswordConf" />
-								</td>
-								<td width="20px"></td>
-							</tr>														
-							<tr height="24px"></tr>
-							<tr height="38px">
-								<td></td>
-								<td>
-									<button class="btn btn-primary" style="color:white" ng-click="register()">Register</button>
-								</td>
-							</tr>
-							<tr height="32px"></tr>
-						</table>
+						<div ng-show="registered == true">
+							<button class="btn btn-success btn-lg" style="color:white" ng-click="proceedToLogin()">Registration Successfull! Click here to go login page</button>
+						</div>
+						<div ng-show="registered == false">
+							<table style="background-color:#eeeeee;box-shadow: 2px 2px 5px #888888;">
+								<tr height="24px"></tr>
+								<tr height="38px">
+									<td width="30px"></td>
+									<td width="140px">
+										<b>Company Name</b>
+									</td>
+									<td width="20px">
+										<button class="btn btn-xs btn-danger" style="color:white" ng-show="stCompanyName_fail">!</button>
+									</td>
+									<td width="300px">
+										<input type="text" class="form-control input" maxlength="150" ng-model="viewModel.stClientName">
+									</td>
+									<td width="20px"></td>
+								</tr>
+								<tr height="38px">
+									<td width="30px"></td>
+									<td>
+										<b>Country</b>
+									</td>
+									<td width="20px">
+										<button class="btn btn-xs btn-danger" style="color:white" ng-show="fkCountry_fail">!</button>
+									</td>
+									<td width="300px">
+										<input type="hidden" name="country" style="width:100%" ui-select2="selectCountry" ng-model="viewModel.fkCountry" />
+									</td>
+									<td width="20px"></td>
+								</tr>
+								<tr height="38px">
+									<td width="30px"></td>
+									<td>
+										<b>City</b>
+									</td>
+									<td width="20px">
+										<button class="btn btn-xs btn-danger" style="color:white" ng-show="stCity_fail">!</button>
+									</td>
+									<td width="300px">
+										<input type="text" class="form-control input" maxlength="150" ng-model="viewModel.stCityName" />
+									</td>
+									<td width="20px"></td>
+								</tr>
+								<tr height="38px">
+									<td width="30px"></td>
+									<td>
+										<b>Default GMT</b>
+									</td>
+									<td width="20px">
+										<button class="btn btn-xs btn-danger" style="color:white" ng-show="fkGMT_fail">!</button>
+									</td>
+									<td width="300px">
+										<input type="hidden" name="gmt" style="width:100%" ui-select2="selectGMT" ng-model="viewModel.fkDesiredGMT" />
+									</td>
+									<td width="20px"></td>
+								</tr>
+								<tr height="38px">
+									<td width="30px"></td>
+									<td>
+										<b>Contact Email</b>
+									</td>
+									<td width="20px">
+										<button class="btn btn-xs btn-danger" style="color:white" ng-show="stEmail_fail">!</button>
+									</td>
+									<td width="300px">
+										<input type="text" class="form-control input" maxlength="150" ng-model="viewModel.stContactEmail" />
+									</td>
+									<td width="20px"></td>
+								</tr>
+								<tr height="38px">
+									<td width="30px"></td>
+									<td>
+										<b>Password</b>
+									</td>
+									<td width="20px">
+										<button class="btn btn-xs btn-danger" style="color:white" ng-show="stPassword_fail">!</button>
+									</td>
+									<td width="300px">
+										<input type="password" class="form-control input" maxlength="150" ng-model="viewModel.stPassword" />
+									</td>
+									<td width="20px"></td>
+								</tr>
+								<tr height="38px">
+									<td width="30px"></td>
+									<td>
+										<b>Confirm Password</b>
+									</td>
+									<td width="20px">
+										<button class="btn btn-xs btn-danger" style="color:white" ng-show="stConfirmationFail">!</button>
+									</td>
+									<td width="300px">
+										<input type="password" class="form-control input" maxlength="150" ng-model="viewModel.stPasswordConf" />
+									</td>
+									<td width="20px"></td>
+								</tr>
+								<tr height="24px"></tr>
+								<tr height="38px">
+									<td></td>
+									<td>
+										<button class="btn btn-primary" style="color:white" ng-click="register()">Register</button>
+									</td>
+									<td></td>
+									<td>
+										<span style="color:red">{{message}}</span>
+									</td>
+									<td></td>
+								</tr>
+								<tr height="32px"></tr>
+							</table>
+							<br />
+							<br />
+						</div>
 					</td>
 				</tr>
-			</table>
+			</table>			
 		</fieldset>
 	</form>
 	<br />

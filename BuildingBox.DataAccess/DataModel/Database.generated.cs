@@ -38,14 +38,15 @@ namespace DataModel
 	[Table(Schema="public", Name="User")]
 	public partial class User
 	{
-		[PrimaryKey, Identity] public long   id             { get; set; } // bigint
-		[Column,     Nullable] public string stClientName   { get; set; } // character varying(99)
-		[Column,     Nullable] public long?  fkClientType   { get; set; } // bigint
-		[Column,     Nullable] public long?  fkCountry      { get; set; } // bigint
-		[Column,     Nullable] public long?  stCityName     { get; set; } // bigint
-		[Column,     Nullable] public long?  fkDesiredGMT   { get; set; } // bigint
-		[Column,     Nullable] public string stPassword     { get; set; } // character varying(99)
-		[Column,     Nullable] public string stContactEmail { get; set; } // character varying(200)
+		[PrimaryKey, Identity] public long      id             { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtCreation     { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public string    stClientName   { get; set; } // character varying(99)
+		[Column,     Nullable] public long?     fkClientType   { get; set; } // bigint
+		[Column,     Nullable] public long?     fkCountry      { get; set; } // bigint
+		[Column,     Nullable] public string    stCityName     { get; set; } // character varying(200)
+		[Column,     Nullable] public long?     fkDesiredGMT   { get; set; } // bigint
+		[Column,     Nullable] public string    stPassword     { get; set; } // character varying(20)
+		[Column,     Nullable] public string    stContactEmail { get; set; } // character varying(200)
 	}
 
 	public static partial class TableExtensions
