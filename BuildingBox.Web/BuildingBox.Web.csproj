@@ -242,6 +242,7 @@
     <Content Include="app\clientPanel\clientPanelCustomizationsController.js" />
     <Content Include="app\clientPanel\clientPanelSetupController.js" />
     <Content Include="app\clientPanel\clientPanelTicketsController.js" />
+    <Content Include="app\clientPanel\_filterTickets.html" />
     <Content Include="app\clientPanel\setup.html" />
     <Content Include="app\clientPanel\contracts.html" />
     <Content Include="app\clientPanel\customizations.html" />
@@ -821,7 +822,8 @@
     <Compile Include="Controllers\Login.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterCtrl.cs" />
-    <Compile Include="Controllers\User\UserCtrl.cs" />
+    <Compile Include="Controllers\TicketCtrl.cs" />
+    <Compile Include="Controllers\UserCtrl.cs" />
     <Compile Include="GlobalExtensions.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />

@@ -19,7 +19,8 @@ namespace DataModel
 	/// </summary>
 	public partial class BuildingBoxDB : LinqToDB.Data.DataConnection
 	{
-		public ITable<User> Users { get { return this.GetTable<User>(); } }
+		public ITable<Ticket> Tickets { get { return this.GetTable<Ticket>(); } }
+		public ITable<User>   Users   { get { return this.GetTable<User>(); } }
 
 		public BuildingBoxDB()
 		{
@@ -33,6 +34,18 @@ namespace DataModel
 		}
 
 		partial void InitDataContext();
+	}
+
+	[Table(Schema="public", Name="Ticket")]
+	public partial class Ticket
+	{
+		[PrimaryKey, Identity] public long      id            { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtCreation    { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public DateTime? dtLog         { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public long?     fkUserOpen    { get; set; } // bigint
+		[Column,     Nullable] public long?     fkTicketState { get; set; } // bigint
+		[Column,     Nullable] public string    stTitle       { get; set; } // character varying(200)
+		[Column,     Nullable] public string    stDescription { get; set; } // character varying(2000)
 	}
 
 	[Table(Schema="public", Name="User")]
@@ -51,6 +64,12 @@ namespace DataModel
 
 	public static partial class TableExtensions
 	{
+		public static Ticket Find(this ITable<Ticket> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
 		public static User Find(this ITable<User> table, long id)
 		{
 			return table.FirstOrDefault(t =>

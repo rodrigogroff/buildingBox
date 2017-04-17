@@ -69,7 +69,13 @@
     <Compile Include="DataModel\Enums\Country_enum.cs" />
     <Compile Include="DataModel\Enums\GMT_enum.cs" />
     <Compile Include="DataModel\Enums\Month_enum.cs" />
+    <Compile Include="DataModel\Enums\TicketState_enum.cs" />
     <Compile Include="DataModel\Enums\Priority_enum.cs" />
+    <Compile Include="DataModel\Tables\Ticket\Ticket_ComposedFilters.cs" />
+    <Compile Include="DataModel\Tables\Ticket\Ticket_Create.cs" />
+    <Compile Include="DataModel\Tables\Ticket\Ticket_DTO.cs" />
+    <Compile Include="DataModel\Tables\Ticket\Ticket_LoadAssociations.cs" />
+    <Compile Include="DataModel\Tables\Ticket\Ticket_Update.cs" />
     <Compile Include="DataModel\Tables\User\User_ComposedFilters.cs" />
     <Compile Include="DataModel\Tables\User\User_Create.cs" />
     <Compile Include="DataModel\Tables\User\User_DTO.cs" />
