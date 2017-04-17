@@ -38,7 +38,7 @@ namespace DataModel
 			return enumMonth.Get((long)_dt.Value.Month).stName + " " +
 				_dt.Value.Day + ", " + 
 				_dt.Value.Year + " " + 
-				_dt.Value.Hour.ToString().PadLeft(2, '0') + 
+				_dt.Value.Hour.ToString().PadLeft(2, '0') + ":" +
 				_dt.Value.Minute.ToString().PadLeft(2, '0');
 		}
 	}

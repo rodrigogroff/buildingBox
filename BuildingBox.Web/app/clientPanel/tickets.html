@@ -41,10 +41,11 @@
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th width="120px">Criation Date</th>
+									<th width="150px">Creation Date</th>
 									<th width="90px">Protocol</th>
 									<th width="120px">State</th>									
 									<th>Title</th>
+									<th>Messages</th>
 									<th>Last Update</th>
 								</tr>
 							</thead>
@@ -53,6 +54,7 @@
 								<td style="color:black">{{ mdl.stProtocol }}</td>
 								<td style="color:black">{{ mdl.sfkState }}</td>								
 								<td style="color:black">{{ mdl.stTitle }}</td>
+								<td style="color:black">{{ mdl.messages.length }}</td>
 								<td style="color:black">{{ mdl.sdtLog }}</td>
 							</tr>
 						</table>

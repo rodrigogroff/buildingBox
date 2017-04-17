@@ -5,7 +5,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 {
 	$rootScope.loggedIn = true;
 
-	$scope.selectProject = ngSelects.obterConfiguracao(Api.TicketState, {});
+	$scope.selectTicketState = ngSelects.obterConfiguracao(Api.TicketState, {});
 	
 	$scope.viewModel = {};
 
@@ -75,6 +75,73 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 
 	$scope.list = function () {
 		$state.go('clientPanel');
+	}
+
+	// ============================================
+	// messages 
+	// ============================================
+
+	$scope.addMessage = false;
+	
+	$scope.addNewMessage = function ()
+	{
+		$scope.addMessage = !$scope.addMessage;
+	}
+
+	$scope.newMessage = { stMessage: '', fkTicket: undefined, dtLog: undefined };
+
+	$scope.saveNewMessage = function ()
+	{
+		$scope.stMessage_fail = invalidCheck($scope.newMessage.stMessage);
+			
+		if (!$scope.stMessage_fail )
+		{
+			$scope.addMessage = false;
+
+			$scope.viewModel.updateCommand = "newMessage";
+			$scope.viewModel.anexedEntity = $scope.newMessage;
+
+			Api.Ticket.update({ id: id }, $scope.viewModel, function (data)
+			{
+				$scope.newMessage = { stMessage: '', fkTicket: undefined, dtLog: undefined };
+
+				toastr.success('Message saved', 'Success');					
+				$scope.viewModel.messages = data.messages;
+			},
+			function (response) {
+				toastr.error(response.data.message, 'Error');
+			});
+		}		
+	}
+
+	// ============================================
+	// attendances 
+	// ============================================
+
+	$scope.newAttendance = { stMessage: '', fkNewState: undefined };
+
+	$scope.saveNewAttendance = function ()
+	{
+		$scope.stAtdMsg_fail = invalidCheck($scope.newAttendance.stMessage);
+		$scope.fkNewState_fail = $scope.newAttendance.fkNewState == undefined;
+
+		if (!$scope.stAtdMsg_fail &&
+			!$scope.fkNewState_fail)
+		{
+			$scope.viewModel.updateCommand = "newAttendance";
+			$scope.viewModel.anexedEntity = $scope.newAttendance;
+
+			Api.Ticket.update({ id: id }, $scope.viewModel, function (data)
+			{
+				$scope.newAttendance = { stMessage: '', fkNewState: undefined };
+
+				toastr.success('Attendance saved', 'Success');
+				$scope.viewModel = data;
+			},
+			function (response) {
+				toastr.error(response.data.message, 'Error');
+			});
+		}
 	}
 
 }]);

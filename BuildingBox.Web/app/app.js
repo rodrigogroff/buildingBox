@@ -6,14 +6,14 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 {
     $stateProvider
 
-	.state('home', { url: '/', templateUrl: 'app/home/home.html', controller: 'HomeController', data: {} })
-	.state('login', { url: '/login', templateUrl: 'app/login/login.html', controller: 'LoginController', data: {} })
+	.state('home', { url: '/', templateUrl: 'app/site/home/home.html', controller: 'HomeController', data: {} })
+	.state('login', { url: '/login', templateUrl: 'app/site/login/login.html', controller: 'LoginController', data: {} })
 	
-	.state('register', { url: '/register', templateUrl: 'app/register/register.html', controller: 'RegisterController', data: {} })
-	.state('features', { url: '/features', templateUrl: 'app/features/features.html', controller: 'FeaturesController', data: {} })
-	.state('videos', { url: '/videos', templateUrl: 'app/videos/videos.html', controller: 'VideosController', data: {} })
-	.state('customization', { url: '/customization', templateUrl: 'app/customization/customization.html', controller: 'CustomizationController', data: {} })
-	.state('simulation', { url: '/simulation', templateUrl: 'app/simulation/simulation.html', controller: 'SimulationController', data: {} })
+	.state('register', { url: '/register', templateUrl: 'app/site/register/register.html', controller: 'RegisterController', data: {} })
+	.state('features', { url: '/features', templateUrl: 'app/site/features/features.html', controller: 'FeaturesController', data: {} })
+	.state('videos', { url: '/videos', templateUrl: 'app/site/videos/videos.html', controller: 'VideosController', data: {} })
+	.state('customization', { url: '/customization', templateUrl: 'app/site/customization/customization.html', controller: 'CustomizationController', data: {} })
+	.state('simulation', { url: '/simulation', templateUrl: 'app/site/simulation/simulation.html', controller: 'SimulationController', data: {} })
 		
 	.state('clientPanel', { url: '/clientPanel', templateUrl: 'app/clientPanel/clientPanel.html', controller: 'ClientPanelController', data: {} })
 	.state('clientPanel.tickets', { url: '/clientPanel/tickets', templateUrl: 'app/clientPanel/tickets.html', controller: 'ClientPanelTicketsController', data: {} })
@@ -24,8 +24,8 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 	.state('ticket', { url: '/ticket/:id', templateUrl: 'app/ticket/ticket.html', controller: 'TicketController' })
 	.state('ticket-new', { url: '/ticket/new', templateUrl: 'app/ticket/ticket.html', controller: 'TicketController' })
 
-	.state('about', { url: '/about', templateUrl: 'app/about/about.html', controller: 'AboutController', data: {} })
-	.state('otherwise', { url: '/', templateUrl: 'app/home/home.html', controller: 'HomeController', data: {} })
+	.state('about', { url: '/about', templateUrl: 'app/site/about/about.html', controller: 'AboutController', data: {} })
+	.state('otherwise', { url: '/', templateUrl: 'app/site/home/home.html', controller: 'HomeController', data: {} })
 
     $locationProvider.html5Mode(true);
 

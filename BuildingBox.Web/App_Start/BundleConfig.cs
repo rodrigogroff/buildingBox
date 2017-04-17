@@ -89,25 +89,28 @@ namespace BuildingBox.Web
 				"~/app/_shared/paginacao/diretivaPaginacao.js",
 				"~/app/_shared/controllers.js",
 				"~/app/_shared/HighlightService.js",
-				"~/app/login/AuthInterceptorService.js",
-				"~/app/login/AuthService.js",
-				"~/app/login/LoginController.js",
 				"~/app/_shared/MenuController.js",
 				"~/app/_shared/NgSelectsService.js",
 				"~/app/app.js",
-				"~/app/home/HomeController.js",
-				"~/app/features/FeaturesController.js",
+
+				"~/app/site/home/HomeController.js",
+				"~/app/site/features/FeaturesController.js",
+				"~/app/site/login/AuthInterceptorService.js",
+				"~/app/site/login/AuthService.js",
+				"~/app/site/login/LoginController.js",
+				"~/app/site/customization/CustomizationController.js",
+				"~/app/site/videos/VideosController.js",
+				"~/app/site/register/RegisterController.js",
+				"~/app/site/simulation/SimulationController.js",
+				"~/app/site/about/AboutController.js",
+
 				"~/app/clientPanel/ClientPanelController.js",
 				"~/app/clientPanel/ClientPanelContractsController.js",
 				"~/app/clientPanel/ClientPanelCustomizationsController.js",
 				"~/app/clientPanel/ClientPanelSetupController.js",
 				"~/app/clientPanel/ClientPanelTicketsController.js",
-				"~/app/ticket/TicketController.js",
-				"~/app/customization/CustomizationController.js",
-				"~/app/videos/VideosController.js",
-				"~/app/register/RegisterController.js",
-				"~/app/simulation/SimulationController.js",
-				"~/app/about/AboutController.js"
+				"~/app/ticket/TicketController.js"
+				
 				));
 
 			BundleTable.EnableOptimizations = false;

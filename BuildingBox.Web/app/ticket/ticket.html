@@ -35,7 +35,7 @@
 				<div class="divWebForm">
 					<tabset class="tabs-left" style="min-height:320px;font-size:13px;width:850px">
 						<tab heading="Data">
-							<div style="width:100%;min-height:320px;background:rgba(15, 43, 89, 0.25);">
+							<div style="width:100%;min-height:490px;background:rgba(15, 43, 89, 0.25);">
 								<table>
 									<thead>
 										<tr>
@@ -67,7 +67,7 @@
 										</td>
 										<td></td>
 										<td>
-											<input type="hidden" name="user" style="width:100%" ui-select2="selectProject" disabled="disabled" ng-model="viewModel.fkTicketState" />
+											<input type="hidden" name="user" style="width:100%" ui-select2="selectTicketState" disabled="disabled" ng-model="viewModel.fkTicketState" />
 										</td>
 										<td></td>
 									</tr>
@@ -119,9 +119,174 @@
 										</td>
 										<td></td>
 									</tr>
+									<tr height="32px"></tr>
+									<tr height="32px"></tr>
 								</table>
 							</div>
 						</tab>
+						<tab heading="Messages" disabled="true" ng-if="viewModel.id == undefined"></tab>
+						<tab heading="Messages [{{viewModel.messages.length}}]" ng-if="viewModel.id != undefined">
+							<div style="width:100%;min-height:490px;background:rgba(15, 43, 89, 0.25);">
+								<table width="100%">
+									<tr height="12px"></tr>
+									<tr>
+										<td width="20px"></td>
+										<td>
+											<legend style="color:aliceblue">
+												Ticket Messages
+												<button class="btn btn-info btn-xs pull-right" ng-click="addNewMessage()"><i class="fa fa-plus"> </i>  Add new </button>
+											</legend>
+											<div ng-show="viewModel.messages.length == 0 && addMessage == false">
+												<br />
+												<div class="btn btn-info btn-lg">No records found.</div>
+											</div>
+											<div ng-if="addMessage == true">
+												<table>
+													<tr height="16px"></tr>
+													<tr>
+														<td>
+															<table>
+																<tr height="42px">
+																	<td width="120px">
+																		New message
+																	</td>
+																	<td width="20px">
+																		<button class="btn btn-xs btn-danger" ng-show="stMsg_fail">!</button>
+																	</td>
+																	<td width="450px">
+																		<textarea rows="6" type="text" class="form-control input-transparent" ng-model="newMessage.stMessage" maxlength="200"></textarea>
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												<br />
+												<button class="btn btn-primary" ng-click="saveNewMessage()">Save </button>
+												<br />
+												<br />
+											</div>
+											<div ng-show="viewModel.messages.length > 0">
+												<br />
+												<table class="table table-hover" style="width:100%">
+													<thead>
+														<tr>
+															<th width="90px">User</th>
+															<th width="140px">Date</th>
+															<th>Message</th>
+														</tr>
+													</thead>
+													<tr data-ng-repeat="mdl in viewModel.messages">
+														<td style="color:black">{{ mdl.sfkUser }}</td>
+														<td style="color:black">{{ mdl.sdtLog }}</td>
+														<td style="color:black">{{ mdl.stMessage }}</td>
+													</tr>
+												</table>
+											</div>
+										</td>
+										<td width="20px"></td>
+									</tr>
+								</table>
+							</div>
+						</tab>
+
+						<tab heading="Attendance" disabled="true" ng-if="viewModel.id == undefined"></tab>
+						<tab heading="Attendance" ng-if="viewModel.id != undefined">
+							<div style="width:100%;min-height:490px;background:rgba(15, 43, 89, 0.25);">
+								<table width="100%">
+									<tr height="12px"></tr>
+									<tr>
+										<td width="20px"></td>
+										<td>
+											<legend style="color:aliceblue">
+												Ticket Attendance												
+											</legend>
+											
+											<table>
+												<tr>
+													<td>
+														<table>
+															<tr height="42px">
+																<td width="120px">
+																	Current State
+																</td>
+																<td width="20px">
+																	
+																</td>
+																<td width="450px">
+																	<input type="hidden" name="user" style="width:100%" ui-select2="selectTicketState" disabled="true" ng-model="viewModel.fkTicketState" />
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<table>
+															<tr height="42px">
+																<td width="120px">
+																	New State
+																</td>
+																<td width="20px">
+																	<button class="btn btn-xs btn-danger" ng-show="fkNewState_fail">!</button>
+																</td>
+																<td width="450px">
+																	<input type="hidden" name="user" style="width:100%" ui-select2="selectTicketState" ng-model="newAttendance.fkNewState" />
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr height="4px"></tr>
+												<tr>
+													<td>
+														<table>
+															<tr height="42px">
+																<td width="120px">
+																	Message
+																</td>
+																<td width="20px">
+																	<button class="btn btn-xs btn-danger" ng-show="stAtdMsg_fail">!</button>
+																</td>
+																<td width="450px">
+																	<textarea rows="1" type="text" class="form-control input-transparent" ng-model="newAttendance.stMessage" maxlength="200"></textarea>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+											<br />
+											<button class="btn btn-primary" ng-click="saveNewAttendance()">Save </button>
+											<br />
+											<br />
+											
+											<div ng-show="viewModel.attendances.length > 0">
+												<br />
+												<table class="table table-hover" style="width:100%">
+													<thead>
+														<tr>
+															<th width="90px">User</th>
+															<th width="140px">Date</th>
+															<th width="180px">State Change</th>															
+															<th>Message</th>
+														</tr>
+													</thead>
+													<tr data-ng-repeat="mdl in viewModel.attendances">
+														<td style="color:black">{{ mdl.sfkUser }}</td>
+														<td style="color:black">{{ mdl.sdtLog }}</td>
+														<td style="color:black">{{ mdl.sfkOldState }} to {{ mdl.sfkNewState }}</td>
+														<td style="color:black">{{ mdl.stMessage }}</td>
+													</tr>
+												</table>
+											</div>
+										</td>
+										<td width="20px"></td>
+									</tr>
+								</table>
+							</div>
+						</tab>
+
 					</tabset>
 					<br />
 					<br />
