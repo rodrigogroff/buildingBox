@@ -7,7 +7,12 @@ function ($scope, AuthService, $state, ngHistoricoFiltro, Api, ngSelects, $rootS
 	$rootScope.loggedIn = true;
 
 	$scope.loading = false;
-	$scope.campos = { };
+	$scope.campos = {
+		selects: {
+			ticketState: ngSelects.obterConfiguracao(Api.TicketState, {}),
+		}
+	};
+
 	$scope.itensporpagina = 15;
 
 	init();
@@ -34,6 +39,8 @@ function ($scope, AuthService, $state, ngHistoricoFiltro, Api, ngSelects, $rootS
 
 		if (filtro)
 			angular.extend(opcoes, filtro);
+
+		delete opcoes.selects;
 
 		Api.Ticket.listPage(opcoes, function (data) {
 			$scope.list = data.results;

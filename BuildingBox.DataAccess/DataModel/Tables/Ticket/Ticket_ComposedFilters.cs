@@ -8,6 +8,7 @@ namespace DataModel
 	{
 		public int skip, take;
 		public string busca;
+		public long? fkState;
 	}
 
 	public partial class Ticket
@@ -21,6 +22,11 @@ namespace DataModel
 						where e.stTitle.ToUpper().Contains(filter.busca) ||
 							  e.stProtocol.Contains(filter.busca) ||
 							  e.stDescription.ToUpper().Contains(filter.busca) 
+						select e;
+
+			if (filter.fkState != null)
+				query = from e in query
+						where e.fkTicketState == filter.fkState
 						select e;
 
 			count = query.Count();

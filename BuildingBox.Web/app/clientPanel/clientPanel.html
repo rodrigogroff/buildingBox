@@ -3,36 +3,40 @@
 		<td width="35px"></td>
 		<td>
 			<br />
-			<table>
-				<tr>
-					<td>
-						<img style="max-height:90px" src='../../images/logoRegister.png' /><br />
-					</td>
-					<td width="15px"></td>
-					<td>
-						<img style="max-height:80px" src='../../images/logoLetras.png' />
-					</td>
-					<td width="35px"></td>
-					<td>
-						<h3>Welcome, <b>dba</b></h3>
-					</td>
-				</tr>
-			</table>
+			<div class="animated fadeInLeftBig">
+				<table>
+					<tr>
+						<td>
+							<img style="max-height:90px" src='../../images/logoRegister.png' /><br />
+						</td>
+						<td width="15px"></td>
+						<td>
+							<img style="max-height:80px" src='../../images/logoLetras.png' />
+						</td>
+						<td width="35px"></td>
+						<td>
+							<h3>Welcome, <b>dba</b></h3>
+						</td>
+					</tr>
+				</table>
+			</div>
 			<br />
-			<tabset class="tabs-left" style="min-height:320px;font-size:13px;width:1250px;">
-				<tab heading="Tickets" ui-sref=".tickets" selected>
-					<div ui-view></div>
-				</tab>
-				<tab heading="Contracts" ui-sref=".contracts" >
-					<div ui-view></div>
-				</tab>
-				<tab heading="Customizations" ui-sref=".customizations" >
-					<div ui-view></div>
-				</tab>
-				<tab heading="Setup" ui-sref=".setup" >
-					<div ui-view></div>
-				</tab>
-			</tabset>
+			<div class="animated fadeInLeftBig">
+				<tabset class="tabs-left" style="min-height:320px;font-size:13px;width:1250px;">
+					<tab heading="Tickets" ui-sref=".tickets" selected>
+						<div ui-view></div>
+					</tab>
+					<tab heading="Contracts" ui-sref=".contracts">
+						<div ui-view></div>
+					</tab>
+					<tab heading="Customizations" ui-sref=".customizations">
+						<div ui-view></div>
+					</tab>
+					<tab heading="Setup" ui-sref=".setup">
+						<div ui-view></div>
+					</tab>
+				</tabset>
+			</div>
 		</td>
 	</tr>
 </table>

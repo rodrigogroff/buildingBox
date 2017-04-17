@@ -1,14 +1,16 @@
 ﻿<div class="form-group" style="color:white;">
 	<table>
 		<tr height="36px">
-			<td></td>
-			<td><b>Search</b></td>
-			<td>
+			<td width="20px"></td>
+			<td width="120px"><b>Search</b></td>
+			<td width="250px">
 				<input type="text" focus="true" class="form-control input-transparent" ng-model="filtro.campos.busca" />
 			</td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td width="20px"></td>
+			<td width="120px"><b>State</b></td>
+			<td width="250px">
+				<input type="hidden" style="width:100%" ui-select2="filtro.campos.selects.ticketState" ng-model="filtro.campos.fkState" />
+			</td>
 		</tr>
 	</table>
 </div>

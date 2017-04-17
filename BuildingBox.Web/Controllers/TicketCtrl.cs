@@ -17,6 +17,7 @@ namespace BuildingBox.Web.Controllers
 					skip = Request.GetQueryStringValue("skip", 0),
 					take = Request.GetQueryStringValue("take", 15),
 					busca = Request.GetQueryStringValue("busca")?.ToUpper(),
+					fkState = Request.GetQueryStringValue<long?>("fkState", null)
 				});
 
 				return Ok(new { count = count, results = results });
