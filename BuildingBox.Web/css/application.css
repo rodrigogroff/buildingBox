@@ -14157,7 +14157,7 @@ textarea + .help-block,
 
 .nav-tabs > li > a {
   border-radius: 3px 3px 0 0;
-  color: white;
+  color: black;
   padding-top: 8px;
   padding-bottom: 8px;
 }
@@ -14177,8 +14177,8 @@ textarea + .help-block,
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: white;
-  background: rgba(12, 50, 82, 0.15);
+  color: black;
+  background-color: goldenrod;
   border-color: #ddd;
   border-bottom-color: #ffffff;
 }

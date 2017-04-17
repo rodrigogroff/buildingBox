@@ -37,6 +37,7 @@ function ($scope, $rootScope, $location, AuthService )
 			AuthService.login($scope.loginData).then(function (response)
 			{
 				$rootScope.loggedIn = true;
+				$rootScope.loggedInClient = true;
 			},
 			function (err) {
 				$scope.loading = false;
