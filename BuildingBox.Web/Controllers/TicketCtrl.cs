@@ -10,9 +10,9 @@ namespace BuildingBox.Web.Controllers
 		{
 			using (var db = new BuildingBoxDB())
 			{
-				var count = 0; var mdl = new User();
+				var count = 0; var mdl = new Ticket();
 
-				var results = mdl.ComposedFilters(db, ref count, new UserFilter()
+				var results = mdl.ComposedFilters(db, ref count, new TicketFilter()
 				{
 					skip = Request.GetQueryStringValue("skip", 0),
 					take = Request.GetQueryStringValue("take", 15),
@@ -27,7 +27,7 @@ namespace BuildingBox.Web.Controllers
 		{
 			using (var db = new BuildingBoxDB())
 			{
-				var model = db.User(id);
+				var model = db.Ticket(id);
 
 				if (model != null)
 					return Ok(model.LoadAssociations(db));
@@ -36,7 +36,7 @@ namespace BuildingBox.Web.Controllers
 			}
 		}
 
-		public IHttpActionResult Post(User mdl)
+		public IHttpActionResult Post(Ticket mdl)
 		{
 			using (var db = new BuildingBoxDB())
 			{
@@ -49,7 +49,7 @@ namespace BuildingBox.Web.Controllers
 			}
 		}
 
-		public IHttpActionResult Put(long id, User mdl)
+		public IHttpActionResult Put(long id, Ticket mdl)
 		{
 			using (var db = new BuildingBoxDB())
 			{

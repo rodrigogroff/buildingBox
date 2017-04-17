@@ -21,6 +21,9 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 	.state('clientPanel.customizations', { url: '/clientPanel/customizations', templateUrl: 'app/clientPanel/customizations.html', controller: 'ClientPanelCustomizationsController', data: {} })
 	.state('clientPanel.setup', { url: '/clientPanel/setup', templateUrl: 'app/clientPanel/setup.html', controller: 'ClientPanelSetupController', data: {} })
 
+	.state('ticket', { url: '/ticket', templateUrl: 'app/ticket/ticket.html', controller: 'TicketController', data: {} })
+	.state('ticket-new', { url: '/ticket/new', templateUrl: 'app/ticket/ticket.html', controller: 'TicketController' })
+
 	.state('about', { url: '/about', templateUrl: 'app/about/about.html', controller: 'AboutController', data: {} })
 	.state('otherwise', { url: '/', templateUrl: 'app/home/home.html', controller: 'HomeController', data: {} })
 

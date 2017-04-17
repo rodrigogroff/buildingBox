@@ -43,17 +43,11 @@ function ($scope, AuthService, $state, ngHistoricoFiltro, Api, ngSelects, $rootS
 	}
 
 	$scope.show = function (mdl) {
-		if (!$scope.permModel.visualizar)
-			toastr.error('Access denied!', 'Permission');
-		else
-			$state.go('ticket', { id: mdl.id });
+		$state.go('ticket', { id: mdl.id });
 	}
 
 	$scope.new = function () {
-		if (!$scope.permModel.novo)
-			toastr.error('Access denied!', 'Permission');
-		else
-			$state.go('ticket-new');
+		$state.go('ticket-new');
 	}
 
 }]);

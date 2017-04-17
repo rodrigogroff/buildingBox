@@ -92,7 +92,7 @@ angular.module('app.services', ['ngResource'])
 		User: $resource('api/user/:id', {}, opcoes),
 		Country: $resource('api/country/:id', {}, opcoes),
 		GMT: $resource('api/gmt/:id', {}, opcoes),
-		Ticket: $resource('api/ticket/:id', {}, opcoes),
+		Ticket: $resource('api/ticket/:id', {}, opcoes)
 
 	};
 }]);

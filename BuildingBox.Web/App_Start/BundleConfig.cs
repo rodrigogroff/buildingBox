@@ -102,6 +102,7 @@ namespace BuildingBox.Web
 				"~/app/clientPanel/ClientPanelCustomizationsController.js",
 				"~/app/clientPanel/ClientPanelSetupController.js",
 				"~/app/clientPanel/ClientPanelTicketsController.js",
+				"~/app/ticket/TicketController.js",
 				"~/app/customization/CustomizationController.js",
 				"~/app/videos/VideosController.js",
 				"~/app/register/RegisterController.js",

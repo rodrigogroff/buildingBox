@@ -258,6 +258,8 @@
     <Content Include="app\register\RegisterController.js" />
     <Content Include="app\simulation\simulation.html" />
     <Content Include="app\simulation\SimulationController.js" />
+    <Content Include="app\ticket\ticket.html" />
+    <Content Include="app\ticket\ticketController.js" />
     <Content Include="app\videos\videos.html" />
     <Content Include="app\videos\VideosController.js" />
     <Content Include="app\_shared\filtro\diretivaNgFiltro.js" />
