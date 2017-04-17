@@ -238,6 +238,14 @@
     <Content Include="app\about\about.html" />
     <Content Include="app\about\AboutController.js" />
     <Content Include="app\app.js" />
+    <Content Include="app\clientPanel\clientPanelContractsController.js" />
+    <Content Include="app\clientPanel\clientPanelCustomizationsController.js" />
+    <Content Include="app\clientPanel\clientPanelSetupController.js" />
+    <Content Include="app\clientPanel\clientPanelTicketsController.js" />
+    <Content Include="app\clientPanel\setup.html" />
+    <Content Include="app\clientPanel\contracts.html" />
+    <Content Include="app\clientPanel\customizations.html" />
+    <Content Include="app\clientPanel\tickets.html" />
     <Content Include="app\clientPanel\clientPanel.html" />
     <Content Include="app\clientPanel\clientPanelController.js" />
     <Content Include="app\customization\customization.html" />

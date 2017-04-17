@@ -8,12 +8,18 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 
 	.state('home', { url: '/', templateUrl: 'app/home/home.html', controller: 'HomeController', data: {} })
 	.state('login', { url: '/login', templateUrl: 'app/login/login.html', controller: 'LoginController', data: {} })
-	.state('clientPanel', { url: '/clientPanel', templateUrl: 'app/clientPanel/clientPanel.html', controller: 'ClientPanelController', data: {} })
+	
 	.state('register', { url: '/register', templateUrl: 'app/register/register.html', controller: 'RegisterController', data: {} })
 	.state('features', { url: '/features', templateUrl: 'app/features/features.html', controller: 'FeaturesController', data: {} })
 	.state('videos', { url: '/videos', templateUrl: 'app/videos/videos.html', controller: 'VideosController', data: {} })
 	.state('customization', { url: '/customization', templateUrl: 'app/customization/customization.html', controller: 'CustomizationController', data: {} })
 	.state('simulation', { url: '/simulation', templateUrl: 'app/simulation/simulation.html', controller: 'SimulationController', data: {} })
+		
+	.state('clientPanel', { url: '/clientPanel', templateUrl: 'app/clientPanel/clientPanel.html', controller: 'ClientPanelController', data: {} })
+	.state('clientPanel.tickets', { url: '/clientPanel/tickets', templateUrl: 'app/clientPanel/tickets.html', controller: 'ClientPanelTicketsController', data: {} })
+	.state('clientPanel.contracts', { url: '/clientPanel/contracts', templateUrl: 'app/clientPanel/contracts.html', controller: 'ClientPanelContractsController', data: {} })
+	.state('clientPanel.customizations', { url: '/clientPanel/customizations', templateUrl: 'app/clientPanel/customizations.html', controller: 'ClientPanelCustomizationsController', data: {} })
+	.state('clientPanel.setup', { url: '/clientPanel/setup', templateUrl: 'app/clientPanel/setup.html', controller: 'ClientPanelSetupController', data: {} })
 
 	.state('about', { url: '/about', templateUrl: 'app/about/about.html', controller: 'AboutController', data: {} })
 	.state('otherwise', { url: '/', templateUrl: 'app/home/home.html', controller: 'HomeController', data: {} })

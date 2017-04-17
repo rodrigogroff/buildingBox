@@ -20,25 +20,17 @@
 			</table>
 			<br />
 			<tabset class="tabs-left" style="min-height:320px;font-size:13px;width:850px;">
-				<tab heading="Tickets">
-					<div style="background:rgba(15, 43, 89, 0.35);min-height:500px;color:black">
-
-					</div>
+				<tab heading="Tickets" ui-sref=".tickets" >
+					<div ui-view></div>
 				</tab>
-				<tab heading="Contracts">
-					<div style="background:rgba(15, 43, 89, 0.35);min-height:500px;color:black">
-						x
-					</div>
+				<tab heading="Contracts" ui-sref=".contracts" >
+					<div ui-view></div>
 				</tab>
-				<tab heading="Customizations">
-					<div style="background:rgba(15, 43, 89, 0.35);min-height:500px;color:black">
-						x
-					</div>
+				<tab heading="Customizations" ui-sref=".customizations" >
+					<div ui-view></div>
 				</tab>
-				<tab heading="Setup">
-					<div style="background:rgba(15, 43, 89, 0.35);min-height:500px;color:black">
-						x
-					</div>
+				<tab heading="Setup" ui-sref=".setup" >
+					<div ui-view></div>
 				</tab>
 			</tabset>
 		</td>
