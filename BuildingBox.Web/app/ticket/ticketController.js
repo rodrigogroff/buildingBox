@@ -1,9 +1,11 @@
 ﻿'use strict';
 angular.module('app.controllers').controller('TicketController',
-['$scope', '$rootScope', '$location', 'AuthService', '$stateParams', '$state',
-function ($scope, $rootScope, $location, AuthService, $stateParams, $state)
+['$scope', '$rootScope', '$location', 'AuthService', '$stateParams', '$state', 'Api', 'ngSelects',
+function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api, ngSelects)
 {
 	$rootScope.loggedIn = true;
+
+	$scope.selectProject = ngSelects.obterConfiguracao(Api.TicketState, {});
 	
 	$scope.viewModel = {};
 
@@ -43,26 +45,32 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state)
 	
 	$scope.save = function ()
 	{
-		if (id > 0)
-		{
-			$scope.viewModel.updateCommand = "entity";
+		$scope.stTitle_fail = invalidCheck($scope.viewModel.stTitle);
+		$scope.stDescription_fail = invalidCheck($scope.viewModel.stDescription);
 
-			Api.Ticket.update({ id: id }, $scope.viewModel, function (data) {
-				toastr.success('Ticket saved!', 'Success');
-			},
-			function (response) {
-				toastr.error(response.data.message, 'Error');
-			});
-		}
-		else
+		if (!$scope.stTitle_fail &&
+			!$scope.stDescription_fail)
 		{
-			Api.Ticket.add($scope.viewModel, function (data) {
-				toastr.success('Ticket added!', 'Success');
-			},
-			function (response) {
-				toastr.error(response.data.message, 'Error');
-			});
-		}	
+			if (id > 0) {
+				$scope.viewModel.updateCommand = "entity";
+
+				Api.Ticket.update({ id: id }, $scope.viewModel, function (data) {
+					toastr.success('Ticket saved!', 'Success');
+				},
+				function (response) {
+					toastr.error(response.data.message, 'Error');
+				});
+			}
+			else {
+				Api.Ticket.add($scope.viewModel, function (data) {
+					toastr.success('Ticket added!', 'Success');
+					$state.go('clientPanel');
+				},
+				function (response) {
+					toastr.error(response.data.message, 'Error');
+				});
+			}
+		}
 	};
 
 	$scope.list = function () {

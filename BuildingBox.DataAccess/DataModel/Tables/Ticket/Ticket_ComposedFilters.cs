@@ -18,8 +18,9 @@ namespace DataModel
 
 			if (filter.busca != null)
 				query = from e in query
-						where	e.stTitle.ToUpper().Contains(filter.busca) ||
-								e.stDescription.ToUpper().Contains(filter.busca) 
+						where e.stTitle.ToUpper().Contains(filter.busca) ||
+							  e.stProtocol.Contains(filter.busca) ||
+							  e.stDescription.ToUpper().Contains(filter.busca) 
 						select e;
 
 			count = query.Count();

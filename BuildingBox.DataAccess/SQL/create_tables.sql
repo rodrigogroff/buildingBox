@@ -30,6 +30,7 @@ CREATE TABLE public."Ticket"
 	"dtLog" timestamp without time zone,
 	"fkUserOpen" bigint,
 	"fkTicketState" bigint,
+	"stProtocol" character varying(9),
 	"stTitle" character varying(200),
 	"stDescription" character varying(2000),
     PRIMARY KEY (id)
