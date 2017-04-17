@@ -26168,7 +26168,7 @@ table.table thead .sorting_desc_disabled {
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
-  color: white;
+  color: black;
 }
 
 .tabs-left > .nav-tabs > li > a:hover,

@@ -1,7 +1,7 @@
 ﻿'use strict';
 angular.module('app.controllers').controller('LoginController',
-['$scope', '$rootScope', '$location', 'AuthService', 
-function ($scope, $rootScope, $location, AuthService )
+['$scope', '$rootScope', '$location', 'AuthService', '$state',
+function ($scope, $rootScope, $location, AuthService, $state)
 {
 	$rootScope.loggedIn = undefined;
 	$rootScope.showLogo = false;
@@ -37,7 +37,7 @@ function ($scope, $rootScope, $location, AuthService )
 			AuthService.login($scope.loginData).then(function (response)
 			{
 				$rootScope.loggedIn = true;
-				$rootScope.loggedInClient = true;
+				$state.go('clientPanel');
 			},
 			function (err) {
 				$scope.loading = false;

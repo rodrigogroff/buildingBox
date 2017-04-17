@@ -238,6 +238,8 @@
     <Content Include="app\about\about.html" />
     <Content Include="app\about\AboutController.js" />
     <Content Include="app\app.js" />
+    <Content Include="app\clientPanel\clientPanel.html" />
+    <Content Include="app\clientPanel\clientPanelController.js" />
     <Content Include="app\customization\customization.html" />
     <Content Include="app\customization\CustomizationController.js" />
     <Content Include="app\features\features.html" />

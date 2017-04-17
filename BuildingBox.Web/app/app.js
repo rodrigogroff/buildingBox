@@ -8,6 +8,7 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 
 	.state('home', { url: '/', templateUrl: 'app/home/home.html', controller: 'HomeController', data: {} })
 	.state('login', { url: '/login', templateUrl: 'app/login/login.html', controller: 'LoginController', data: {} })
+	.state('clientPanel', { url: '/clientPanel', templateUrl: 'app/clientPanel/clientPanel.html', controller: 'ClientPanelController', data: {} })
 	.state('register', { url: '/register', templateUrl: 'app/register/register.html', controller: 'RegisterController', data: {} })
 	.state('features', { url: '/features', templateUrl: 'app/features/features.html', controller: 'FeaturesController', data: {} })
 	.state('videos', { url: '/videos', templateUrl: 'app/videos/videos.html', controller: 'VideosController', data: {} })
