@@ -66,6 +66,9 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\BuildingBox_db.cs" />
+    <Compile Include="DataModel\Enums\InfraCity_enum.cs" />
+    <Compile Include="DataModel\Enums\InfraCountry_enum.cs" />
+    <Compile Include="DataModel\Enums\InfraContinent_enum.cs" />
     <Compile Include="DataModel\Enums\Country_enum.cs" />
     <Compile Include="DataModel\Enums\GMT_enum.cs" />
     <Compile Include="DataModel\Enums\Month_enum.cs" />

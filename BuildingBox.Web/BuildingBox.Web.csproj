@@ -818,6 +818,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Enums\InfraCityController.cs" />
+    <Compile Include="Controllers\Enums\InfraCountryController.cs" />
+    <Compile Include="Controllers\Enums\InfraContinentController.cs" />
     <Compile Include="Controllers\Enums\TicketStateController.cs" />
     <Compile Include="Controllers\Enums\GMTController.cs" />
     <Compile Include="Controllers\Enums\CountryController.cs" />

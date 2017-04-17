@@ -91,6 +91,9 @@ angular.module('app.services', ['ngResource'])
 		Register: $resource('api/register/:id', {}, opcoes),
 		User: $resource('api/user/:id', {}, opcoes),
 		Country: $resource('api/country/:id', {}, opcoes),
+		InfraCity: $resource('api/infraCity/:id', {}, opcoes),
+		InfraCountry: $resource('api/infraCountry/:id', {}, opcoes),
+		InfraContinent: $resource('api/infraContinent/:id', {}, opcoes),		
 		GMT: $resource('api/gmt/:id', {}, opcoes),
 		Ticket: $resource('api/ticket/:id', {}, opcoes),
 		TicketState: $resource('api/ticketState/:id', {}, opcoes)
