@@ -19,8 +19,10 @@ namespace DataModel
 	/// </summary>
 	public partial class BuildingBoxDB : LinqToDB.Data.DataConnection
 	{
-		public ITable<Ticket> Tickets { get { return this.GetTable<Ticket>(); } }
-		public ITable<User>   Users   { get { return this.GetTable<User>(); } }
+		public ITable<Ticket>         Tickets         { get { return this.GetTable<Ticket>(); } }
+		public ITable<TicketMessage>  TicketMessages  { get { return this.GetTable<TicketMessage>(); } }
+		public ITable<TicketWorkFlow> TicketWorkFlows { get { return this.GetTable<TicketWorkFlow>(); } }
+		public ITable<User>           Users           { get { return this.GetTable<User>(); } }
 
 		public BuildingBoxDB()
 		{
@@ -49,6 +51,28 @@ namespace DataModel
 		[Column,     Nullable] public string    stDescription { get; set; } // character varying(2000)
 	}
 
+	[Table(Schema="public", Name="TicketMessage")]
+	public partial class TicketMessage
+	{
+		[PrimaryKey, Identity] public long      id        { get; set; } // bigint
+		[Column,     Nullable] public long?     fkTicket  { get; set; } // bigint
+		[Column,     Nullable] public long?     fkUser    { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtLog     { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public string    stMessage { get; set; } // character varying(200)
+	}
+
+	[Table(Schema="public", Name="TicketWorkFlow")]
+	public partial class TicketWorkFlow
+	{
+		[PrimaryKey, Identity] public long      id         { get; set; } // bigint
+		[Column,     Nullable] public long?     fkTicket   { get; set; } // bigint
+		[Column,     Nullable] public long?     fkOldState { get; set; } // bigint
+		[Column,     Nullable] public long?     fkNewState { get; set; } // bigint
+		[Column,     Nullable] public long?     fkUser     { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtLog      { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public string    stMessage  { get; set; } // character varying(200)
+	}
+
 	[Table(Schema="public", Name="User")]
 	public partial class User
 	{
@@ -66,6 +90,18 @@ namespace DataModel
 	public static partial class TableExtensions
 	{
 		public static Ticket Find(this ITable<Ticket> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static TicketMessage Find(this ITable<TicketMessage> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static TicketWorkFlow Find(this ITable<TicketWorkFlow> table, long id)
 		{
 			return table.FirstOrDefault(t =>
 				t.id == id);

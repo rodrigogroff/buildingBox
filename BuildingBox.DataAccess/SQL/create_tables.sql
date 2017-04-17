@@ -1,6 +1,8 @@
 ﻿
 DROP TABLE public."User";
 DROP TABLE public."Ticket";
+DROP TABLE public."TicketMessage";
+DROP TABLE public."TicketWorkFlow";
 
 CREATE TABLE public."User"
 (
@@ -43,3 +45,38 @@ TABLESPACE pg_default;
 ALTER TABLE public."Ticket"
     OWNER to postgres;
 
+CREATE TABLE public."TicketMessage"
+(
+    id bigserial NOT NULL,
+	"fkTicket" bigint,
+	"fkUser" bigint,
+	"dtLog" timestamp without time zone,	
+	"stMessage" character varying(200),
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."TicketMessage"
+    OWNER to postgres;
+
+CREATE TABLE public."TicketWorkFlow"
+(
+    id bigserial NOT NULL,
+	"fkTicket" bigint,
+	"fkOldState" bigint,
+	"fkNewState" bigint,
+	"fkUser" bigint,
+	"dtLog" timestamp without time zone,	
+	"stMessage" character varying(200),
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."TicketWorkFlow"
+    OWNER to postgres;
