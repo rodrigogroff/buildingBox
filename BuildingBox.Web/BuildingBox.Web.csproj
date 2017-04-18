@@ -235,6 +235,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\clientPanel\_filterContracts.html" />
+    <Content Include="app\contract\contract.html" />
+    <Content Include="app\contract\contractController.js" />
     <Content Include="app\site\about\about.html" />
     <Content Include="app\site\about\AboutController.js" />
     <Content Include="app\app.js" />
@@ -818,6 +821,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Enums\ContractTypeController.cs" />
     <Compile Include="Controllers\Enums\InfraCityController.cs" />
     <Compile Include="Controllers\Enums\InfraCountryController.cs" />
     <Compile Include="Controllers\Enums\InfraContinentController.cs" />
@@ -825,11 +829,12 @@
     <Compile Include="Controllers\Enums\GMTController.cs" />
     <Compile Include="Controllers\Enums\CountryController.cs" />
     <Compile Include="Controllers\Enums\MonthController.cs" />
-    <Compile Include="Controllers\Login.cs" />
+    <Compile Include="Controllers\site\Login.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RegisterCtrl.cs" />
-    <Compile Include="Controllers\TicketCtrl.cs" />
-    <Compile Include="Controllers\UserCtrl.cs" />
+    <Compile Include="Controllers\site\RegisterCtrl.cs" />
+    <Compile Include="Controllers\clientPanel\UserContractCtrl.cs" />
+    <Compile Include="Controllers\clientPanel\TicketCtrl.cs" />
+    <Compile Include="Controllers\clientPanel\UserCtrl.cs" />
     <Compile Include="GlobalExtensions.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />

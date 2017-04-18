@@ -66,6 +66,7 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\BuildingBox_db.cs" />
+    <Compile Include="DataModel\Enums\ContractType_enum.cs" />
     <Compile Include="DataModel\Enums\InfraCity_enum.cs" />
     <Compile Include="DataModel\Enums\InfraCountry_enum.cs" />
     <Compile Include="DataModel\Enums\InfraContinent_enum.cs" />
@@ -74,6 +75,12 @@
     <Compile Include="DataModel\Enums\Month_enum.cs" />
     <Compile Include="DataModel\Enums\TicketState_enum.cs" />
     <Compile Include="DataModel\Enums\Priority_enum.cs" />
+    <Compile Include="DataModel\Tables\UserContract\UserContract_ComposedFilters.cs" />
+    <Compile Include="DataModel\Tables\UserContract\UserContract_Create.cs" />
+    <Compile Include="DataModel\Tables\UserContract\UserContract_DTO.cs" />
+    <Compile Include="DataModel\Tables\UserContract\UserContract_Extras.cs" />
+    <Compile Include="DataModel\Tables\UserContract\UserContract_LoadAssociations.cs" />
+    <Compile Include="DataModel\Tables\UserContract\UserContract_Update.cs" />
     <Compile Include="DataModel\Tables\Ticket\Ticket_ComposedFilters.cs" />
     <Compile Include="DataModel\Tables\Ticket\Ticket_Create.cs" />
     <Compile Include="DataModel\Tables\Ticket\Ticket_DTO.cs" />

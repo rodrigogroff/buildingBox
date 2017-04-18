@@ -109,8 +109,9 @@ namespace BuildingBox.Web
 				"~/app/clientPanel/ClientPanelCustomizationsController.js",
 				"~/app/clientPanel/ClientPanelSetupController.js",
 				"~/app/clientPanel/ClientPanelTicketsController.js",
-				"~/app/ticket/TicketController.js"
-				
+				"~/app/ticket/TicketController.js",
+				"~/app/contract/ContractController.js"
+
 				));
 
 			BundleTable.EnableOptimizations = false;

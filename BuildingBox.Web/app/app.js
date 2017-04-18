@@ -24,6 +24,9 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 	.state('ticket', { url: '/ticket/:id', templateUrl: 'app/ticket/ticket.html', controller: 'TicketController' })
 	.state('ticket-new', { url: '/ticket/new', templateUrl: 'app/ticket/ticket.html', controller: 'TicketController' })
 
+	.state('contract', { url: '/contract/:id', templateUrl: 'app/contract/contract.html', controller: 'ContractController' })
+	.state('contract-new', { url: '/contract/new', templateUrl: 'app/contract/contract.html', controller: 'ContractController' })
+
 	.state('about', { url: '/about', templateUrl: 'app/site/about/about.html', controller: 'AboutController', data: {} })
 	.state('otherwise', { url: '/', templateUrl: 'app/site/home/home.html', controller: 'HomeController', data: {} })
 

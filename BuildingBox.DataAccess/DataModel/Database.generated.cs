@@ -23,6 +23,7 @@ namespace DataModel
 		public ITable<TicketMessage>  TicketMessages  { get { return this.GetTable<TicketMessage>(); } }
 		public ITable<TicketWorkFlow> TicketWorkFlows { get { return this.GetTable<TicketWorkFlow>(); } }
 		public ITable<User>           Users           { get { return this.GetTable<User>(); } }
+		public ITable<UserContract>   UserContracts   { get { return this.GetTable<UserContract>(); } }
 
 		public BuildingBoxDB()
 		{
@@ -87,6 +88,21 @@ namespace DataModel
 		[Column,     Nullable] public string    stContactEmail { get; set; } // character varying(200)
 	}
 
+	[Table(Schema="public", Name="UserContract")]
+	public partial class UserContract
+	{
+		[PrimaryKey, Identity] public long      id             { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtCreation     { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public string    stProtocol     { get; set; } // character varying(200)
+		[Column,     Nullable] public string    stDNS          { get; set; } // character varying(200)
+		[Column,     Nullable] public long?     fkUser         { get; set; } // bigint
+		[Column,     Nullable] public long?     fkContractType { get; set; } // bigint
+		[Column,     Nullable] public long?     fkGMT          { get; set; } // bigint
+		[Column,     Nullable] public long?     fkContinent    { get; set; } // bigint
+		[Column,     Nullable] public long?     fkCountry      { get; set; } // bigint
+		[Column,     Nullable] public long?     fkCity         { get; set; } // bigint
+	}
+
 	public static partial class TableExtensions
 	{
 		public static Ticket Find(this ITable<Ticket> table, long id)
@@ -108,6 +124,12 @@ namespace DataModel
 		}
 
 		public static User Find(this ITable<User> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static UserContract Find(this ITable<UserContract> table, long id)
 		{
 			return table.FirstOrDefault(t =>
 				t.id == id);

@@ -1,0 +1,106 @@
+﻿<table width="100%">
+	<tr>
+		<td width="35px"></td>
+		<td>
+			<br />
+			<table>
+				<tr>
+					<td>
+						<img style="max-height:90px" src='../../images/logoRegister.png' /><br />
+					</td>
+					<td width="15px"></td>
+					<td>
+						<img style="max-height:80px" src='../../images/logoLetras.png' />
+					</td>
+					<td width="35px"></td>
+					<td>
+						<h3>Welcome, <b>dba</b></h3>
+					</td>
+				</tr>
+			</table>
+			<section class="widgetForm" style="width:925px; height:100%">
+				<legend class="legendTop">
+					<table><tr height="12px"><td> </td></tr></table>
+					<table style="color:white; width:100%">
+						<tr>
+							<td width="20px"></td>
+							<td>
+								Contract <i class="fa fa-spinner fa-spin" ng-show="loading"></i>									
+							</td>
+							<td width="20px"></td>
+						</tr>
+						<tr height="12px"></tr>
+					</table>
+				</legend>
+				<div class="divWebForm">
+					<tabset class="tabs-left" style="min-height:320px;font-size:13px;width:850px">
+						<tab heading="Data">
+							<div style="width:100%;min-height:490px;background:rgba(15, 43, 89, 0.25);">
+								<table>
+									<thead>
+										<tr>
+											<th width="20px"></th>
+											<th width="140px"></th>
+											<th width="20px"></th>
+											<th width="450px"></th>
+											<th width="20px"></th>
+										</tr>
+									</thead>
+									<tr height="24px"></tr>
+									<tr height="40px" ng-show="viewModel.id > 0"> 
+										<td></td>
+										<td>
+											Protocol
+										</td>
+										<td>
+											
+										</td>
+										<td>
+											<b>{{viewModel.stProtocol}}</b>
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px" ng-show="viewModel.id > 0">
+										<td></td>
+										<td>
+											Creation Date
+										</td>
+										<td></td>
+										<td>
+											{{viewModel.sdtCreation}}
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											Contract Type
+										</td>
+										<td></td>
+										<td>
+											<input type="hidden" name="user" style="width:100%" ui-select2="selectContractType" ng-model="viewModel.fkContractType" />
+										</td>
+										<td></td>
+									</tr>
+									<tr height="32px"></tr>
+									<tr height="32px"></tr>
+								</table>
+							</div>
+						</tab>
+					</tabset>
+					<br />
+					<br />
+					<table>
+						<tr>
+							<td><button class="btn btn-default" ng-click="list()">Cancel</button></td>
+							<td width="34px"></td>
+							<td><button class="btn btn-primary" ng-click="save()">Save</button></td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				</div>
+			</section>			
+		</td>
+	</tr>
+</table>

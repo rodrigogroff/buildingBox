@@ -96,7 +96,9 @@ angular.module('app.services', ['ngResource'])
 		InfraContinent: $resource('api/infraContinent/:id', {}, opcoes),		
 		GMT: $resource('api/gmt/:id', {}, opcoes),
 		Ticket: $resource('api/ticket/:id', {}, opcoes),
-		TicketState: $resource('api/ticketState/:id', {}, opcoes)
+		TicketState: $resource('api/ticketState/:id', {}, opcoes),
+		ContractType: $resource('api/contractType/:id', {}, opcoes),
+		UserContract: $resource('api/userContract/:id', {}, opcoes)
 
 	};
 }]);

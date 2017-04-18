@@ -39,5 +39,13 @@ namespace DataModel
 			if (ret == null) { ret = Tickets.Find((long)id); Cache[tag] = ret; }
 			return ret;
 		}
+
+		public UserContract UserContract(long? id)
+		{
+			if (id == null) return null;
+			var tag = "UserContract" + id; var ret = Cache[tag] as UserContract;
+			if (ret == null) { ret = UserContracts.Find((long)id); Cache[tag] = ret; }
+			return ret;
+		}
 	}
 }

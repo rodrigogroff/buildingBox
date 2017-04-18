@@ -90,13 +90,14 @@ CREATE TABLE public."UserContract"
 (
     id bigserial NOT NULL,
 	"dtCreation" timestamp without time zone,	
+	"stProtocol" character varying(200),
+	"stDNS" character varying(200),
 	"fkUser" bigint,
 	"fkContractType" bigint,
 	"fkGMT" bigint,
 	"fkContinent" bigint,
 	"fkCountry" bigint,
-	"fkCity" bigint,
-	"stDNS" character varying(200),
+	"fkCity" bigint,	
     PRIMARY KEY (id)
 )
 WITH (
@@ -106,3 +107,4 @@ TABLESPACE pg_default;
 
 ALTER TABLE public."UserContract"
     OWNER to postgres;
+
