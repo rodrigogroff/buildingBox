@@ -12,5 +12,14 @@ namespace DataModel
 						sfkContractState,
 						sfkCountry,
 						sfkCity;
+
+		public List<UserContractState> states = new List<UserContractState>();
+	}
+
+	public partial class UserContractState
+	{
+		public string sdtLog,
+						sfkUser,
+						sfkContractState;
 	}
 }

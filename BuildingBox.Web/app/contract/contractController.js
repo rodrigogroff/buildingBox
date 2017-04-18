@@ -34,7 +34,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 			});
 		}
 		else 			
-			$scope.viewModel = { id: 0};
+			$scope.viewModel = { };
 	}
 
 	var invalidCheck = function (element) {

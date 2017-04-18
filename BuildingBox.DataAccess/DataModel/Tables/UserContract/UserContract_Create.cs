@@ -1,6 +1,5 @@
 ﻿using LinqToDB;
 using System;
-using System.Linq;
 
 namespace DataModel
 {
@@ -16,6 +15,14 @@ namespace DataModel
 			fkContractState = EnumContractState.Pending;
 
 			id = Convert.ToInt64(db.InsertWithIdentity(this));
+
+			db.Insert(new UserContractState()
+			{
+				dtLog = DateTime.Now,
+				fkContract = this.id,
+				fkContractState = EnumContractState.Pending,
+				fkUser = user.id,
+			});
 
 			return true;
 		}
