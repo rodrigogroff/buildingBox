@@ -45,6 +45,7 @@ namespace DataModel
 	{
 		[PrimaryKey, Identity] public long      id            { get; set; } // bigint
 		[Column,     Nullable] public DateTime? dtCreation    { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public long?     fkContract    { get; set; } // bigint
 		[Column,     Nullable] public DateTime? dtLog         { get; set; } // timestamp (6) without time zone
 		[Column,     Nullable] public long?     fkUserOpen    { get; set; } // bigint
 		[Column,     Nullable] public long?     fkTicketState { get; set; } // bigint

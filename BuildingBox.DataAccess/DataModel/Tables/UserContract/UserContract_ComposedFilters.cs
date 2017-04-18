@@ -18,11 +18,12 @@ namespace DataModel
 
 			if (filter.busca != null)
 				query = from e in query
+						where e.stProtocol.Contains(filter.busca)
 						select e;
 
 			count = query.Count();
 
-//			query = query.OrderBy(y => y.stClientName);
+			query = query.OrderByDescending(y => y.id);
 
 			var results = (query.Skip(() => filter.skip).Take(() => filter.take)).ToList();
 

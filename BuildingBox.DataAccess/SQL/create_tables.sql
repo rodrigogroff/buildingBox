@@ -31,9 +31,10 @@ CREATE TABLE public."Ticket"
 (
     id bigserial NOT NULL,
 	"dtCreation" timestamp without time zone,
+	"fkContract" bigint,
 	"dtLog" timestamp without time zone,
 	"fkUserOpen" bigint,
-	"fkTicketState" bigint,
+	"fkTicketState" bigint,	
 	"stProtocol" character varying(9),
 	"stTitle" character varying(200),
 	"stDescription" character varying(2000),
