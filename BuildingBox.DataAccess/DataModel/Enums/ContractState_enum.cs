@@ -13,16 +13,18 @@ namespace DataModel
 	{
 		public List<ContractState> lst = new List<ContractState>();
 
-		public const long Pending = 1,
-							Setup = 2,
-							Testing = 3,
-							Ready = 4;
+		public const long PendingStartSetup = 1,
+							InitialSetup = 20,
+							PendingUpgradeSetup = 30,
+							UpgradeSetup = 40,
+							Ready = 50;
 
 		public EnumContractState()
 		{
-			lst.Add(new ContractState() { id = Pending, stName = "Pending" });
-			lst.Add(new ContractState() { id = Setup, stName = "Setup" });
-			lst.Add(new ContractState() { id = Testing, stName = "Testing" });
+			lst.Add(new ContractState() { id = PendingStartSetup, stName = "Pending (first setup)" });
+			lst.Add(new ContractState() { id = InitialSetup, stName = "Initial Setup" });
+			lst.Add(new ContractState() { id = PendingUpgradeSetup, stName = "Pending (plan upgrade)" });
+			lst.Add(new ContractState() { id = UpgradeSetup, stName = "Testing" });
 			lst.Add(new ContractState() { id = Ready, stName = "Ready" });
 		}
 

@@ -12,7 +12,7 @@ namespace DataModel
 			fkUser = user.id;
 			dtCreation = DateTime.Now;
 			stProtocol = GetProtocol();
-			fkContractState = EnumContractState.Pending;
+			fkContractState = EnumContractState.PendingStartSetup;
 
 			id = Convert.ToInt64(db.InsertWithIdentity(this));
 
@@ -20,7 +20,7 @@ namespace DataModel
 			{
 				dtLog = DateTime.Now,
 				fkContract = this.id,
-				fkContractState = EnumContractState.Pending,
+				fkContractState = EnumContractState.PendingStartSetup,
 				fkUser = user.id,
 			});
 

@@ -1,5 +1,6 @@
 ﻿using LinqToDB;
 using Newtonsoft.Json;
+using System;
 using System.Linq;
 
 namespace DataModel
@@ -14,7 +15,35 @@ namespace DataModel
 			{
 				case "entity":
 					{
+						var oldContract = db.UserContract(this.id);
+						
+						if (oldContract.fkContractState != this.fkContractState)
+						{
+							db.Insert(new UserContractState
+							{
+								fkUser = user.id,
+								dtLog = DateTime.Now,
+								fkContract = this.id,
+								fkContractState = this.fkContractState
+							});
+						}
+
+						if (oldContract.fkContractType != this.fkContractType)
+						{
+							this.fkContractState = EnumContractState.PendingUpgradeSetup;
+
+							db.Insert(new UserContractState
+							{
+								fkUser = user.id,
+								dtLog = DateTime.Now,
+								fkContract = this.id,
+								fkContractState = this.fkContractState
+							});
+						}
+
 						db.Update(this);
+
+						LoadAssociations(db);
 
 						break;
 					}

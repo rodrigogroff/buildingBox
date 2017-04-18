@@ -10,6 +10,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$scope.selectContinent = ngSelects.obterConfiguracao(Api.InfraContinent, {});
 	$scope.selectCountry = ngSelects.obterConfiguracao(Api.InfraCountry, { scope: $scope, filtro: { campo: 'fkContinent', valor: 'viewModel.fkContinent' } });
 	$scope.selectCity = ngSelects.obterConfiguracao(Api.InfraCity, { scope: $scope, filtro: { campo: 'fkCountry', valor: 'viewModel.fkCountry' } });
+	$scope.selectContractState = ngSelects.obterConfiguracao(Api.ContractState, {});
 
 	$scope.viewModel = {};
 
@@ -68,6 +69,8 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 
 				Api.UserContract.update({ id: id }, $scope.viewModel, function (data) {
 					toastr.success('Contract saved!', 'Success');
+
+					$scope.viewModel = data;
 				},
 				function (response) {
 					toastr.error(response.data.message, 'Error');
