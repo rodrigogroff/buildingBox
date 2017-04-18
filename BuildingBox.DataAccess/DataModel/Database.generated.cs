@@ -19,11 +19,12 @@ namespace DataModel
 	/// </summary>
 	public partial class BuildingBoxDB : LinqToDB.Data.DataConnection
 	{
-		public ITable<Ticket>         Tickets         { get { return this.GetTable<Ticket>(); } }
-		public ITable<TicketMessage>  TicketMessages  { get { return this.GetTable<TicketMessage>(); } }
-		public ITable<TicketWorkFlow> TicketWorkFlows { get { return this.GetTable<TicketWorkFlow>(); } }
-		public ITable<User>           Users           { get { return this.GetTable<User>(); } }
-		public ITable<UserContract>   UserContracts   { get { return this.GetTable<UserContract>(); } }
+		public ITable<Ticket>            Tickets            { get { return this.GetTable<Ticket>(); } }
+		public ITable<TicketMessage>     TicketMessages     { get { return this.GetTable<TicketMessage>(); } }
+		public ITable<TicketWorkFlow>    TicketWorkFlows    { get { return this.GetTable<TicketWorkFlow>(); } }
+		public ITable<User>              Users              { get { return this.GetTable<User>(); } }
+		public ITable<UserContract>      UserContracts      { get { return this.GetTable<UserContract>(); } }
+		public ITable<UserContractState> UserContractStates { get { return this.GetTable<UserContractState>(); } }
 
 		public BuildingBoxDB()
 		{
@@ -91,16 +92,27 @@ namespace DataModel
 	[Table(Schema="public", Name="UserContract")]
 	public partial class UserContract
 	{
-		[PrimaryKey, Identity] public long      id             { get; set; } // bigint
-		[Column,     Nullable] public DateTime? dtCreation     { get; set; } // timestamp (6) without time zone
-		[Column,     Nullable] public string    stProtocol     { get; set; } // character varying(200)
-		[Column,     Nullable] public string    stDNS          { get; set; } // character varying(200)
-		[Column,     Nullable] public long?     fkUser         { get; set; } // bigint
-		[Column,     Nullable] public long?     fkContractType { get; set; } // bigint
-		[Column,     Nullable] public long?     fkGMT          { get; set; } // bigint
-		[Column,     Nullable] public long?     fkContinent    { get; set; } // bigint
-		[Column,     Nullable] public long?     fkCountry      { get; set; } // bigint
-		[Column,     Nullable] public long?     fkCity         { get; set; } // bigint
+		[PrimaryKey, Identity] public long      id              { get; set; } // bigint
+		[Column,     Nullable] public long?     fkContractState { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtCreation      { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public string    stProtocol      { get; set; } // character varying(200)
+		[Column,     Nullable] public string    stDNS           { get; set; } // character varying(200)
+		[Column,     Nullable] public long?     fkUser          { get; set; } // bigint
+		[Column,     Nullable] public long?     fkContractType  { get; set; } // bigint
+		[Column,     Nullable] public long?     fkGMT           { get; set; } // bigint
+		[Column,     Nullable] public long?     fkContinent     { get; set; } // bigint
+		[Column,     Nullable] public long?     fkCountry       { get; set; } // bigint
+		[Column,     Nullable] public long?     fkCity          { get; set; } // bigint
+	}
+
+	[Table(Schema="public", Name="UserContractState")]
+	public partial class UserContractState
+	{
+		[PrimaryKey, Identity] public long      id              { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtLog           { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public long?     fkUser          { get; set; } // bigint
+		[Column,     Nullable] public long?     fkContract      { get; set; } // bigint
+		[Column,     Nullable] public long?     fkContractState { get; set; } // bigint
 	}
 
 	public static partial class TableExtensions
@@ -130,6 +142,12 @@ namespace DataModel
 		}
 
 		public static UserContract Find(this ITable<UserContract> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static UserContractState Find(this ITable<UserContractState> table, long id)
 		{
 			return table.FirstOrDefault(t =>
 				t.id == id);

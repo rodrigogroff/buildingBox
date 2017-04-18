@@ -42,12 +42,30 @@
 							<thead>
 								<tr>
 									<th width="150px">Creation Date</th>
-									<th width="150px">Protocol</th>									
+									<th width="70px">State</th>
+									<th width="70px">Protocol</th>
+									<th width="150px">DNS</th>
+									<th width="90px">Continent</th>
+									<th>Country</th>
+									<th>City</th>
+									<th></th>
 								</tr>
 							</thead>
-							<tr ng-click="show(mdl)" data-ng-repeat="mdl in list">
+							<tr data-ng-repeat="mdl in list">
 								<td style="color:black">{{ mdl.sdtCreation }}</td>
+								<td style="color:black">{{ mdl.sfkContractState }}</td>								
 								<td style="color:black">{{ mdl.stProtocol }}</td>								
+								<td style="color:black">{{ mdl.stDNS }}</td>								
+								<td style="color:black">{{ mdl.sfkContinent }}</td>			
+								<td style="color:black">{{ mdl.sfkCountry }}</td>			
+								<td style="color:black">{{ mdl.sfkCity }}</td>			
+								<td>
+									<div class="pull-right">
+										<a href="" role="button" ng-click="show(mdl)">
+											<i class="glyphicon glyphicon-share" style="color:black"></i>
+										</a>
+									</div>
+								</td>
 							</tr>
 						</table>
 					</div>
@@ -56,5 +74,4 @@
 			</tr>
 		</table>
 	</div>
-
 </div>

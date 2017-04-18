@@ -98,6 +98,7 @@ angular.module('app.services', ['ngResource'])
 		Ticket: $resource('api/ticket/:id', {}, opcoes),
 		TicketState: $resource('api/ticketState/:id', {}, opcoes),
 		ContractType: $resource('api/contractType/:id', {}, opcoes),
+		ContractState: $resource('api/contractState/:id', {}, opcoes),
 		UserContract: $resource('api/userContract/:id', {}, opcoes)
 
 	};

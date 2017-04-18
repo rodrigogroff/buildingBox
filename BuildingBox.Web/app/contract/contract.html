@@ -47,14 +47,12 @@
 										</tr>
 									</thead>
 									<tr height="24px"></tr>
-									<tr height="40px" ng-show="viewModel.id > 0"> 
+									<tr height="40px" ng-show="viewModel.id > 0">
 										<td></td>
 										<td>
-											Protocol
+											<b>Protocol</b>
 										</td>
-										<td>
-											
-										</td>
+										<td></td>
 										<td>
 											<b>{{viewModel.stProtocol}}</b>
 										</td>
@@ -63,7 +61,7 @@
 									<tr height="40px" ng-show="viewModel.id > 0">
 										<td></td>
 										<td>
-											Creation Date
+											<b>Creation Date</b>
 										</td>
 										<td></td>
 										<td>
@@ -74,7 +72,7 @@
 									<tr height="40px">
 										<td></td>
 										<td>
-											Contract Type
+											<b>Contract Type</b>
 										</td>
 										<td>
 											<button class="btn btn-xs btn-danger" ng-show="fkContractType_fail">!</button>
@@ -87,7 +85,7 @@
 									<tr height="40px">
 										<td></td>
 										<td>
-											Desired GMT
+											<b>GMT</b>
 										</td>
 										<td>
 											<button class="btn btn-xs btn-danger" ng-show="fkGMT_fail">!</button>
@@ -100,7 +98,31 @@
 									<tr height="40px">
 										<td></td>
 										<td>
-											Desired Continent
+											<b>Desired DNS (www)</b>
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="stDNS_fail">!</button>
+										</td>
+										<td>
+											<input type="text" class="form-control input-transparent" maxlength="100" ng-model="viewModel.stDNS">
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px" ng-show="viewModel.id > 0">
+										<td></td>
+										<td>
+											<b>Localization</b>
+										</td>
+										<td></td>
+										<td>
+											{{viewModel.sfkContinent}}, {{viewModel.sfkCountry}}, {{viewModel.sfkCity}}
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px" ng-show="viewModel.id == 0">
+										<td></td>
+										<td>
+											<b>Continent</b>
 										</td>
 										<td>
 											<button class="btn btn-xs btn-danger" ng-show="fkContinent_fail">!</button>
@@ -110,11 +132,65 @@
 										</td>
 										<td></td>
 									</tr>
-									<tr height="32px"></tr>
+									<tr height="40px" ng-show="viewModel.id == 0">
+										<td></td>
+										<td>
+											<b>Country</b>
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="fkCountry_fail">!</button>
+										</td>
+										<td>
+											<input type="hidden" name="user" style="width:100%" ui-select2="selectCountry" ng-model="viewModel.fkCountry" />
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px" ng-show="viewModel.id == 0">
+										<td></td>
+										<td>
+											<b>City</b>
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="fkCity_fail">!</button>
+										</td>
+										<td>
+											<input type="hidden" name="user" style="width:100%" ui-select2="selectCity" ng-model="viewModel.fkCity" />
+										</td>
+										<td></td>
+									</tr>
 									<tr height="32px"></tr>
 								</table>
 							</div>
 						</tab>
+						<tab heading="State" disabled="true" ng-if="viewModel.id == undefined"></tab>
+						<tab heading="State">
+							<div style="width:100%;min-height:490px;background:rgba(15, 43, 89, 0.25);">
+								<table>
+									<thead>
+										<tr>
+											<th width="20px"></th>
+											<th width="140px"></th>
+											<th width="20px"></th>
+											<th width="450px"></th>
+											<th width="20px"></th>
+										</tr>
+									</thead>
+									<tr height="24px"></tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											<b>Current State</b>
+										</td>
+										<td></td>
+										<td>
+											<b>{{viewModel.sfkContractState}}</b>
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</div>
+						</tab>
+
 					</tabset>
 					<br />
 					<br />

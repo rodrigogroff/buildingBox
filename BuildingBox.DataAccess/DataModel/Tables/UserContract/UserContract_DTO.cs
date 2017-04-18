@@ -6,6 +6,11 @@ namespace DataModel
 	{
 		public object anexedEntity;
 
-		public string updateCommand;
+		public string updateCommand,
+						sdtCreation,
+						sfkContinent,
+						sfkContractState,
+						sfkCountry,
+						sfkCity;
 	}
 }

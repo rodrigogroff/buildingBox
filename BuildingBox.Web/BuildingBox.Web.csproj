@@ -821,6 +821,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Enums\ContractStateController.cs" />
     <Compile Include="Controllers\Enums\ContractTypeController.cs" />
     <Compile Include="Controllers\Enums\InfraCityController.cs" />
     <Compile Include="Controllers\Enums\InfraCountryController.cs" />

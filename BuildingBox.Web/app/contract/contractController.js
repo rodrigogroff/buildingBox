@@ -8,6 +8,8 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$scope.selectContractType = ngSelects.obterConfiguracao(Api.ContractType, {});
 	$scope.selectGMT = ngSelects.obterConfiguracao(Api.GMT, {});
 	$scope.selectContinent = ngSelects.obterConfiguracao(Api.InfraContinent, {});
+	$scope.selectCountry = ngSelects.obterConfiguracao(Api.InfraCountry, { scope: $scope, filtro: { campo: 'fkContinent', valor: 'viewModel.fkContinent' } });
+	$scope.selectCity = ngSelects.obterConfiguracao(Api.InfraCity, { scope: $scope, filtro: { campo: 'fkCountry', valor: 'viewModel.fkCountry' } });
 
 	$scope.viewModel = {};
 
@@ -20,7 +22,8 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 		if (id > 0)
 		{
 			$scope.loading = true;
-			Api.Ticket.get({ id: id }, function (data)
+			
+			Api.UserContract.get({ id: id }, function (data)
 			{
 				$scope.viewModel = data;
 				$scope.loading = false;
@@ -30,9 +33,8 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 				$scope.list();
 			});
 		}
-		else {
-			$scope.viewModel = { };
-		}
+		else 			
+			$scope.viewModel = { id: 0};
 	}
 
 	var invalidCheck = function (element) {
@@ -47,13 +49,19 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	
 	$scope.save = function ()
 	{
+		$scope.stDNS_fail = invalidCheck($scope.viewModel.stDNS);
 		$scope.fkContractType_fail = $scope.viewModel.fkContractType == undefined;
 		$scope.fkGMT_fail = $scope.viewModel.fkGMT == undefined;
 		$scope.fkContinent_fail = $scope.viewModel.fkContinent == undefined;
+		$scope.fkCountry_fail = $scope.viewModel.fkCountry == undefined;
+		$scope.fkCity_fail = $scope.viewModel.fkCity == undefined;
 		
-		if (!$scope.fkContractType_fail && 
+		if (!$scope.stDNS_fail &&
+			!$scope.fkContractType_fail &&
 			!$scope.fkGMT_fail &&
-			!$scope.fkContinent_fail)
+			!$scope.fkContinent_fail &&
+			!$scope.fkCountry_fail &&
+			!$scope.fkCity_fail)
 		{
 			if (id > 0) {
 				$scope.viewModel.updateCommand = "entity";
@@ -79,73 +87,6 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 
 	$scope.list = function () {
 		$state.go('clientPanel');
-	}
-
-	// ============================================
-	// messages 
-	// ============================================
-
-	$scope.addMessage = false;
-	
-	$scope.addNewMessage = function ()
-	{
-		$scope.addMessage = !$scope.addMessage;
-	}
-
-	$scope.newMessage = { stMessage: '', fkTicket: undefined, dtLog: undefined };
-
-	$scope.saveNewMessage = function ()
-	{
-		$scope.stMessage_fail = invalidCheck($scope.newMessage.stMessage);
-			
-		if (!$scope.stMessage_fail )
-		{
-			$scope.addMessage = false;
-
-			$scope.viewModel.updateCommand = "newMessage";
-			$scope.viewModel.anexedEntity = $scope.newMessage;
-
-			Api.Ticket.update({ id: id }, $scope.viewModel, function (data)
-			{
-				$scope.newMessage = { stMessage: '', fkTicket: undefined, dtLog: undefined };
-
-				toastr.success('Message saved', 'Success');					
-				$scope.viewModel.messages = data.messages;
-			},
-			function (response) {
-				toastr.error(response.data.message, 'Error');
-			});
-		}		
-	}
-
-	// ============================================
-	// attendances 
-	// ============================================
-
-	$scope.newAttendance = { stMessage: '', fkNewState: undefined };
-
-	$scope.saveNewAttendance = function ()
-	{
-		$scope.stAtdMsg_fail = invalidCheck($scope.newAttendance.stMessage);
-		$scope.fkNewState_fail = $scope.newAttendance.fkNewState == undefined;
-
-		if (!$scope.stAtdMsg_fail &&
-			!$scope.fkNewState_fail)
-		{
-			$scope.viewModel.updateCommand = "newAttendance";
-			$scope.viewModel.anexedEntity = $scope.newAttendance;
-
-			Api.Ticket.update({ id: id }, $scope.viewModel, function (data)
-			{
-				$scope.newAttendance = { stMessage: '', fkNewState: undefined };
-
-				toastr.success('Attendance saved', 'Success');
-				$scope.viewModel = data;
-			},
-			function (response) {
-				toastr.error(response.data.message, 'Error');
-			});
-		}
 	}
 
 }]);

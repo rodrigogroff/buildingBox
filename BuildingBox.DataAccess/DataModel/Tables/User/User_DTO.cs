@@ -7,7 +7,9 @@ namespace DataModel
 		public object anexedEntity;
 
 		public string updateCommand,
-			resetPassword;
+						resetPassword;
+
+		public List<UserContract> contracts = new List<UserContract>();
 	}
 
 	public class UserPasswordChange

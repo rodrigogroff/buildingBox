@@ -4,9 +4,7 @@ DROP TABLE public."Ticket";
 DROP TABLE public."TicketMessage";
 DROP TABLE public."TicketWorkFlow";
 DROP TABLE public."UserContract";
-
-
-
+DROP TABLE public."UserContractState";
 
 CREATE TABLE public."User"
 (
@@ -85,10 +83,10 @@ TABLESPACE pg_default;
 ALTER TABLE public."TicketWorkFlow"
     OWNER to postgres;
 
-
 CREATE TABLE public."UserContract"
 (
     id bigserial NOT NULL,
+	"fkContractState" bigint,
 	"dtCreation" timestamp without time zone,	
 	"stProtocol" character varying(200),
 	"stDNS" character varying(200),
@@ -98,6 +96,23 @@ CREATE TABLE public."UserContract"
 	"fkContinent" bigint,
 	"fkCountry" bigint,
 	"fkCity" bigint,	
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."UserContract"
+    OWNER to postgres;
+
+CREATE TABLE public."UserContractState"
+(
+    id bigserial NOT NULL,
+	"dtLog" timestamp without time zone,	
+	"fkUser" bigint,
+	"fkContract" bigint,
+	"fkContractState" bigint,
     PRIMARY KEY (id)
 )
 WITH (

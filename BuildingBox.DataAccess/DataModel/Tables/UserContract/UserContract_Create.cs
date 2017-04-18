@@ -13,6 +13,7 @@ namespace DataModel
 			fkUser = user.id;
 			dtCreation = DateTime.Now;
 			stProtocol = GetProtocol();
+			fkContractState = EnumContractState.Pending;
 
 			id = Convert.ToInt64(db.InsertWithIdentity(this));
 
