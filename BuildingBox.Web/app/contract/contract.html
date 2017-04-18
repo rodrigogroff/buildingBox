@@ -76,9 +76,37 @@
 										<td>
 											Contract Type
 										</td>
-										<td></td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="fkContractType_fail">!</button>
+										</td>
 										<td>
 											<input type="hidden" name="user" style="width:100%" ui-select2="selectContractType" ng-model="viewModel.fkContractType" />
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											Desired GMT
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="fkGMT_fail">!</button>
+										</td>
+										<td>
+											<input type="hidden" name="user" style="width:100%" ui-select2="selectGMT" ng-model="viewModel.fkGMT" />
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											Desired Continent
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="fkContinent_fail">!</button>
+										</td>
+										<td>
+											<input type="hidden" name="user" style="width:100%" ui-select2="selectContinent" ng-model="viewModel.fkContinent" />
 										</td>
 										<td></td>
 									</tr>

@@ -6,7 +6,9 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$rootScope.loggedIn = true;
 
 	$scope.selectContractType = ngSelects.obterConfiguracao(Api.ContractType, {});
-	
+	$scope.selectGMT = ngSelects.obterConfiguracao(Api.GMT, {});
+	$scope.selectContinent = ngSelects.obterConfiguracao(Api.InfraContinent, {});
+
 	$scope.viewModel = {};
 
 	var id = ($stateParams.id) ? parseInt($stateParams.id) : 0;
@@ -45,25 +47,27 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	
 	$scope.save = function ()
 	{
-		$scope.stTitle_fail = invalidCheck($scope.viewModel.stTitle);
-		$scope.stDescription_fail = invalidCheck($scope.viewModel.stDescription);
-
-		if (!$scope.stTitle_fail &&
-			!$scope.stDescription_fail)
+		$scope.fkContractType_fail = $scope.viewModel.fkContractType == undefined;
+		$scope.fkGMT_fail = $scope.viewModel.fkGMT == undefined;
+		$scope.fkContinent_fail = $scope.viewModel.fkContinent == undefined;
+		
+		if (!$scope.fkContractType_fail && 
+			!$scope.fkGMT_fail &&
+			!$scope.fkContinent_fail)
 		{
 			if (id > 0) {
 				$scope.viewModel.updateCommand = "entity";
 
-				Api.Ticket.update({ id: id }, $scope.viewModel, function (data) {
-					toastr.success('Ticket saved!', 'Success');
+				Api.UserContract.update({ id: id }, $scope.viewModel, function (data) {
+					toastr.success('Contract saved!', 'Success');
 				},
 				function (response) {
 					toastr.error(response.data.message, 'Error');
 				});
 			}
 			else {
-				Api.Ticket.add($scope.viewModel, function (data) {
-					toastr.success('Ticket added!', 'Success');
+				Api.UserContract.add($scope.viewModel, function (data) {
+					toastr.success('Contract added!', 'Success');
 					$state.go('clientPanel');
 				},
 				function (response) {

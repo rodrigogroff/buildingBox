@@ -5,7 +5,7 @@ using DataModel;
 
 namespace BuildingBox.Web.Controllers
 {
-	public class ContinentController : ApiController
+	public class InfraContinentController : ApiController
 	{
 		EnumInfraContinent _enum = new EnumInfraContinent();
 
