@@ -1,2 +1,94 @@
 ﻿<div style="background:rgba(15, 43, 89, 0.35);min-height:500px;color:black">
+
+	<legend class="legendTop">
+		<table><tr height="12px"><td> </td></tr></table>
+		<table style="color:white; width:100%">
+			<tr>
+				<td width="20px"></td>
+				<td><b>Client </b> details <i class="fa fa-spinner fa-spin" ng-show="loading"></i></td>
+			</tr>
+			<tr height="12px"></tr>
+		</table>
+	</legend>
+
+	<div class="divWebForm" style="width:1050px; color: white">
+		<table>
+			<tr height="8px"></tr>
+			<tr height="38px">
+				<td width="140px">
+					<b>Company Name</b>
+				</td>
+				<td width="20px">
+					<button class="btn btn-xs btn-danger" style="color:white" ng-show="stCompanyName_fail">!</button>
+				</td>
+				<td width="300px">
+					<input type="text" class="form-control input-transparent" maxlength="150" ng-model="viewModel.stClientName">
+				</td>
+				<td width="20px"></td>
+			</tr>
+			<tr height="38px">
+				<td>
+					<b>Country</b>
+				</td>
+				<td>
+					<button class="btn btn-xs btn-danger" style="color:white" ng-show="fkCountry_fail">!</button>
+				</td>
+				<td width="300px">
+					<input type="hidden" style="width:100%" ui-select2="selectCountry" ng-model="viewModel.fkCountry" />
+				</td>
+				<td></td>
+			</tr>
+			<tr height="38px">
+				<td>
+					<b>City</b>
+				</td>
+				<td>
+					<button class="btn btn-xs btn-danger" style="color:white" ng-show="stCity_fail">!</button>
+				</td>
+				<td>
+					<input type="text" class="form-control input-transparent" maxlength="150" ng-model="viewModel.stCityName" />
+				</td>
+				<td></td>
+			</tr>
+			<tr height="38px">
+				<td>
+					<b>Default GMT</b>
+				</td>
+				<td>
+					<button class="btn btn-xs btn-danger" style="color:white" ng-show="fkGMT_fail">!</button>
+				</td>
+				<td>
+					<input type="hidden" style="width:100%" ui-select2="selectGMT" ng-model="viewModel.fkDesiredGMT" />
+				</td>
+				<td></td>
+			</tr>
+			<tr height="38px">
+				<td>
+					<b>Contact Email</b>
+				</td>
+				<td>
+					<button class="btn btn-xs btn-danger" style="color:white" ng-show="stEmail_fail">!</button>
+				</td>
+				<td>
+					<input type="text" class="form-control input-transparent" maxlength="150" ng-model="viewModel.stContactEmail" />
+				</td>
+				<td></td>
+			</tr>
+		</table>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<table>
+			<tr>
+				<td><button class="btn btn-default" ng-click="list()">Cancel</button></td>
+				<td width="34px"></td>
+				<td><button class="btn btn-primary" ng-click="save()">Save</button></td>
+			</tr>
+		</table>
+		<br />
+		<br />
+	</div>
 </div>

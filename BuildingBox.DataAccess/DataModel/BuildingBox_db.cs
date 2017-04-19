@@ -31,7 +31,7 @@ namespace DataModel
 			if (ret == null) { ret = Users.Find((long)id); Cache[tag] = ret; }
 			return ret;
 		}
-
+		
 		public Ticket Ticket(long? id)
 		{
 			if (id == null) return null;

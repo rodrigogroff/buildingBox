@@ -9,7 +9,6 @@ function ($http, $q)
     var _authentication = {
         isAuth: false,
         nameUser: null,
-        idProfile: null
     };
 
     var _login = function (loginData)
@@ -19,12 +18,11 @@ function ($http, $q)
         var deferred = $q.defer();
 
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
-            localStorage.setItem('authorizationData', JSON.stringify({ token: response.access_token, nameUser: response.nameUser, idProfile: response.idProfile }));
+        	localStorage.setItem('authorizationData', JSON.stringify({ token: response.access_token, nameUser: response.nameUser }));
 
             _authentication.isAuth = true;
             _authentication.nameUser = response.nameUser;
-            _authentication.idProfile = response.idProfile;
-
+            
             deferred.resolve(response);
 
         }).error(function (err, status) {
@@ -42,7 +40,6 @@ function ($http, $q)
 
         _authentication.isAuth = false;
         _authentication.nameUser = null;
-        _authentication.idProfile = null;
     };
 
     var _fillAuthData = function ()
@@ -52,7 +49,6 @@ function ($http, $q)
         {
             _authentication.isAuth = true;
             _authentication.nameUser = authData.nameUser;
-            _authentication.idProfile = authData.idProfile;
         }
     }
 	

@@ -18,8 +18,6 @@ namespace BuildingBox.Web
 
 		public override async System.Threading.Tasks.Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
 		{
-			Thread.Sleep(999);
-
 			using (var db = new BuildingBoxDB())
 			{
 				var usuario = new User().Login(db, context.UserName, context.Password);
@@ -30,8 +28,7 @@ namespace BuildingBox.Web
 
 					identity.AddClaim(new Claim(ClaimTypes.Name, usuario.stContactEmail));
 					identity.AddClaim(new Claim(ClaimTypes.Sid, usuario.id.ToString()));
-					identity.AddClaim(new Claim("IdUser", usuario.id.ToString()));
-					
+										
 					var ticket = new AuthenticationTicket(identity, null);
 					context.Validated(ticket);
 				}

@@ -23,14 +23,37 @@ namespace BuildingBox.Web.Controllers
 			}
 		}
 
+		public IHttpActionResult Get(string email)
+		{
+			using (var db = new BuildingBoxDB())
+			{
+				var model = db.GetCurrentUser();
+
+				if (model != null)
+					return Ok(model.LoadAssociations(db));
+
+				return StatusCode(HttpStatusCode.NotFound);
+			}
+		}
+
 		public IHttpActionResult Get(long id)
 		{
 			using (var db = new BuildingBoxDB())
 			{
-				var model = db.User(id);
+				if ( id > 0)
+				{
+					var model = db.User(id);
 
-				if (model != null)
-					return Ok(model.LoadAssociations(db));
+					if (model != null)
+						return Ok(model.LoadAssociations(db));
+				}
+				else if (id ==0 )
+				{
+					var model = db.GetCurrentUser();
+
+					if (model != null)
+						return Ok(model.LoadAssociations(db));
+				}			
 
 				return StatusCode(HttpStatusCode.NotFound);
 			}
