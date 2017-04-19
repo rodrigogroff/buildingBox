@@ -50,11 +50,9 @@
 									<tr height="40px" ng-show="viewModel.id > 0"> 
 										<td></td>
 										<td>
-											Protocol
+											<b>Protocol</b>
 										</td>
-										<td>
-											
-										</td>
+										<td></td>
 										<td>
 											<b>{{viewModel.stProtocol}}</b>
 										</td>
@@ -63,18 +61,18 @@
 									<tr height="40px" ng-show="viewModel.id > 0">
 										<td></td>
 										<td>
-											Ticket State
+											<b>Ticket State</b>
 										</td>
 										<td></td>
 										<td>
-											<input type="hidden" name="user" style="width:100%" ui-select2="selectTicketState" disabled="disabled" ng-model="viewModel.fkTicketState" />
+											<input type="hidden" style="width:100%" ui-select2="selectTicketState" disabled="disabled" ng-model="viewModel.fkTicketState" />
 										</td>
 										<td></td>
 									</tr>
 									<tr height="40px" ng-show="viewModel.id > 0">
 										<td></td>
 										<td>
-											Creation Date
+											<b>Creation Date</b>
 										</td>
 										<td></td>
 										<td>
@@ -85,18 +83,31 @@
 									<tr height="40px" ng-show="viewModel.id > 0">
 										<td></td>
 										<td>
-											Last Update
+											<b>Last Update</b>
 										</td>
 										<td></td>
 										<td>
-											{{viewModel.sdtLog}}
+											<b>{{viewModel.sdtLog}}</b>
 										</td>
 										<td></td>
 									</tr>
 									<tr height="40px">
 										<td></td>
 										<td>
-											Title
+											<b>Contract</b>
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="fkContract_fail">!</button>
+										</td>
+										<td>
+											<input type="hidden" style="width:100%" ui-select2="selectContract" ng-model="viewModel.fkContract" />
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											<b>Title</b>
 										</td>
 										<td>
 											<button class="btn btn-xs btn-danger" ng-show="stTitle_fail">!</button>
@@ -109,7 +120,7 @@
 									<tr height="40px">
 										<td></td>
 										<td>
-											Description
+											<b>Description</b>
 										</td>
 										<td>
 											<button class="btn btn-xs btn-danger" ng-show="stDescription_fail">!</button>
@@ -144,7 +155,7 @@
 																</td>
 																<td width="20px"></td>
 																<td width="450px">
-																	<input type="hidden" name="user" style="width:100%" ui-select2="selectTicketState" disabled="true" ng-model="viewModel.fkTicketState" />
+																	<input type="hidden" style="width:100%" ui-select2="selectTicketState" disabled="true" ng-model="viewModel.fkTicketState" />
 																</td>
 															</tr>
 														</table>
@@ -161,7 +172,7 @@
 																	<button class="btn btn-xs btn-danger" ng-show="fkNewState_fail">!</button>
 																</td>
 																<td width="450px">
-																	<input type="hidden" name="user" style="width:100%" ui-select2="selectTicketState" ng-model="newAttendance.fkNewState" />
+																	<input type="hidden" style="width:100%" ui-select2="selectTicketState" ng-model="newAttendance.fkNewState" />
 																</td>
 															</tr>
 														</table>

@@ -1,5 +1,4 @@
-﻿
-DROP TABLE public."User";
+﻿DROP TABLE public."User";
 DROP TABLE public."Ticket";
 DROP TABLE public."TicketMessage";
 DROP TABLE public."TicketWorkFlow";
@@ -30,8 +29,8 @@ ALTER TABLE public."User"
 CREATE TABLE public."Ticket"
 (
     id bigserial NOT NULL,
-	"dtCreation" timestamp without time zone,
 	"fkContract" bigint,
+	"dtCreation" timestamp without time zone,	
 	"dtLog" timestamp without time zone,
 	"fkUserOpen" bigint,
 	"fkTicketState" bigint,	
@@ -121,6 +120,5 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."UserContract"
+ALTER TABLE public."UserContractState"
     OWNER to postgres;
-

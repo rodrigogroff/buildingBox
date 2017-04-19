@@ -7,6 +7,7 @@ namespace DataModel
 		public object anexedEntity;
 
 		public string updateCommand,
+						sfkContract,
 						sfkState,
 						sdtCreation,
 						sdtLog;

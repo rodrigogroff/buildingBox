@@ -42,8 +42,9 @@
 							<thead>
 								<tr>
 									<th width="150px">Creation Date</th>
-									<th width="90px">Protocol</th>
-									<th width="120px">State</th>									
+									<th width="100px">State</th>
+									<th width="160px">Contract</th>
+									<th width="90px">Protocol</th>									
 									<th>Title</th>
 									<th>Messages</th>
 									<th>Last Update</th>
@@ -51,8 +52,9 @@
 							</thead>
 							<tr ng-click="show(mdl)" data-ng-repeat="mdl in list">
 								<td style="color:black">{{ mdl.sdtCreation }}</td>
-								<td style="color:black">{{ mdl.stProtocol }}</td>
-								<td style="color:black">{{ mdl.sfkState }}</td>								
+								<td style="color:black">{{ mdl.sfkState }}</td>
+								<td style="color:black">{{ mdl.sfkContract }}</td>
+								<td style="color:black">{{ mdl.stProtocol }}</td>								
 								<td style="color:black">{{ mdl.stTitle }}</td>
 								<td style="color:black">{{ mdl.messages.length }}</td>
 								<td style="color:black">{{ mdl.sdtLog }}</td>

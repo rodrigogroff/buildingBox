@@ -15,6 +15,8 @@ namespace DataModel
 			sfkCountry = new EnumInfraCountry().Get((long)fkCountry).stName;
 			sfkContinent = new EnumInfraContinent().Get((long)fkContinent).stName;
 
+			stName = stProtocol + " - " + sfkCity;
+
 			states = LoadStates(db);
 
 			return this;

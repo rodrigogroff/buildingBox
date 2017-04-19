@@ -8,9 +8,13 @@ namespace DataModel
 	{
 		public Ticket LoadAssociations(BuildingBoxDB db)
 		{
+			var contract = db.UserContract(fkContract);
+
 			sfkState = new EnumTicketState().Get((long)fkTicketState).stName;
 			sdtCreation = GetDateTimeString(dtCreation);
 			sdtLog = GetDateTimeString(dtLog);
+
+			sfkContract = contract.stProtocol + " - " + new EnumInfraCity().Get((long)contract.fkCity).stName;
 
 			messages = LoadMessages(db);
 			attendances = LoadAttendances(db);

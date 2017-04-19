@@ -6,6 +6,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$rootScope.loggedIn = true;
 
 	$scope.selectTicketState = ngSelects.obterConfiguracao(Api.TicketState, {});
+	$scope.selectContract = ngSelects.obterConfiguracao(Api.UserContract, {});
 	
 	$scope.viewModel = {};
 
@@ -47,9 +48,11 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	{
 		$scope.stTitle_fail = invalidCheck($scope.viewModel.stTitle);
 		$scope.stDescription_fail = invalidCheck($scope.viewModel.stDescription);
+		$scope.fkContract_fail = $scope.viewModel.fkContract == undefined;
 
 		if (!$scope.stTitle_fail &&
-			!$scope.stDescription_fail)
+			!$scope.stDescription_fail &&
+			!$scope.fkContract_fail)
 		{
 			if (id > 0) {
 				$scope.viewModel.updateCommand = "entity";
