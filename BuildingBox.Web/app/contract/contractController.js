@@ -20,7 +20,15 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 
 	function init()
 	{
-		if (id > 0)
+		AuthService.fillAuthData();
+
+		$scope.authentication = AuthService.authentication;
+
+		if (!AuthService.authentication.isAuth) {
+			$rootScope.loggedIn = false;
+			$location.path('/login');
+		}
+		else if (id > 0)
 		{
 			$scope.loading = true;
 			
