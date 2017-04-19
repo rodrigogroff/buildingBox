@@ -33,10 +33,7 @@ namespace DataModel
 			foreach (var item in lst)
 			{
 				item.sdtLog = GetDateTimeString(item.dtLog);
-				item.sfkUser = db.User(item.fkUser).stClientName;
-
-				if (item.sfkUser.Length > 10)
-					item.sfkUser = item.sfkUser.Substring(0, 10) + "...";
+				item.sfkUser = db.User(item.fkUser).stContactEmail;
 			}
 
 			return lst;

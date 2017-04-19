@@ -17,8 +17,10 @@
 	@Scripts.Render("~/bundles/scripts")
 </head>
 <body ng-controller="HomeController">	
-	<div ng-show="loggedIn == true">
-		<div id="ui-view" style="width:100%" ui-view></div>
+	<div ng-show="loggedIn == true" >
+		<div align="center">
+			<div id="ui-view" style="width:100%" ui-view></div>
+		</div>
 	</div>
 	<div ng-show="loggedIn == undefined">
 		<div align="center">

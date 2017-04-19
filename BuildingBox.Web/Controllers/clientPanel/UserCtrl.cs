@@ -22,20 +22,7 @@ namespace BuildingBox.Web.Controllers
 				return Ok(new { count = count, results = results });
 			}
 		}
-
-		public IHttpActionResult Get(string email)
-		{
-			using (var db = new BuildingBoxDB())
-			{
-				var model = db.GetCurrentUser();
-
-				if (model != null)
-					return Ok(model.LoadAssociations(db));
-
-				return StatusCode(HttpStatusCode.NotFound);
-			}
-		}
-
+		
 		public IHttpActionResult Get(long id)
 		{
 			using (var db = new BuildingBoxDB())
@@ -65,6 +52,9 @@ namespace BuildingBox.Web.Controllers
 			{
 				var resp = "";
 
+				if (id == 0)
+					mdl.id = db.GetCurrentUser().id;
+				
 				if (!mdl.Update(db, ref resp))
 					return BadRequest(resp);
 

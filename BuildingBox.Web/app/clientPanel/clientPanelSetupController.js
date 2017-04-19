@@ -18,4 +18,44 @@ function ($scope, $rootScope, $location, AuthService, ngSelects, Api)
 		}, function (response) { });
 	}
 
+	var invalidCheck = function (element) {
+		if (element == undefined)
+			return true;
+		else
+			if (element.length == 0)
+				return true;
+
+		return false;
+	}
+
+	$scope.changePassModel =
+		{
+			stCurrentPassword: '',
+			stNewPassword: '',
+			stConfirmation: '',
+		};
+
+	$scope.changePass = function () {
+		
+		$scope.stCurrentPasswordFail = invalidCheck($scope.changePassModel.stCurrentPassword);
+		$scope.stNewPasswordFail = invalidCheck($scope.changePassModel.stNewPassword);
+		$scope.stConfirmationFail = $scope.changePassModel.stNewPassword != $scope.changePassModel.stConfirmation || $scope.changePassModel.stNewPassword.length == 0
+
+		if (!$scope.stCurrentPasswordFail &&
+			!$scope.stCurrentPasswordFail &&
+			!$scope.stConfirmationFail) {
+			$scope.viewModel.updateCommand = "changePassword";
+
+			$scope.viewModel.anexedEntity = $scope.changePassModel;
+
+			Api.User.update({ id: 0 }, $scope.viewModel, function (data) {
+				$scope.viewModel.anexedEntity = undefined;
+				toastr.success('Password changed!', 'Success');
+			},
+			function (response) {
+				toastr.error(response.data.message, 'Error');
+			});
+		}
+	}
+
 }]);

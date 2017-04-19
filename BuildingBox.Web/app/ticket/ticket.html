@@ -25,7 +25,7 @@
 						<tr>
 							<td width="20px"></td>
 							<td>
-								Ticket <i class="fa fa-spinner fa-spin" ng-show="loading"></i>									
+								Ticket <i class="fa fa-spinner fa-spin" ng-show="loading"></i>
 							</td>
 							<td width="20px"></td>
 						</tr>
@@ -47,7 +47,7 @@
 										</tr>
 									</thead>
 									<tr height="24px"></tr>
-									<tr height="40px" ng-show="viewModel.id > 0"> 
+									<tr height="40px" ng-show="viewModel.id > 0">
 										<td></td>
 										<td>
 											<b>Protocol</b>
@@ -214,10 +214,10 @@
 														</tr>
 													</thead>
 													<tr data-ng-repeat="mdl in viewModel.attendances">
-														<td style="color:black">{{ mdl.sfkUser }}</td>
-														<td style="color:black">{{ mdl.sdtLog }}</td>
-														<td style="color:black">{{ mdl.sfkOldState }} to {{ mdl.sfkNewState }}</td>
-														<td style="color:black">{{ mdl.stMessage }}</td>
+														<td>{{ mdl.sfkUser }}</td>
+														<td>{{ mdl.sdtLog }}</td>
+														<td>{{ mdl.sfkOldState }} to {{ mdl.sfkNewState }}</td>
+														<td>{{ mdl.stMessage }}</td>
 													</tr>
 												</table>
 											</div>
@@ -280,9 +280,9 @@
 														</tr>
 													</thead>
 													<tr data-ng-repeat="mdl in viewModel.messages">
-														<td style="color:black">{{ mdl.sfkUser }}</td>
-														<td style="color:black">{{ mdl.sdtLog }}</td>
-														<td style="color:black">{{ mdl.stMessage }}</td>
+														<td>{{ mdl.sfkUser }}</td>
+														<td>{{ mdl.sdtLog }}</td>
+														<td>{{ mdl.stMessage }}</td>
 													</tr>
 												</table>
 											</div>
@@ -305,7 +305,7 @@
 					<br />
 					<br />
 				</div>
-			</section>			
+			</section>
 		</td>
 	</tr>
 </table>

@@ -26237,6 +26237,10 @@ body {
 	padding-right: 30px;
 }
 
+.table tbody tr td {
+	color:black;
+}
+
 .table-hover > thead  {
 	background-color: rgba(23,101,124,1);
 	color:black;
@@ -26244,7 +26248,7 @@ body {
 
 .table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
 	background-color: darkseagreen;
-	color:white;
+	color:black;
 }
 
 .table-hover
