@@ -12,7 +12,7 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 	.state('site_register', { url: '/register', templateUrl: 'app/site/register/register.html', controller: 'RegisterController', data: {} })
 	.state('site_features', { url: '/features', templateUrl: 'app/site/features/features.html', controller: 'FeaturesController', data: {} })
 	.state('site_videos', { url: '/videos', templateUrl: 'app/site/videos/videos.html', controller: 'VideosController', data: {} })
-	.state('site_customization', { url: '/customization', templateUrl: 'app/site/customization/customization.html', controller: 'CustomizationController', data: {} })
+	.state('site_customization', { url: '/site_customization', templateUrl: 'app/site/customization/site_customization.html', controller: 'SiteCustomizationController', data: {} })
 	.state('site_simulation', { url: '/simulation', templateUrl: 'app/site/simulation/simulation.html', controller: 'SimulationController', data: {} })
 		
 	.state('clientPanel', { url: '/clientPanel', templateUrl: 'app/clientPanel/clientPanel.html', controller: 'ClientPanelController', data: {} })

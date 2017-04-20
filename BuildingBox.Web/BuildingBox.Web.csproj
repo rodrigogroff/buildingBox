@@ -255,8 +255,8 @@
     <Content Include="app\clientPanel\tickets.html" />
     <Content Include="app\clientPanel\clientPanel.html" />
     <Content Include="app\clientPanel\clientPanelController.js" />
-    <Content Include="app\site\customization\customization.html" />
-    <Content Include="app\site\customization\CustomizationController.js" />
+    <Content Include="app\site\customization\site_customization.html" />
+    <Content Include="app\site\customization\SiteCustomizationController.js" />
     <Content Include="app\site\features\features.html" />
     <Content Include="app\site\features\FeaturesController.js" />
     <Content Include="app\site\home\HomeController.js" />

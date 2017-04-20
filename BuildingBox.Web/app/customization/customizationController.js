@@ -16,6 +16,10 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 
 	function init()
 	{
+		AuthService.fillAuthData();
+
+		$scope.authentication = AuthService.authentication;
+
 		if (id > 0)
 		{
 			$scope.loading = true;

@@ -98,7 +98,7 @@ namespace BuildingBox.Web
 				"~/app/site/login/AuthInterceptorService.js",
 				"~/app/site/login/AuthService.js",
 				"~/app/site/login/LoginController.js",
-				"~/app/site/customization/CustomizationController.js",
+				"~/app/site/customization/SiteCustomizationController.js",
 				"~/app/site/videos/VideosController.js",
 				"~/app/site/register/RegisterController.js",
 				"~/app/site/simulation/SimulationController.js",
