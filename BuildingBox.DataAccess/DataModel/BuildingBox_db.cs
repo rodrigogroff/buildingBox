@@ -47,5 +47,13 @@ namespace DataModel
 			if (ret == null) { ret = UserContracts.Find((long)id); Cache[tag] = ret; }
 			return ret;
 		}
+
+		public UserCustomization UserCustomization(long? id)
+		{
+			if (id == null) return null;
+			var tag = "UserCustomization" + id; var ret = Cache[tag] as UserCustomization;
+			if (ret == null) { ret = UserCustomizations.Find((long)id); Cache[tag] = ret; }
+			return ret;
+		}
 	}
 }

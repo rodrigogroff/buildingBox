@@ -4,20 +4,19 @@ using System.Web.Http;
 
 namespace BuildingBox.Web.Controllers
 {
-	public class UserContractController : ApiControllerBase
+	public class UserCustomizationController : ApiControllerBase
 	{
 		public IHttpActionResult Get()
 		{
 			using (var db = new BuildingBoxDB())
 			{
-				var count = 0; var mdl = new UserContract();
+				var count = 0; var mdl = new UserCustomization();
 
-				var results = mdl.ComposedFilters(db, ref count, new UserContractFilter()
+				var results = mdl.ComposedFilters(db, ref count, new UserCustomizationFilter()
 				{
 					skip = Request.GetQueryStringValue("skip", 0),
 					take = Request.GetQueryStringValue("take", 15),
-					busca = Request.GetQueryStringValue("busca")?.ToUpper(),
-					fkUser = Request.GetQueryStringValue<long?>("fkUser", null)
+					busca = Request.GetQueryStringValue("busca")?.ToUpper()
 				});
 
 				return Ok(new { count = count, results = results });
@@ -28,7 +27,7 @@ namespace BuildingBox.Web.Controllers
 		{
 			using (var db = new BuildingBoxDB())
 			{
-				var model = db.UserContract(id);
+				var model = db.UserCustomization(id);
 
 				if (model != null)
 					return Ok(model.LoadAssociations(db));
@@ -37,7 +36,7 @@ namespace BuildingBox.Web.Controllers
 			}
 		}
 
-		public IHttpActionResult Post(UserContract mdl)
+		public IHttpActionResult Post(UserCustomization mdl)
 		{
 			using (var db = new BuildingBoxDB())
 			{
@@ -50,7 +49,7 @@ namespace BuildingBox.Web.Controllers
 			}
 		}
 
-		public IHttpActionResult Put(long id, UserContract mdl)
+		public IHttpActionResult Put(long id, UserCustomization mdl)
 		{
 			using (var db = new BuildingBoxDB())
 			{

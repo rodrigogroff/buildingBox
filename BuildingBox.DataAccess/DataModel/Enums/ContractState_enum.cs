@@ -17,7 +17,8 @@ namespace DataModel
 							InitialSetup = 20,
 							PendingUpgradeSetup = 30,
 							UpgradeSetup = 40,
-							Ready = 50;
+							Ready = 50,
+							Cancelled = 100;
 
 		public EnumContractState()
 		{
@@ -26,6 +27,7 @@ namespace DataModel
 			lst.Add(new ContractState() { id = PendingUpgradeSetup, stName = "Pending (plan upgrade)" });
 			lst.Add(new ContractState() { id = UpgradeSetup, stName = "Testing" });
 			lst.Add(new ContractState() { id = Ready, stName = "Ready" });
+			lst.Add(new ContractState() { id = Cancelled, stName = "Cancelled" });
 		}
 
 		public ContractState Get(long _id)

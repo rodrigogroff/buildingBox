@@ -1,2 +1,75 @@
 ﻿<div style="background:rgba(15, 43, 89, 0.35);min-height:500px;color:black">
+
+	<legend class="legendTop">
+		<table><tr height="12px"><td> </td></tr></table>
+		<table style="color:white; width:100%">
+			<tr>
+				<td width="20px"></td>
+				<td><b>Customizations </b> listing <i class="fa fa-spinner fa-spin" ng-show="loading"></i></td>
+				<td width="80px"></td>
+				<td><input type="submit" class="btn btn-success pull-right" value="New" ng-click="new()"></td>
+				<td width="20px"></td>
+			</tr>
+			<tr height="12px"></tr>
+		</table>
+	</legend>
+
+	<div class="divWebForm" style="width:1050px">
+		<table width="100%">
+			<tr>
+				<td width="15px"></td>
+				<td valign="top">
+					<ng-filtro tipo="contracts" campos="campos" template-avancado="app/clientPanel/_filterCustomizations.html"
+							   funcao-pesquisar="search"></ng-filtro>
+				</td>
+			</tr>
+		</table>
+		<table width="100%">
+			<tr>
+				<td valign="top">
+					<div ng-show="list.length == 0">
+						<br />
+						<br />
+						<div class="btn btn-info btn-lg">No records found.</div>
+						<br />
+						<br />
+					</div>
+					<div ng-show="list.length > 0">
+						<br />
+						<ng-paginacao carregar="load" list="list" total="total" itensporpagina="itensporpagina" paginador="paginador"></ng-paginacao>
+						<br />
+						<table class="table table-hover" width="700px">
+							<thead>
+								<tr>
+									<th width="150px">Creation Date</th>
+									<th width="180px">Contract</th>
+									<th width="120px">Protocol</th>
+									<th width="120px">Version</th>
+									<th width="140px">State</th>
+									<th width="140px">Last Update</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tr data-ng-repeat="mdl in list">
+								<td>{{ mdl.sdtCreation }}</td>
+								<td>{{ mdl.sfkContract }}</td>
+								<td>{{ mdl.stProtocol }}</td>
+								<td>{{ mdl.stVersion }}</td>
+								<td>{{ mdl.sfkCustomizationState }}</td>
+								<td>{{ mdl.sdtUpdate }}</td>
+								<td>
+									<div class="pull-right">
+										<a href="" role="button" ng-click="show(mdl)">
+											<i class="glyphicon glyphicon-share" style="color:black"></i>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br />
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>

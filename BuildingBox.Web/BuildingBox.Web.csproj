@@ -235,9 +235,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\clientPanel\_filterCustomizations.html" />
     <Content Include="app\clientPanel\_filterContracts.html" />
     <Content Include="app\contract\contract.html" />
     <Content Include="app\contract\contractController.js" />
+    <Content Include="app\customization\customization.html" />
+    <Content Include="app\customization\customizationController.js" />
     <Content Include="app\site\about\about.html" />
     <Content Include="app\site\about\AboutController.js" />
     <Content Include="app\app.js" />
@@ -286,7 +289,7 @@
     <Content Include="app\_shared\controllers.spec.js" />
     <Content Include="app\_shared\directives.js" />
     <Content Include="app\_shared\directives.spec.js" />
-    <Content Include="app\_shared\services.js" />
+    <Content Include="app\services.js" />
     <Content Include="app\_shared\services.spec.js" />
     <Content Include="app\site\home\home.html" />
     <Content Include="app\_shared\NgSelectsService.js" />
@@ -821,6 +824,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\clientPanel\UserCustomizationCtrl.cs" />
+    <Compile Include="Controllers\Enums\CustomizationStateController.cs" />
     <Compile Include="Controllers\Enums\ContractStateController.cs" />
     <Compile Include="Controllers\Enums\ContractTypeController.cs" />
     <Compile Include="Controllers\Enums\InfraCityController.cs" />

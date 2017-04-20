@@ -9,11 +9,11 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 	.state('home', { url: '/', templateUrl: 'app/site/home/home.html', controller: 'HomeController', data: {} })
 	.state('login', { url: '/login', templateUrl: 'app/site/login/login.html', controller: 'LoginController', data: {} })
 	
-	.state('register', { url: '/register', templateUrl: 'app/site/register/register.html', controller: 'RegisterController', data: {} })
-	.state('features', { url: '/features', templateUrl: 'app/site/features/features.html', controller: 'FeaturesController', data: {} })
-	.state('videos', { url: '/videos', templateUrl: 'app/site/videos/videos.html', controller: 'VideosController', data: {} })
-	.state('customization', { url: '/customization', templateUrl: 'app/site/customization/customization.html', controller: 'CustomizationController', data: {} })
-	.state('simulation', { url: '/simulation', templateUrl: 'app/site/simulation/simulation.html', controller: 'SimulationController', data: {} })
+	.state('site_register', { url: '/register', templateUrl: 'app/site/register/register.html', controller: 'RegisterController', data: {} })
+	.state('site_features', { url: '/features', templateUrl: 'app/site/features/features.html', controller: 'FeaturesController', data: {} })
+	.state('site_videos', { url: '/videos', templateUrl: 'app/site/videos/videos.html', controller: 'VideosController', data: {} })
+	.state('site_customization', { url: '/customization', templateUrl: 'app/site/customization/customization.html', controller: 'CustomizationController', data: {} })
+	.state('site_simulation', { url: '/simulation', templateUrl: 'app/site/simulation/simulation.html', controller: 'SimulationController', data: {} })
 		
 	.state('clientPanel', { url: '/clientPanel', templateUrl: 'app/clientPanel/clientPanel.html', controller: 'ClientPanelController', data: {} })
 	.state('clientPanel.tickets', { url: '/clientPanel/tickets', templateUrl: 'app/clientPanel/tickets.html', controller: 'ClientPanelTicketsController', data: {} })
@@ -26,6 +26,9 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 
 	.state('contract', { url: '/contract/:id', templateUrl: 'app/contract/contract.html', controller: 'ContractController' })
 	.state('contract-new', { url: '/contract/new', templateUrl: 'app/contract/contract.html', controller: 'ContractController' })
+
+	.state('customization', { url: '/customization/:id', templateUrl: 'app/customization/customization.html', controller: 'CustomizationController' })
+	.state('customization-new', { url: '/customization/new', templateUrl: 'app/customization/customization.html', controller: 'CustomizationController' })
 
 	.state('about', { url: '/about', templateUrl: 'app/site/about/about.html', controller: 'AboutController', data: {} })
 	.state('otherwise', { url: '/', templateUrl: 'app/site/home/home.html', controller: 'HomeController', data: {} })

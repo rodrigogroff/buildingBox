@@ -78,7 +78,7 @@ namespace BuildingBox.Web
 
 			bundles.Add(new ScriptBundle("~/bundles/app").Include(
 				"~/app/_shared/filters.js",
-				"~/app/_shared/services.js",
+				"~/app/services.js",
 				"~/app/_shared/directives.js",
 				"~/app/_shared/directives.validator.js",
 				"~/app/_shared/filtro/diretivaFiltro.js",
@@ -109,7 +109,9 @@ namespace BuildingBox.Web
 				"~/app/clientPanel/ClientPanelCustomizationsController.js",
 				"~/app/clientPanel/ClientPanelSetupController.js",
 				"~/app/clientPanel/ClientPanelTicketsController.js",
+
 				"~/app/ticket/TicketController.js",
+				"~/app/customization/CustomizationController.js",
 				"~/app/contract/ContractController.js"
 
 				));

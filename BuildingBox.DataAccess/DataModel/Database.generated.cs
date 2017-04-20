@@ -19,12 +19,14 @@ namespace DataModel
 	/// </summary>
 	public partial class BuildingBoxDB : LinqToDB.Data.DataConnection
 	{
-		public ITable<Ticket>            Tickets            { get { return this.GetTable<Ticket>(); } }
-		public ITable<TicketMessage>     TicketMessages     { get { return this.GetTable<TicketMessage>(); } }
-		public ITable<TicketWorkFlow>    TicketWorkFlows    { get { return this.GetTable<TicketWorkFlow>(); } }
-		public ITable<User>              Users              { get { return this.GetTable<User>(); } }
-		public ITable<UserContract>      UserContracts      { get { return this.GetTable<UserContract>(); } }
-		public ITable<UserContractState> UserContractStates { get { return this.GetTable<UserContractState>(); } }
+		public ITable<Ticket>                       Tickets                       { get { return this.GetTable<Ticket>(); } }
+		public ITable<TicketMessage>                TicketMessages                { get { return this.GetTable<TicketMessage>(); } }
+		public ITable<TicketWorkFlow>               TicketWorkFlows               { get { return this.GetTable<TicketWorkFlow>(); } }
+		public ITable<User>                         Users                         { get { return this.GetTable<User>(); } }
+		public ITable<UserContract>                 UserContracts                 { get { return this.GetTable<UserContract>(); } }
+		public ITable<UserContractState>            UserContractStates            { get { return this.GetTable<UserContractState>(); } }
+		public ITable<UserCustomization>            UserCustomizations            { get { return this.GetTable<UserCustomization>(); } }
+		public ITable<UserCustomizationStateChange> UserCustomizationStateChanges { get { return this.GetTable<UserCustomizationStateChange>(); } }
 
 		public BuildingBoxDB()
 		{
@@ -44,8 +46,8 @@ namespace DataModel
 	public partial class Ticket
 	{
 		[PrimaryKey, Identity] public long      id            { get; set; } // bigint
-		[Column,     Nullable] public DateTime? dtCreation    { get; set; } // timestamp (6) without time zone
 		[Column,     Nullable] public long?     fkContract    { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtCreation    { get; set; } // timestamp (6) without time zone
 		[Column,     Nullable] public DateTime? dtLog         { get; set; } // timestamp (6) without time zone
 		[Column,     Nullable] public long?     fkUserOpen    { get; set; } // bigint
 		[Column,     Nullable] public long?     fkTicketState { get; set; } // bigint
@@ -116,6 +118,34 @@ namespace DataModel
 		[Column,     Nullable] public long?     fkContractState { get; set; } // bigint
 	}
 
+	[Table(Schema="public", Name="UserCustomization")]
+	public partial class UserCustomization
+	{
+		[PrimaryKey, Identity] public long      id                   { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtCreation           { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public DateTime? dtUpdate             { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public long?     fkUser               { get; set; } // bigint
+		[Column,     Nullable] public long?     fkContract           { get; set; } // bigint
+		[Column,     Nullable] public long?     fkCustomizationState { get; set; } // bigint
+		[Column,     Nullable] public string    stProtocol           { get; set; } // character varying(20)
+		[Column,     Nullable] public string    stVersion            { get; set; } // character varying(20)
+		[Column,     Nullable] public string    stObjective          { get; set; } // character varying(200)
+		[Column,     Nullable] public long?     nuEstimateHours      { get; set; } // bigint
+		[Column,     Nullable] public long?     nuEstimateMinutes    { get; set; } // bigint
+		[Column,     Nullable] public bool?     bEstimativeApproval  { get; set; } // boolean
+		[Column,     Nullable] public bool?     bFinalApproval       { get; set; } // boolean
+	}
+
+	[Table(Schema="public", Name="UserCustomizationStateChange")]
+	public partial class UserCustomizationStateChange
+	{
+		[PrimaryKey, Identity] public long      id              { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtLog           { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public long?     fkUser          { get; set; } // bigint
+		[Column,     Nullable] public long?     fkCustomization { get; set; } // bigint
+		[Column,     Nullable] public long?     fkState         { get; set; } // bigint
+	}
+
 	public static partial class TableExtensions
 	{
 		public static Ticket Find(this ITable<Ticket> table, long id)
@@ -149,6 +179,18 @@ namespace DataModel
 		}
 
 		public static UserContractState Find(this ITable<UserContractState> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static UserCustomization Find(this ITable<UserCustomization> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static UserCustomizationStateChange Find(this ITable<UserCustomizationStateChange> table, long id)
 		{
 			return table.FirstOrDefault(t =>
 				t.id == id);

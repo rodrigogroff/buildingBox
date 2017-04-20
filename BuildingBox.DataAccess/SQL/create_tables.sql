@@ -4,6 +4,8 @@ DROP TABLE public."TicketMessage";
 DROP TABLE public."TicketWorkFlow";
 DROP TABLE public."UserContract";
 DROP TABLE public."UserContractState";
+DROP TABLE public."UserCustomization";
+DROP TABLE public."UserCustomizationStateChange"
 
 CREATE TABLE public."User"
 (
@@ -88,7 +90,7 @@ CREATE TABLE public."UserContract"
     id bigserial NOT NULL,
 	"fkContractState" bigint,
 	"dtCreation" timestamp without time zone,	
-	"stProtocol" character varying(200),
+	"stProtocol" character varying(20),
 	"stDNS" character varying(200),
 	"fkUser" bigint,
 	"fkContractType" bigint,
@@ -121,4 +123,46 @@ WITH (
 TABLESPACE pg_default;
 
 ALTER TABLE public."UserContractState"
+    OWNER to postgres;
+
+CREATE TABLE public."UserCustomization"
+(
+    id bigserial NOT NULL,
+	"dtCreation" timestamp without time zone,	
+	"dtUpdate" timestamp without time zone,	
+	"fkUser" bigint,
+	"fkContract" bigint,
+	"fkCustomizationState" bigint,
+	"stProtocol" character varying(20),
+	"stVersion" character varying(20),
+	"stObjective" character varying(200),
+	"nuEstimateHours" bigint,
+	"nuEstimateMinutes" bigint,
+	"bEstimativeApproval" boolean,
+	"bFinalApproval" boolean,
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."UserCustomization"
+    OWNER to postgres;
+
+CREATE TABLE public."UserCustomizationStateChange"
+(
+    id bigserial NOT NULL,
+	"dtLog" timestamp without time zone,	
+	"fkUser" bigint,
+	"fkCustomization" bigint,
+	"fkState" bigint,
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."UserCustomizationStateChange"
     OWNER to postgres;
