@@ -17,7 +17,43 @@ namespace DataModel
 
 			stName = stProtocol + " - " + stVersion;
 
+			estimates = LoadEstimates(db);
+			stateChanges = LoadStateChanges(db);
+
 			return this;
+		}
+
+		List<UserCustomizationEstimateLog> LoadEstimates(BuildingBoxDB db)
+		{
+			var lst = (from e in db.UserCustomizationEstimateLogs
+					   where e.fkCustomization == this.id
+					   select e).
+					   ToList();
+
+			foreach (var item in lst)
+			{
+				item.sdtLog = GetDateTimeString(item.dtLog);
+				item.sfkUser = db.User(item.fkUser).stContactEmail;
+			}
+
+			return lst;
+		}
+
+		List<UserCustomizationStateChange> LoadStateChanges(BuildingBoxDB db)
+		{
+			var lst = (from e in db.UserCustomizationStateChanges
+					   where e.fkCustomization == this.id
+					   select e).
+					   ToList();
+
+			foreach (var item in lst)
+			{
+				item.sdtLog = GetDateTimeString(item.dtLog);
+				item.sfkUser = db.User(item.fkUser).stContactEmail;
+				item.sfkState = new EnumCustomizationState().Get((long)item.fkState).stName;
+			}
+
+			return lst;
 		}
 	}
 }

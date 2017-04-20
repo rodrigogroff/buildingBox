@@ -26168,6 +26168,31 @@ table.table thead .sorting_desc_disabled {
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
+  color: white;
+}
+
+
+.tabs-leftBlack > .nav-tabs > li {
+  float: none;
+}
+
+.tabs-leftBlack > .nav-tabs > li > a {
+  min-width: 150px;
+  margin-right: 0;
+  margin-bottom: 3px;
+}
+
+.tabs-leftBlack > .nav-tabs {
+  float: left;
+  margin-right: 19px;
+  border-right: 1px solid #ddd;
+}
+
+.tabs-leftBlack > .nav-tabs > li > a {
+  margin-right: -1px;
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
   color: black;
 }
 
@@ -26179,35 +26204,8 @@ table.table thead .sorting_desc_disabled {
 .tabs-left > .nav-tabs .active > a,
 .tabs-left > .nav-tabs .active > a:hover,
 .tabs-left > .nav-tabs .active > a:focus {
-  /*border-color: #ddd transparent #ddd #ddd;*/
-  /**border-right-color: #ffffff;*/
   color: black;
   background-color: goldenrod;
-}
-
-.tabs-right > .nav-tabs {
-  float: right;
-  margin-left: 19px;
-  border-left: 1px solid #ddd;
-}
-
-.tabs-right > .nav-tabs > li > a {
-  margin-left: -1px;
-  -webkit-border-radius: 0 4px 4px 0;
-  -moz-border-radius: 0 4px 4px 0;
-  border-radius: 0 4px 4px 0;
-}
-
-.tabs-right > .nav-tabs > li > a:hover,
-.tabs-right > .nav-tabs > li > a:focus {
-  border-color: #eeeeee #eeeeee #eeeeee #dddddd;
-}
-
-.tabs-right > .nav-tabs .active > a,
-.tabs-right > .nav-tabs .active > a:hover,
-.tabs-right > .nav-tabs .active > a:focus {
-  border-color: #ddd #ddd #ddd transparent;
-  *border-left-color: #ffffff;
 }
 
 .webFormPostion {

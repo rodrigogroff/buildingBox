@@ -6,6 +6,7 @@ DROP TABLE public."UserContract";
 DROP TABLE public."UserContractState";
 DROP TABLE public."UserCustomization";
 DROP TABLE public."UserCustomizationStateChange"
+DROP TABLE public."UserCustomizationEstimateLog"
 
 CREATE TABLE public."User"
 (
@@ -153,7 +154,7 @@ ALTER TABLE public."UserCustomization"
 CREATE TABLE public."UserCustomizationStateChange"
 (
     id bigserial NOT NULL,
-	"dtLog" timestamp without time zone,	
+	"dtLog" timestamp without time zone,
 	"fkUser" bigint,
 	"fkCustomization" bigint,
 	"fkState" bigint,
@@ -165,4 +166,22 @@ WITH (
 TABLESPACE pg_default;
 
 ALTER TABLE public."UserCustomizationStateChange"
+    OWNER to postgres;
+
+CREATE TABLE public."UserCustomizationEstimateLog"
+(
+    id bigserial NOT NULL,
+	"dtLog" timestamp without time zone,
+	"fkCustomization" bigint,
+	"fkUser" bigint,
+	"nuHours" bigint,
+	"nuMinutes" bigint,
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."UserCustomizationEstimateLog"
     OWNER to postgres;

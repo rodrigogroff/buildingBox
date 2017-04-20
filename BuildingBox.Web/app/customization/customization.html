@@ -35,7 +35,7 @@
 				<div class="divWebForm">
 					<tabset class="tabs-left" style="min-height:320px;font-size:13px;width:850px">
 						<tab heading="Data">
-							<div style="width:100%;min-height:490px;background:rgba(15, 43, 89, 0.25);">
+							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
 								<table>
 									<thead>
 										<tr>
@@ -126,6 +126,136 @@
 										<td></td>
 									</tr>
 									<tr height="32px"></tr>
+								</table>
+							</div>
+						</tab>
+						<tab heading="States">
+							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
+								<table>
+									<thead>
+										<tr>
+											<th width="30px"></th>
+											<th width="140px"></th>
+											<th width="20px"></th>
+											<th width="450px"></th>
+											<th width="20px"></th>
+										</tr>
+									</thead>
+									<tr height="24px"></tr>
+									<tr height="46px">
+										<td></td>
+										<td>
+											<b>Current State</b>
+										</td>
+										<td></td>
+										<td>
+											<input type="hidden" style="width:200px" ui-select2="selectCustomizationState" ng-disabled="viewModel.id > 0" ng-model="viewModel.fkCustomizationState" />
+										</td>
+										<td></td>
+									</tr>
+									<tr height="46px">
+										<td></td>
+										<td>
+											<b>New State</b>
+										</td>
+										<td></td>
+										<td>
+											<input type="hidden" style="width:200px" ui-select2="selectCustomizationState" ng-model="viewModel.fkNewCustomizationState" />
+										</td>
+										<td></td>
+									</tr>
+								</table>
+								<br />
+								<div ng-show="viewModel.stateChanges.length > 0" style="padding-left:30px">
+									<br />
+									<table class="table table-hover" style="width:500px">
+										<thead>
+											<tr>
+												<th width="120px">User</th>
+												<th width="120px">Date</th>
+												<th width="150px">State</th>
+											</tr>
+										</thead>
+										<tr data-ng-repeat="mdl in viewModel.stateChanges">
+											<td>{{ mdl.sfkUser }}</td>
+											<td>{{ mdl.sdtLog }}</td>
+											<td>{{ mdl.sfkState }}</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</tab>
+						<tab heading="Estimation">
+							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
+								<table>
+									<thead>
+										<tr>
+											<th width="30px"></th>
+											<th width="140px"></th>
+											<th width="20px"></th>
+											<th width="450px"></th>
+											<th width="20px"></th>
+										</tr>
+									</thead>
+									<tr height="24px"></tr>
+									<tr height="46px">
+										<td></td>
+										<td>
+											<b>Estimative (hours)</b>
+										</td>
+										<td></td>
+										<td>
+											<input type="number" style="width:80px" class="form-control input-transparent" maxlength="5" ng-model="viewModel.nuEstimateHours">
+										</td>
+										<td></td>
+									</tr>
+									<tr height="46px">
+										<td></td>
+										<td>
+											<b>Estimative (minutes)</b>
+										</td>
+										<td></td>
+										<td>
+											<input type="number" style="width:80px" class="form-control input-transparent" maxlength="5" ng-model="viewModel.nuEstimateMinutes">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+								<br />
+								<div ng-show="viewModel.estimates.length > 0" style="padding-left:30px">
+									<br />
+									<table class="table table-hover" style="width:500px">
+										<thead>
+											<tr>
+												<th width="120px">User</th>
+												<th width="120px">Date</th>
+												<th width="60px">Hours</th>
+												<th width="60px">Minutes</th>
+											</tr>
+										</thead>
+										<tr data-ng-repeat="mdl in viewModel.estimates">
+											<td>{{ mdl.sfkUser }}</td>
+											<td>{{ mdl.sdtLog }}</td>
+											<td>{{ mdl.nuHours }}</td>
+											<td>{{ mdl.nuMinutes }}</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</tab>
+						<tab heading="Approvals">
+							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
+								<table>
+									<thead>
+										<tr>
+											<th width="30px"></th>
+											<th width="140px"></th>
+											<th width="20px"></th>
+											<th width="450px"></th>
+											<th width="20px"></th>
+										</tr>
+									</thead>
+									<tr height="24px"></tr>
 								</table>
 							</div>
 						</tab>

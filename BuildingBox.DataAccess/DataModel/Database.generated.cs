@@ -26,6 +26,7 @@ namespace DataModel
 		public ITable<UserContract>                 UserContracts                 { get { return this.GetTable<UserContract>(); } }
 		public ITable<UserContractState>            UserContractStates            { get { return this.GetTable<UserContractState>(); } }
 		public ITable<UserCustomization>            UserCustomizations            { get { return this.GetTable<UserCustomization>(); } }
+		public ITable<UserCustomizationEstimateLog> UserCustomizationEstimateLogs { get { return this.GetTable<UserCustomizationEstimateLog>(); } }
 		public ITable<UserCustomizationStateChange> UserCustomizationStateChanges { get { return this.GetTable<UserCustomizationStateChange>(); } }
 
 		public BuildingBoxDB()
@@ -136,6 +137,17 @@ namespace DataModel
 		[Column,     Nullable] public bool?     bFinalApproval       { get; set; } // boolean
 	}
 
+	[Table(Schema="public", Name="UserCustomizationEstimateLog")]
+	public partial class UserCustomizationEstimateLog
+	{
+		[PrimaryKey, Identity] public long      id              { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtLog           { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public long?     fkCustomization { get; set; } // bigint
+		[Column,     Nullable] public long?     fkUser          { get; set; } // bigint
+		[Column,     Nullable] public long?     nuHours         { get; set; } // bigint
+		[Column,     Nullable] public long?     nuMinutes       { get; set; } // bigint
+	}
+
 	[Table(Schema="public", Name="UserCustomizationStateChange")]
 	public partial class UserCustomizationStateChange
 	{
@@ -185,6 +197,12 @@ namespace DataModel
 		}
 
 		public static UserCustomization Find(this ITable<UserCustomization> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static UserCustomizationEstimateLog Find(this ITable<UserCustomizationEstimateLog> table, long id)
 		{
 			return table.FirstOrDefault(t =>
 				t.id == id);

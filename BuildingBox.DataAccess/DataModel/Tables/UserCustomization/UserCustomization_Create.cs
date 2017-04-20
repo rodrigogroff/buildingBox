@@ -16,7 +16,15 @@ namespace DataModel
 			stProtocol = GetProtocol();			
 
 			id = Convert.ToInt64(db.InsertWithIdentity(this));
-			
+
+			db.Insert(new UserCustomizationStateChange
+			{
+				dtLog = DateTime.Now,
+				fkCustomization = this.id,
+				fkState = fkCustomizationState,
+				fkUser = user.id
+			});
+
 			return true;
 		}
 	}
