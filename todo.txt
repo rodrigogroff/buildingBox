@@ -1,68 +1,24 @@
 
-// Register
+- Register
 
-Client Name		[             ]
-Country			[             ] // text
-GMT				<             >
-Contact Email	[             ]
-Login Name		[             ]	
-Password		[			  ]
+	+ Meetings  (schedule) -> $ pushed to next billing
 
-[ Register ]	
+	+ Contract
 
--------------------------------------------------------------
+		(server DevKit delivered)
+					
+	+ Customization [/contract]
 
-// Login 
+		(client delivers analysis over documentation)
+			(total hours estimated by building box)
+				(approved hours by client)
+					(pending payment (pay first method))
 
-Login Name		[             ]	
-Password		[			  ]
-
-[ Login ]
-
----------------------------------------------------------------
-
-// Main screen
-
-// abas
-[ Tickets ] [ Contracts ] [ Customizations ]
-
-[ News ] [ Surveys ]
-
----------------------------------------------------------------
-
-Customizations: 
-
-- Current documentation  [download]
-- 
-
----------------------------------------------------------------
-
-
-    - continents: 
-		- america, europe, australia, asia
-
-    - america: 
-		- country (US)
-			- city: Dallas, Miami, Silicon Valley, Atlanta, Chicago, Los-Angeles, New York (NJ), Seattle
-
-    - europe: 
-		- country: (Germany), 
-			- city: Frankfurt 
-		- country: (France)
-			- city: Paris
-		- country: (Netherlands)
-			- city: Amsterdam
-		- country: (UK)
-			- city: London
-			
-    - australia:
-		- country (australia)
-			- city: Sydney
-    - asia: 
-		- country (Singapore)
-			- city: Singapore, 
-		- country: (Japan)
-			- city: Tokyo
-
-
-
+						+ New project (maintenance) in client DevKit
+							(execution)
+							(working hours registered) 
+							(bugs reported (re-work free))
+							(homologation)
+								(version accepted)
+									(devkit upgraded)
+									
