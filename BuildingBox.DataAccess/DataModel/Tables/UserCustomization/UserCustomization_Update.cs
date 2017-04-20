@@ -23,6 +23,12 @@ namespace DataModel
 										   OrderBy(y => y.id).
 										   FirstOrDefault();
 
+						if (this.nuEstimateHours == null)
+							this.nuEstimateHours = 0;
+
+						if (this.nuEstimateMinutes == null)
+							this.nuEstimateMinutes = 0;
+
 						var insertEstimate = true;
 
 						if (oldEstimate != null)
@@ -31,28 +37,45 @@ namespace DataModel
 						
 						if (insertEstimate)
 						{
-							db.Insert(new UserCustomizationEstimateLog
+							if (this.nuEstimateHours > 0 || this.nuEstimateMinutes > 0)
 							{
-								dtLog = DateTime.Now,
-								fkUser = user.id,
-								fkCustomization = this.id,
-								nuHours = this.nuEstimateHours,
-								nuMinutes = this.nuEstimateMinutes,
-							});
+								db.Insert(new UserCustomizationEstimateLog
+								{
+									dtLog = DateTime.Now,
+									fkUser = user.id,
+									fkCustomization = this.id,
+									nuHours = this.nuEstimateHours,
+									nuMinutes = this.nuEstimateMinutes,
+								});
+							}
 						}
-
-						if (fkNewCustomizationState != oldCustomization.fkCustomizationState)
+						
+						if (fkNewCustomizationState > 0)
 						{
-							db.Insert(new UserCustomizationStateChange
+							if (fkNewCustomizationState != oldCustomization.fkCustomizationState)
 							{
-								dtLog = DateTime.Now,
-								fkCustomization = this.id,
-								fkState = fkNewCustomizationState,
-								fkUser = user.id
-							});
+								db.Insert(new UserCustomizationStateChange
+								{
+									dtLog = DateTime.Now,
+									fkCustomization = this.id,
+									fkState = fkNewCustomizationState,
+									fkUser = user.id
+								});
+							}
+
+							this.fkCustomizationState = fkNewCustomizationState;
 						}
 
-						this.fkCustomizationState = fkNewCustomizationState;
+						if (bEstimativeApproval == true)
+							if (dtEstimativeApproval == null)
+								if (user.fkClientType == UserType.Client)
+									dtEstimativeApproval = DateTime.Now;
+
+						if (bFinalApproval == true)
+							if (dtFinalApproval == null)
+								if (user.fkClientType == UserType.Client)
+									dtFinalApproval = DateTime.Now;
+
 						this.dtUpdate = DateTime.Now;
 
 						db.Update(this);

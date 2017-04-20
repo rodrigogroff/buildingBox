@@ -5,8 +5,8 @@ DROP TABLE public."TicketWorkFlow";
 DROP TABLE public."UserContract";
 DROP TABLE public."UserContractState";
 DROP TABLE public."UserCustomization";
-DROP TABLE public."UserCustomizationStateChange"
-DROP TABLE public."UserCustomizationEstimateLog"
+DROP TABLE public."UserCustomizationStateChange";
+DROP TABLE public."UserCustomizationEstimateLog";
 
 CREATE TABLE public."User"
 (
@@ -140,7 +140,9 @@ CREATE TABLE public."UserCustomization"
 	"nuEstimateHours" bigint,
 	"nuEstimateMinutes" bigint,
 	"bEstimativeApproval" boolean,
+	"dtEstimativeApproval" timestamp without time zone,	
 	"bFinalApproval" boolean,
+	"dtFinalApproval" timestamp without time zone,	
     PRIMARY KEY (id)
 )
 WITH (

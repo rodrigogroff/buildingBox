@@ -11,6 +11,8 @@ namespace DataModel
 						sdtCreation,
 						sfkContract,
 						sfkCustomizationState,
+						sdtEstimativeApproval,
+						sdtFinalApproval,
 						sdtUpdate;
 
 		public long fkNewCustomizationState;

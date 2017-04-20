@@ -134,7 +134,9 @@ namespace DataModel
 		[Column,     Nullable] public long?     nuEstimateHours      { get; set; } // bigint
 		[Column,     Nullable] public long?     nuEstimateMinutes    { get; set; } // bigint
 		[Column,     Nullable] public bool?     bEstimativeApproval  { get; set; } // boolean
+		[Column,     Nullable] public DateTime? dtEstimativeApproval { get; set; } // timestamp (6) without time zone
 		[Column,     Nullable] public bool?     bFinalApproval       { get; set; } // boolean
+		[Column,     Nullable] public DateTime? dtFinalApproval      { get; set; } // timestamp (6) without time zone
 	}
 
 	[Table(Schema="public", Name="UserCustomizationEstimateLog")]

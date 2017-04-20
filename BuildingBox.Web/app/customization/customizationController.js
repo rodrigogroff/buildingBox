@@ -86,4 +86,12 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 		$state.go('clientPanel');
 	}
 
+	$scope.confirmEstimate = function () {
+		$scope.viewModel.bEstimativeApproval = true;
+	}
+
+	$scope.confirmFinal = function () {
+		$scope.viewModel.bFinalApproval = true;
+	}
+
 }]);

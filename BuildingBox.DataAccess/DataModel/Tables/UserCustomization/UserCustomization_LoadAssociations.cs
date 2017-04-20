@@ -12,8 +12,13 @@ namespace DataModel
 
 			sdtCreation = GetDateTimeString(dtCreation);
 			sdtUpdate = GetDateTimeString(dtUpdate);
+			sdtEstimativeApproval = GetDateTimeString(dtEstimativeApproval);
+			sdtFinalApproval = GetDateTimeString(dtFinalApproval);
+
 			sfkContract = contract.stProtocol + " - " + new EnumInfraCity().Get((long)contract.fkCity).stName;
-			sfkCustomizationState = new EnumCustomizationState().Get((long)this.fkCustomizationState).stName;
+
+			if (fkCustomizationState > 0)
+				sfkCustomizationState = new EnumCustomizationState().Get((long)this.fkCustomizationState).stName;
 
 			stName = stProtocol + " - " + stVersion;
 
@@ -44,6 +49,7 @@ namespace DataModel
 			var lst = (from e in db.UserCustomizationStateChanges
 					   where e.fkCustomization == this.id
 					   select e).
+					   OrderByDescending (y=> y.id).
 					   ToList();
 
 			foreach (var item in lst)

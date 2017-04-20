@@ -129,7 +129,8 @@
 								</table>
 							</div>
 						</tab>
-						<tab heading="States">
+						<tab heading="States" disabled="true" ng-if="viewModel.id == undefined"></tab>
+						<tab heading="States" ng-if="viewModel.id != undefined">
 							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
 								<table>
 									<thead>
@@ -185,7 +186,8 @@
 								</div>
 							</div>
 						</tab>
-						<tab heading="Estimation">
+						<tab heading="Estimation" disabled="true" ng-if="viewModel.id == undefined"></tab>
+						<tab heading="Estimation" ng-if="viewModel.id != undefined">
 							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
 								<table>
 									<thead>
@@ -243,19 +245,62 @@
 								</div>
 							</div>
 						</tab>
-						<tab heading="Approvals">
+						<tab heading="Approvals" disabled="true" ng-if="viewModel.id == undefined"></tab>
+						<tab heading="Approvals" ng-if="viewModel.id != undefined">
 							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
 								<table>
 									<thead>
 										<tr>
 											<th width="30px"></th>
-											<th width="140px"></th>
+											<th width="180px"></th>
 											<th width="20px"></th>
-											<th width="450px"></th>
+											<th width="250px"></th>
 											<th width="20px"></th>
 										</tr>
 									</thead>
 									<tr height="24px"></tr>
+									<tr height="52px">
+										<td></td>
+										<td>
+											<b>Estimate Approved?</b>
+										</td>
+										<td></td>
+										<td>
+											<div ng-if="viewModel.bEstimativeApproval == true">
+												<div ng-if="viewModel.bEstimativeApproval == undefined">
+													<button class="btn btn-success">Confirmed</button>
+												</div>
+												<div ng-if="viewModel.sdtEstimativeApproval != undefined">
+													<button class="btn btn-success" style="color:black">{{viewModel.sdtEstimativeApproval}}</button>
+												</div>
+											</div>
+											<div ng-if="viewModel.bEstimativeApproval == undefined">
+												<button class="btn btn-danger" ng-click="confirmEstimate()">Confirm estimate</button>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+									<tr height="52px">
+										<td></td>
+										<td>
+											<b>Customization Approved?</b>
+										</td>
+										<td></td>
+										<td>
+											<div ng-if="viewModel.bFinalApproval == true">
+												<div ng-if="viewModel.bFinalApproval == undefined">
+													<button class="btn btn-success">Confirmed</button>
+												</div>
+												<div ng-if="viewModel.sdtFinalApproval != undefined">
+													<button class="btn btn-success" style="color:black">{{viewModel.sdtFinalApproval}}</button>
+												</div>
+											</div>
+											<div ng-if="viewModel.bFinalApproval == undefined">
+												<button class="btn btn-danger" ng-click="confirmFinal()">Confirm customization</button>
+											</div>
+										</td>
+										<td></td>
+									</tr>
 								</table>
 							</div>
 						</tab>

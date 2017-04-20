@@ -17,8 +17,7 @@
 			<tr>
 				<td width="15px"></td>
 				<td valign="top">
-					<ng-filtro tipo="contracts" campos="campos" template-avancado="app/clientPanel/_filterCustomizations.html"
-							   funcao-pesquisar="search"></ng-filtro>
+					<ng-filtro tipo="contracts" campos="campos" template-avancado="app/clientPanel/_filterCustomizations.html" funcao-pesquisar="search"></ng-filtro>
 				</td>
 			</tr>
 		</table>
@@ -40,8 +39,8 @@
 							<thead>
 								<tr>
 									<th width="150px">Creation Date</th>
-									<th width="180px">Contract</th>
 									<th width="120px">Protocol</th>
+									<th width="180px">Contract</th>									
 									<th width="120px">Version</th>
 									<th width="140px">State</th>
 									<th width="140px">Last Update</th>
@@ -50,8 +49,8 @@
 							</thead>
 							<tr data-ng-repeat="mdl in list">
 								<td>{{ mdl.sdtCreation }}</td>
-								<td>{{ mdl.sfkContract }}</td>
 								<td>{{ mdl.stProtocol }}</td>
+								<td>{{ mdl.sfkContract }}</td>								
 								<td>{{ mdl.stVersion }}</td>
 								<td>{{ mdl.sfkCustomizationState }}</td>
 								<td>{{ mdl.sdtUpdate }}</td>
