@@ -3,10 +3,6 @@
 
 	+ Meetings  (schedule) -> $ pushed to next billing
 
-	+ Contract
-
-		(server DevKit delivered)
-					
 	+ Customization [/contract]
 
 		(client delivers analysis over documentation)

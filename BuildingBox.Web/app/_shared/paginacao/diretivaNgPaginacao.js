@@ -87,7 +87,8 @@ angular.module('app.directives').directive('ngPaginacao', function () {
 				}
 			};
 
-			$scope.$watch("itensporpagina", function (valorNovo, valorAntigo) {
+			$scope.$watch("itensporpagina", function (valorNovo, valorAntigo)
+			{
 				if (valorNovo != valorAntigo) {
 					$scope.paginaAtual = parseInt($scope.paginaAtual * (valorAntigo / valorNovo));
 					$scope.carregar($scope.paginaAtual * valorNovo, valorNovo);
@@ -101,7 +102,7 @@ angular.module('app.directives').directive('ngPaginacao', function () {
 			});
 
 			$scope.$watch("paginaAtual", function (valorNovo, valorAntigo) {
-				$scope.carregarAutomaticamente = $scope.carregarAutomaticamente || true;
+				$scope.carregarAutomaticamente = $scope.carregarAutomaticamente || false;
 				if (valorNovo != valorAntigo || $scope.carregarAutomaticamente == true) {
 					ngHistoricoFiltro.filtro.paginaAtual = valorNovo;
 					$scope.carregar(valorNovo * $scope.itensporpagina, $scope.itensporpagina);

@@ -16,10 +16,10 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 	.state('site_simulation', { url: '/simulation', templateUrl: 'app/site/simulation/simulation.html', controller: 'SimulationController', data: {} })
 		
 	.state('clientPanel', { url: '/clientPanel', templateUrl: 'app/clientPanel/clientPanel.html', controller: 'ClientPanelController', data: {} })
-	.state('clientPanel.tickets', { url: '/clientPanel/tickets', templateUrl: 'app/clientPanel/tickets.html', controller: 'ClientPanelTicketsController', data: {} })
-	.state('clientPanel.contracts', { url: '/clientPanel/contracts', templateUrl: 'app/clientPanel/contracts.html', controller: 'ClientPanelContractsController', data: {} })
-	.state('clientPanel.customizations', { url: '/clientPanel/customizations', templateUrl: 'app/clientPanel/customizations.html', controller: 'ClientPanelCustomizationsController', data: {} })
-	.state('clientPanel.setup', { url: '/clientPanel/setup', templateUrl: 'app/clientPanel/setup.html', controller: 'ClientPanelSetupController', data: {} })
+	.state('clientPanel.tickets', { url: '/clientPanel_tickets', templateUrl: 'app/clientPanel/tickets.html', controller: 'ClientPanelTicketsController', data: {} })
+	.state('clientPanel.contracts', { url: '/clientPanel_contracts', templateUrl: 'app/clientPanel/contracts.html', controller: 'ClientPanelContractsController', data: {} })
+	.state('clientPanel.customizations', { url: '/clientPanel_customizations', templateUrl: 'app/clientPanel/customizations.html', controller: 'ClientPanelCustomizationsController', data: {} })
+	.state('clientPanel.setup', { url: '/clientPanel_setup', templateUrl: 'app/clientPanel/setup.html', controller: 'ClientPanelSetupController', data: {} })
 
 	.state('ticket', { url: '/ticket/:id', templateUrl: 'app/ticket/ticket.html', controller: 'TicketController' })
 	.state('ticket-new', { url: '/ticket/new', templateUrl: 'app/ticket/ticket.html', controller: 'TicketController' })
