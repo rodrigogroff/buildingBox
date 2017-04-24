@@ -28,6 +28,8 @@ namespace DataModel
 		public ITable<UserCustomization>            UserCustomizations            { get { return this.GetTable<UserCustomization>(); } }
 		public ITable<UserCustomizationEstimateLog> UserCustomizationEstimateLogs { get { return this.GetTable<UserCustomizationEstimateLog>(); } }
 		public ITable<UserCustomizationStateChange> UserCustomizationStateChanges { get { return this.GetTable<UserCustomizationStateChange>(); } }
+		public ITable<UserMeeting>                  UserMeetings                  { get { return this.GetTable<UserMeeting>(); } }
+		public ITable<UserMeetingPerson>            UserMeetingPeople             { get { return this.GetTable<UserMeetingPerson>(); } }
 
 		public BuildingBoxDB()
 		{
@@ -160,6 +162,33 @@ namespace DataModel
 		[Column,     Nullable] public long?     fkState         { get; set; } // bigint
 	}
 
+	[Table(Schema="public", Name="UserMeeting")]
+	public partial class UserMeeting
+	{
+		[PrimaryKey, Identity] public long   id                  { get; set; } // bigint
+		[Column,     Nullable] public long?  fkUser              { get; set; } // bigint
+		[Column,     Nullable] public long?  nuDay               { get; set; } // bigint
+		[Column,     Nullable] public long?  fkMonth             { get; set; } // bigint
+		[Column,     Nullable] public long?  nuYear              { get; set; } // bigint
+		[Column,     Nullable] public long?  nuHour              { get; set; } // bigint
+		[Column,     Nullable] public long?  nuMinute            { get; set; } // bigint
+		[Column,     Nullable] public long?  fkGMT               { get; set; } // bigint
+		[Column,     Nullable] public long?  fkMeetingState      { get; set; } // bigint
+		[Column,     Nullable] public long?  fkMeetingPlace      { get; set; } // bigint
+		[Column,     Nullable] public string stMeetingMotivation { get; set; } // character varying(999)
+		[Column,     Nullable] public string stMeetingDetails    { get; set; } // character varying(999)
+	}
+
+	[Table(Schema="public", Name="UserMeetingPerson")]
+	public partial class UserMeetingPerson
+	{
+		[PrimaryKey, Identity] public long   id         { get; set; } // bigint
+		[Column,     Nullable] public long?  fkMeeting  { get; set; } // bigint
+		[Column,     Nullable] public string stName     { get; set; } // character varying(999)
+		[Column,     Nullable] public string stRole     { get; set; } // character varying(999)
+		[Column,     Nullable] public bool?  bConfirmed { get; set; } // boolean
+	}
+
 	public static partial class TableExtensions
 	{
 		public static Ticket Find(this ITable<Ticket> table, long id)
@@ -211,6 +240,18 @@ namespace DataModel
 		}
 
 		public static UserCustomizationStateChange Find(this ITable<UserCustomizationStateChange> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static UserMeeting Find(this ITable<UserMeeting> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static UserMeetingPerson Find(this ITable<UserMeetingPerson> table, long id)
 		{
 			return table.FirstOrDefault(t =>
 				t.id == id);

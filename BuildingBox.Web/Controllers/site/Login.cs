@@ -2,7 +2,6 @@
 using LinqToDB;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
-using System.Threading;
 using System.Linq;
 using System.Security.Claims;
 
@@ -28,7 +27,8 @@ namespace BuildingBox.Web
 
 					identity.AddClaim(new Claim(ClaimTypes.Name, usuario.stContactEmail));
 					identity.AddClaim(new Claim(ClaimTypes.Sid, usuario.id.ToString()));
-										
+					identity.AddClaim(new Claim(ClaimTypes.GroupSid, usuario.fkClientType.ToString()));
+
 					var ticket = new AuthenticationTicket(identity, null);
 					context.Validated(ticket);
 				}
@@ -45,9 +45,11 @@ namespace BuildingBox.Web
 		public override System.Threading.Tasks.Task TokenEndpoint(OAuthTokenEndpointContext context)
 		{
 			string nameUser = context.Identity.Claims.Where(x => x.Type == ClaimTypes.Name).Select(x => x.Value).FirstOrDefault();
-			
+			string userType = context.Identity.Claims.Where(x => x.Type == ClaimTypes.GroupSid).Select(x => x.Value).FirstOrDefault();
+
 			context.AdditionalResponseParameters.Add("nameUser", nameUser);
-			
+			context.AdditionalResponseParameters.Add("userType", userType);
+
 			return System.Threading.Tasks.Task.FromResult<object>(null);
 		}
 	}

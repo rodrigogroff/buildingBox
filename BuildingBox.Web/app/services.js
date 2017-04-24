@@ -97,11 +97,14 @@ angular.module('app.services', ['ngResource'])
 		GMT: $resource('api/gmt/:id', {}, opcoes),
 		Ticket: $resource('api/ticket/:id', {}, opcoes),
 		TicketState: $resource('api/ticketState/:id', {}, opcoes),
+		MeetingState: $resource('api/meetingState/:id', {}, opcoes),
+		MeetingPlace: $resource('api/meetingPlace/:id', {}, opcoes),
 		ContractType: $resource('api/contractType/:id', {}, opcoes),
 		ContractState: $resource('api/contractState/:id', {}, opcoes),
 		CustomizationState: $resource('api/customizationState/:id', {}, opcoes),
 		UserContract: $resource('api/userContract/:id', {}, opcoes),
-		UserCustomization: $resource('api/userCustomization/:id', {}, opcoes)
+		UserCustomization: $resource('api/userCustomization/:id', {}, opcoes),
+		UserMeeting: $resource('api/userMeeting/:id', {}, opcoes)
 
 	};
 }]);

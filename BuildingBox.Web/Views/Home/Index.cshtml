@@ -16,7 +16,7 @@
 	@Styles.Render("~/bundles/css")
 	@Scripts.Render("~/bundles/scripts")
 </head>
-<body @*ng-controller="HomeController"*@>	
+<body ng-controller="HomeController">	
 	<div ng-show="loggedIn == true" >
 		<div align="center">
 			<div id="ui-view" style="width:100%" ui-view></div>

@@ -14,8 +14,11 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 	.state('site_videos', { url: '/videos', templateUrl: 'app/site/videos/videos.html', controller: 'VideosController', data: {} })
 	.state('site_customization', { url: '/site_customization', templateUrl: 'app/site/customization/site_customization.html', controller: 'SiteCustomizationController', data: {} })
 	.state('site_simulation', { url: '/simulation', templateUrl: 'app/site/simulation/simulation.html', controller: 'SimulationController', data: {} })
-		
+	
+	.state('userPanel', { url: '/userPanel', templateUrl: 'app/userPanel/userPanel.html', controller: 'UserPanelController', data: {} })
+
 	.state('clientPanel', { url: '/clientPanel', templateUrl: 'app/clientPanel/clientPanel.html', controller: 'ClientPanelController', data: {} })
+	.state('clientPanel.meetings', { url: '/clientPanel_meetings', templateUrl: 'app/clientPanel/meetings.html', controller: 'ClientPanelMeetingsController', data: {} })
 	.state('clientPanel.tickets', { url: '/clientPanel_tickets', templateUrl: 'app/clientPanel/tickets.html', controller: 'ClientPanelTicketsController', data: {} })
 	.state('clientPanel.contracts', { url: '/clientPanel_contracts', templateUrl: 'app/clientPanel/contracts.html', controller: 'ClientPanelContractsController', data: {} })
 	.state('clientPanel.customizations', { url: '/clientPanel_customizations', templateUrl: 'app/clientPanel/customizations.html', controller: 'ClientPanelCustomizationsController', data: {} })
@@ -29,6 +32,9 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 
 	.state('customization', { url: '/customization/:id', templateUrl: 'app/customization/customization.html', controller: 'CustomizationController' })
 	.state('customization-new', { url: '/customization/new', templateUrl: 'app/customization/customization.html', controller: 'CustomizationController' })
+
+	.state('meeting', { url: '/meeting/:id', templateUrl: 'app/meeting/meeting.html', controller: 'MeetingController' })
+	.state('meeting-new', { url: '/meeting/new', templateUrl: 'app/meeting/meeting.html', controller: 'MeetingController' })
 
 	.state('about', { url: '/about', templateUrl: 'app/site/about/about.html', controller: 'AboutController', data: {} })
 	.state('otherwise', { url: '/', templateUrl: 'app/site/home/home.html', controller: 'HomeController', data: {} })

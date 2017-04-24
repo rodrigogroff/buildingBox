@@ -2,41 +2,92 @@
 	<tr>
 		<td width="35px"></td>
 		<td>
-			<br />
-			<div class="animated fadeInLeftBig">
-				<table>
-					<tr>
-						<td>
-							<img style="max-height:90px" src='../../images/logoRegister.png' /><br />
-						</td>
-						<td width="15px"></td>
-						<td>
-							<img style="max-height:80px" src='../../images/logoLetras.png' />
-						</td>
-						<td width="35px"></td>
-						<td>
-							<h3>Welcome <b>{{authentication.nameUser}}</b></h3>
-						</td>
-					</tr>
-				</table>
-			</div>
-			<br />
-			<div class="animated fadeInLeftBig">
-				<tabset class="tabs-leftBlack" style="min-height:320px;font-size:13px;width:1250px;">
-					<tab heading="Tickets" ui-sref=".tickets">
-						<div ui-view></div>
-					</tab>
-					<tab heading="Contracts" ui-sref=".contracts">
-						<div ui-view></div>
-					</tab>
-					<tab heading="Customizations" ui-sref=".customizations">
-						<div ui-view></div>
-					</tab>
-					<tab heading="Setup" ui-sref=".setup">
-						<div ui-view></div>
-					</tab>
-				</tabset>
-			</div>
+			<br />			
+			<ng-logo> </ng-logo>
+			<br />			
+			<tabset class="tabs-leftBlack" style="min-height:320px;font-size:13px;width:1250px;">
+				<tab heading="Tickets" >						
+					<div style="background:rgba(15, 43, 89, 0.35);min-height:500px;color:black">
+						<legend class="legendTop">
+							<table><tr height="12px"><td> </td></tr></table>
+							<table style="color:white; width:100%">
+								<tr>
+									<td width="20px"></td>
+									<td><b>Tickets </b> listing <i class="fa fa-spinner fa-spin" ng-show="loading"></i></td>
+									<td width="80px"></td>
+									<td><input type="submit" class="btn btn-success pull-right" value="New" ng-click="new()"></td>
+									<td width="20px"></td>
+								</tr>
+								<tr height="12px"></tr>
+							</table>
+						</legend>
+						<div class="divWebForm">
+							<table width="100%">
+								<tr>
+									<td width="15px"></td>
+									<td valign="top">
+										<ng-filtro tipo="tickets" campos="campos" template-avancado="app/clientPanel/_filterTickets.html" funcao-pesquisar="search"></ng-filtro>
+									</td>
+								</tr>
+							</table>
+							<table width="100%">
+								<tr>
+									<td valign="top">
+										<div ng-show="list.length == 0">
+											<br />
+											<br />
+											<div class="btn btn-info btn-lg">No records found.</div>
+											<br />
+											<br />
+										</div>
+										<div ng-show="list.length > 0">
+											<br />
+											<ng-paginacao carregar="load" list="list" total="total" itensporpagina="itensporpagina" paginador="paginador"></ng-paginacao>
+											<br />
+											<table class="table table-hover">
+												<thead>
+													<tr>
+														<th width="150px">Creation Date</th>
+														<th width="100px">State</th>
+														<th width="160px">Contract</th>
+														<th width="90px">Protocol</th>
+														<th>Title</th>
+														<th>Messages</th>
+														<th>Last Update</th>
+													</tr>
+												</thead>
+												<tr ng-click="show(mdl)" data-ng-repeat="mdl in list">
+													<td>{{ mdl.sdtCreation }}</td>
+													<td>{{ mdl.sfkState }}</td>
+													<td>{{ mdl.sfkContract }}</td>
+													<td>{{ mdl.stProtocol }}</td>
+													<td>{{ mdl.stTitle }}</td>
+													<td>{{ mdl.messages.length }}</td>
+													<td>{{ mdl.sdtLog }}</td>
+												</tr>
+											</table>
+										</div>
+										<br />
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</tab>
+				<tab heading="Contracts" ui-sref=".contracts">
+					<div ui-view></div>
+				</tab>
+				<tab heading="Customizations" ui-sref=".customizations">
+					<div ui-view></div>
+				</tab>
+				<tab heading="Meetings" ui-sref=".meetings">
+					<div ui-view></div>
+				</tab>
+				<tab heading="Setup" ui-sref=".setup">
+					<div ui-view></div>
+				</tab>
+			</tabset>
+			<br />			
 		</td>
 	</tr>
 </table>

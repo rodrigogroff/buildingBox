@@ -85,8 +85,8 @@ namespace BuildingBox.Web
 				"~/app/_shared/filtro/diretivaNgFiltro.js",
 				"~/app/_shared/filtro/diretivaFiltroParametrizacao.js",
 				"~/app/_shared/filtro/diretivaNgFiltroParametrizacao.js",
+				"~/app/_shared/logo/diretivaNgLogo.js",
 				"~/app/_shared/paginacao/diretivaNgPaginacao.js",
-				"~/app/_shared/paginacao/diretivaPaginacao.js",
 				"~/app/_shared/controllers.js",
 				"~/app/_shared/HighlightService.js",
 				"~/app/_shared/MenuController.js",
@@ -104,15 +104,19 @@ namespace BuildingBox.Web
 				"~/app/site/simulation/SimulationController.js",
 				"~/app/site/about/AboutController.js",
 
+				"~/app/userPanel/userPanelController.js",
+
 				"~/app/clientPanel/ClientPanelController.js",
 				"~/app/clientPanel/ClientPanelContractsController.js",
+				"~/app/clientPanel/ClientPanelMeetingsController.js",
 				"~/app/clientPanel/ClientPanelCustomizationsController.js",
 				"~/app/clientPanel/ClientPanelSetupController.js",
 				"~/app/clientPanel/ClientPanelTicketsController.js",
 
 				"~/app/ticket/TicketController.js",
 				"~/app/customization/CustomizationController.js",
-				"~/app/contract/ContractController.js"
+				"~/app/contract/ContractController.js",
+				"~/app/meeting/MeetingController.js"
 
 				));
 

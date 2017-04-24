@@ -12,7 +12,7 @@ function ($scope, AuthService, $state, ngHistoricoFiltro, Api, ngSelects, $rootS
 			contractType: ngSelects.obterConfiguracao(Api.ContractType, {}),
 		}
 	};
-
+	$scope.list = [];
 	$scope.itensporpagina = 15;
 
 	init();

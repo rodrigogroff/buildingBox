@@ -235,24 +235,27 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\clientPanel\clientPanelMeetingsController.js" />
+    <Content Include="app\clientPanel\meetings.html" />
     <Content Include="app\clientPanel\_filterCustomizations.html" />
     <Content Include="app\clientPanel\_filterContracts.html" />
+    <Content Include="app\clientPanel\_filterMeetings.html" />
     <Content Include="app\contract\contract.html" />
     <Content Include="app\contract\contractController.js" />
     <Content Include="app\customization\customization.html" />
     <Content Include="app\customization\customizationController.js" />
+    <Content Include="app\meeting\meeting.html" />
+    <Content Include="app\meeting\meetingController.js" />
     <Content Include="app\site\about\about.html" />
     <Content Include="app\site\about\AboutController.js" />
     <Content Include="app\app.js" />
     <Content Include="app\clientPanel\clientPanelContractsController.js" />
     <Content Include="app\clientPanel\clientPanelCustomizationsController.js" />
     <Content Include="app\clientPanel\clientPanelSetupController.js" />
-    <Content Include="app\clientPanel\clientPanelTicketsController.js" />
     <Content Include="app\clientPanel\_filterTickets.html" />
     <Content Include="app\clientPanel\setup.html" />
     <Content Include="app\clientPanel\contracts.html" />
     <Content Include="app\clientPanel\customizations.html" />
-    <Content Include="app\clientPanel\tickets.html" />
     <Content Include="app\clientPanel\clientPanel.html" />
     <Content Include="app\clientPanel\clientPanelController.js" />
     <Content Include="app\site\customization\site_customization.html" />
@@ -268,8 +271,15 @@
     <Content Include="app\ticket\ticketController.js" />
     <Content Include="app\site\videos\videos.html" />
     <Content Include="app\site\videos\VideosController.js" />
+    <Content Include="app\userPanel\userPanel.html" />
+    <Content Include="app\userPanel\userPanelController.js" />
+    <Content Include="app\userPanel\_filterContracts.html" />
+    <Content Include="app\userPanel\_filterCustomizations.html" />
+    <Content Include="app\userPanel\_filterTickets.html" />
     <Content Include="app\_shared\filtro\diretivaNgFiltro.js" />
     <Content Include="app\_shared\filtro\templateNgFiltro.html" />
+    <Content Include="app\_shared\logo\diretivaNgLogo.js" />
+    <Content Include="app\_shared\logo\templateNgLogo.html" />
     <Content Include="app\_shared\paginacao\diretivaNgPaginacao.js" />
     <Content Include="app\_shared\paginacao\templateNgPaginacao.html" />
     <Content Include="app\_shared\directives.validator.js" />
@@ -824,7 +834,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\clientPanel\UserMeetingCtrl.cs" />
     <Compile Include="Controllers\clientPanel\UserCustomizationCtrl.cs" />
+    <Compile Include="Controllers\Enums\MeetingPlaceController.cs" />
+    <Compile Include="Controllers\Enums\MeetingStateController.cs" />
     <Compile Include="Controllers\Enums\CustomizationStateController.cs" />
     <Compile Include="Controllers\Enums\ContractStateController.cs" />
     <Compile Include="Controllers\Enums\ContractTypeController.cs" />
@@ -854,9 +867,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\userPanel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>

@@ -66,6 +66,8 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\BuildingBox_db.cs" />
+    <Compile Include="DataModel\Enums\MeetingPlace_enum.cs" />
+    <Compile Include="DataModel\Enums\MeetingState_enum.cs" />
     <Compile Include="DataModel\Enums\UserType_enum.cs" />
     <Compile Include="DataModel\Enums\CustomizationState_enum.cs" />
     <Compile Include="DataModel\Enums\ContractState_enum.cs" />
@@ -96,6 +98,12 @@
     <Compile Include="DataModel\Tables\UserCustomization\UserCustomization_Extras.cs" />
     <Compile Include="DataModel\Tables\UserCustomization\UserCustomization_LoadAssociations.cs" />
     <Compile Include="DataModel\Tables\UserCustomization\UserCustomization_Update.cs" />
+    <Compile Include="DataModel\Tables\UserMeeting\UserMeeting_ComposedFilters.cs" />
+    <Compile Include="DataModel\Tables\UserMeeting\UserMeeting_Create.cs" />
+    <Compile Include="DataModel\Tables\UserMeeting\UserMeeting_DTO.cs" />
+    <Compile Include="DataModel\Tables\UserMeeting\UserMeeting_Extras.cs" />
+    <Compile Include="DataModel\Tables\UserMeeting\UserMeeting_LoadAssociations.cs" />
+    <Compile Include="DataModel\Tables\UserMeeting\UserMeeting_Update.cs" />
     <Compile Include="DataModel\Tables\User\User_ComposedFilters.cs" />
     <Compile Include="DataModel\Tables\User\User_Create.cs" />
     <Compile Include="DataModel\Tables\User\User_DTO.cs" />

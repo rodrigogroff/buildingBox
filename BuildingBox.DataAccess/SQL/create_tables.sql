@@ -7,6 +7,8 @@ DROP TABLE public."UserContractState";
 DROP TABLE public."UserCustomization";
 DROP TABLE public."UserCustomizationStateChange";
 DROP TABLE public."UserCustomizationEstimateLog";
+DROP TABLE public."UserMeeting";
+DROP TABLE public."UserMeetingPerson";
 
 CREATE TABLE public."User"
 (
@@ -186,4 +188,45 @@ WITH (
 TABLESPACE pg_default;
 
 ALTER TABLE public."UserCustomizationEstimateLog"
+    OWNER to postgres;
+	
+CREATE TABLE public."UserMeeting"
+(
+    id bigserial NOT NULL,
+	"fkUser" bigint,
+	"nuDay" bigint,
+	"fkMonth" bigint,
+	"nuYear" bigint,
+	"nuHour" bigint,
+	"nuMinute" bigint,
+	"fkGMT" bigint,
+	"fkMeetingState" bigint,
+	"fkMeetingPlace" bigint,
+	"stMeetingMotivation" character varying(999),
+	"stMeetingDetails" character varying(999),
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."UserMeeting"
+    OWNER to postgres;
+
+CREATE TABLE public."UserMeetingPerson"
+(
+    id bigserial NOT NULL,
+	"fkMeeting" bigint,
+	"stName" character varying(999),
+	"stRole" character varying(999),
+	"bConfirmed" boolean,
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."UserMeetingPerson"
     OWNER to postgres;
