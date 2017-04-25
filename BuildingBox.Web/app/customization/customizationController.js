@@ -77,7 +77,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	};
 
 	$scope.list = function () {
-		$state.go('clientPanel/clientPanel_customizations');
+		$state.go('clientPanel');
 	}
 
 	$scope.confirmEstimate = function () {

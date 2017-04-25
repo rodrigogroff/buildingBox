@@ -66,6 +66,7 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\BuildingBox_db.cs" />
+    <Compile Include="DataModel\Enums\ContractValue_enum.cs" />
     <Compile Include="DataModel\Enums\MeetingPlace_enum.cs" />
     <Compile Include="DataModel\Enums\MeetingState_enum.cs" />
     <Compile Include="DataModel\Enums\UserType_enum.cs" />

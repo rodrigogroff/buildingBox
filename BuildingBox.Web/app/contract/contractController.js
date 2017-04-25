@@ -49,6 +49,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$scope.save = function ()
 	{
 		$scope.stDNS_fail = invalidCheck($scope.viewModel.stDNS);
+		$scope.nuBillingDay_fail = invalidCheck($scope.viewModel.nuBillingDay);
 		$scope.fkContractType_fail = $scope.viewModel.fkContractType == undefined;
 		$scope.fkGMT_fail = $scope.viewModel.fkGMT == undefined;
 		$scope.fkContinent_fail = $scope.viewModel.fkContinent == undefined;
@@ -56,6 +57,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 		$scope.fkCity_fail = $scope.viewModel.fkCity == undefined;
 		
 		if (!$scope.stDNS_fail &&
+			!$scope.nuBillingDay_fail &&
 			!$scope.fkContractType_fail &&
 			!$scope.fkGMT_fail &&
 			!$scope.fkContinent_fail &&
@@ -87,7 +89,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	};
 
 	$scope.list = function () {
-		$state.go('clientPanel/clientPanel_contracts');
+		$state.go('clientPanel');
 	}
 
 }]);

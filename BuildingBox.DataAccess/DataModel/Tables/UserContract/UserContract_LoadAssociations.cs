@@ -6,6 +6,8 @@ namespace DataModel
 {
 	public partial class UserContract
 	{
+		EnumContractState ecs = new EnumContractState();
+		
 		public UserContract LoadAssociations(BuildingBoxDB db)
 		{
 			var user = db.GetCurrentUser();
@@ -13,9 +15,11 @@ namespace DataModel
 			sfkUser = db.User(this.fkUser).stContactEmail;
 			fkClientType = user.fkClientType;
 
+			snuContractValue = GetMoneyString(nuContractValue);
+
 			sdtCreation = GetDateTimeString(dtCreation);
 			
-			sfkContractState = new EnumContractState().Get((long)fkContractState).stName;
+			sfkContractState = ecs.Get((long)fkContractState).stName;
 			sfkCity = new EnumInfraCity().Get((long)fkCity).stName;
 			sfkCountry = new EnumInfraCountry().Get((long)fkCountry).stName;
 			sfkContinent = new EnumInfraContinent().Get((long)fkContinent).stName;
@@ -34,13 +38,11 @@ namespace DataModel
 					   select e).
 					   OrderByDescending ( y=> y.id).
 					   ToList();
-
-			var ecs = new EnumContractState();
-
+			
 			foreach (var item in lst)
 			{
 				item.sfkContractState = ecs.Get((long)item.fkContractState).stName;
-				item.sfkUser = db.User((long)item.fkUser).stClientName;
+				item.sfkUser = db.User((long)item.fkUser).stContactEmail;
 				item.sdtLog = GetDateTimeString(item.dtLog);
 			}
 

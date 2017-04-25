@@ -101,7 +101,9 @@ CREATE TABLE public."UserContract"
 	"fkGMT" bigint,
 	"fkContinent" bigint,
 	"fkCountry" bigint,
-	"fkCity" bigint,	
+	"fkCity" bigint,
+	"nuBillingDay" bigint,
+	"nuContractValue" bigint,
     PRIMARY KEY (id)
 )
 WITH (

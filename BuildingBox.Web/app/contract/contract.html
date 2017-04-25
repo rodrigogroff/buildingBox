@@ -145,6 +145,31 @@
 										<td></td>
 									</tr>
 									<tr height="32px"></tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											<b>Billing Day</b>
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="nuBillingDay_fail">!</button>
+										</td>
+										<td>
+											<input type="number" class="form-control input-transparent" maxlength="2" ng-model="viewModel.nuBillingDay" min="1" max="25">
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											<b>Current Value</b>
+										</td>
+										<td></td>
+										<td>
+											$ USD <b>{{viewModel.snuContractValue}}</b>
+										</td>
+										<td></td>
+									</tr>
+									<tr height="32px"></tr>
 								</table>
 							</div>
 						</tab>
@@ -207,32 +232,22 @@
 									<tr height="40px"></tr>
 								</table>
 							</div>
-						</tab>
-						<tab heading="Documentation" disabled="true" ng-if="viewModel.id == undefined"></tab>
-						<tab heading="Documentation">
+						</tab>						
+						<tab heading="Billing" disabled="true" ng-if="viewModel.id == undefined"></tab>
+						<tab heading="Billing" ng-if="viewModel.id > 0">
 							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
 								<table>
 									<thead>
 										<tr>
 											<th width="30px"></th>
-											<th width="240px"></th>
+											<th width="140px"></th>
 											<th width="20px"></th>
 											<th width="450px"></th>
 											<th width="20px"></th>
 										</tr>
 									</thead>
-									<tr height="32px"></tr>
-									<tr height="32px">
-										<td></td>
-										<td>
-											<b>Original documentation</b>
-										</td>
-										<td></td>
-										<td>
-											link
-										</td>
-										<td></td>
-									</tr>
+									<tr height="24px"></tr>
+									
 								</table>
 							</div>
 						</tab>

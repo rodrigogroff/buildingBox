@@ -15,7 +15,8 @@ namespace DataModel
 						sfkContinent,
 						sfkContractState,
 						sfkCountry,
-						sfkCity;
+						sfkCity,
+						snuContractValue;
 
 		public List<UserContractState> states = new List<UserContractState>();
 	}

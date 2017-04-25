@@ -31,6 +31,7 @@ namespace DataModel
 						if (oldContract.fkContractType != this.fkContractType)
 						{
 							this.fkContractState = EnumContractState.PendingUpgradeSetup;
+							this.nuContractValue = new EnumContractValue().Get((long)this.fkContractType).nuValue;
 
 							db.Insert(new UserContractState
 							{
@@ -40,7 +41,7 @@ namespace DataModel
 								fkContractState = this.fkContractState
 							});
 						}
-
+						
 						db.Update(this);
 
 						LoadAssociations(db);

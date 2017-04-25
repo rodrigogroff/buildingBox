@@ -41,5 +41,19 @@ namespace DataModel
 				_dt.Value.Hour.ToString().PadLeft(2, '0') + ":" +
 				_dt.Value.Minute.ToString().PadLeft(2, '0');
 		}
+
+		public string GetMoneyString(long? val)
+		{
+			if (val == null)
+				return "0,00";
+
+			var ret = val.ToString();
+
+			if (ret.Length <= 2) return "0," + ret;			
+			if (ret.Length >= 2) ret = ret.Insert ( ret.Length - 2, ",");
+			if (ret.Length >= 7) ret = ret.Insert(ret.Length - 6, ".");
+
+			return ret;
+		}
 	}
 }

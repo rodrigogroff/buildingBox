@@ -110,6 +110,8 @@ namespace DataModel
 		[Column,     Nullable] public long?     fkContinent     { get; set; } // bigint
 		[Column,     Nullable] public long?     fkCountry       { get; set; } // bigint
 		[Column,     Nullable] public long?     fkCity          { get; set; } // bigint
+		[Column,     Nullable] public long?     nuBillingDay    { get; set; } // bigint
+		[Column,     Nullable] public long?     nuContractValue { get; set; } // bigint
 	}
 
 	[Table(Schema="public", Name="UserContractState")]
