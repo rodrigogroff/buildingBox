@@ -14,13 +14,7 @@ function ($scope, AuthService, $state, ngHistoricoFiltro, Api, ngSelects, $rootS
 	};
 
 	$scope.itensporpagina = 15;
-
-	init();
-
-	function init() {
-		if (ngHistoricoFiltro.filtro)
-			ngHistoricoFiltro.filtro.exibeFiltro = false;
-	}
+	$scope.list = undefined;
 
 	$scope.search = function () {
 		$scope.load(0, $scope.itensporpagina);
@@ -54,6 +48,15 @@ function ($scope, AuthService, $state, ngHistoricoFiltro, Api, ngSelects, $rootS
 
 	$scope.new = function () {
 		$state.go('customization-new');
+	}
+
+	init();
+
+	function init() {
+		if (ngHistoricoFiltro.filtro)
+			ngHistoricoFiltro.filtro.exibeFiltro = false;
+
+		$scope.load(0, $scope.itensporpagina);
 	}
 
 }]);

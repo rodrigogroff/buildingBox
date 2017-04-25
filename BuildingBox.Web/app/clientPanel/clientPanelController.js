@@ -13,6 +13,7 @@ function ($scope, $rootScope, AuthService, $state, ngHistoricoFiltro, Api, ngSel
 	};
 
 	$scope.itensporpagina = 15;
+	$scope.list = undefined;
 
 	$scope.search = function () {
 		$scope.load(0, $scope.itensporpagina);
@@ -54,13 +55,6 @@ function ($scope, $rootScope, AuthService, $state, ngHistoricoFiltro, Api, ngSel
 			ngHistoricoFiltro.filtro.exibeFiltro = false;
 
 		$scope.load(0, $scope.itensporpagina);
-
-		AuthService.fillAuthData();
-
-		$scope.authentication = AuthService.authentication;
-
-		if (!AuthService.authentication.isAuth)
-			$location.path('/login');
 	}
 
 }]);
