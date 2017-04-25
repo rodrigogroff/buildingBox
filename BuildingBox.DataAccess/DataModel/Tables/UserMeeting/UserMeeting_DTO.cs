@@ -16,6 +16,7 @@ namespace DataModel
 
 		public List<UserMeetingSchedule> schedules = new List<UserMeetingSchedule>();
 		public List<UserMeetingSchedule> stateChanges = new List<UserMeetingSchedule>();
+		public List<UserMeetingPerson> people = new List<UserMeetingPerson>();
 	}
 
 	public partial class UserMeetingSchedule

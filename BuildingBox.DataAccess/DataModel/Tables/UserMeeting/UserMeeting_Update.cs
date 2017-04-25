@@ -60,6 +60,34 @@ namespace DataModel
 
 						break;
 					}
+
+				case "newPerson":
+					{
+						var ent = JsonConvert.DeserializeObject<UserMeetingPerson>(anexedEntity.ToString());
+
+						if (ent.id == 0)
+						{
+							ent.fkMeeting = this.id;
+							db.Insert(ent);
+						}
+						else
+							db.Update(ent);
+
+						LoadAssociations(db);
+
+						break;
+					}
+
+				case "removePerson":
+					{
+						var ent = JsonConvert.DeserializeObject<UserMeetingPerson>(anexedEntity.ToString());
+
+						db.Delete(ent);
+
+						LoadAssociations(db);
+
+						break;
+					}				
 			}
 
 			return true;

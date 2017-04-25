@@ -95,7 +95,63 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	};
 
 	$scope.list = function () {
-		$state.go('clientPanel');
+		$state.go('clientPanel/clientPanel_meetings');
+	}
+
+	// ============================================
+	// person 
+	// ============================================
+
+	$scope.addPerson = false;
+
+	$scope.removePerson = function (index, lista)
+	{
+		$scope.viewModel.updateCommand = "removePerson";
+		$scope.viewModel.anexedEntity = $scope.viewModel.people[index];
+
+		Api.UserMeeting.update({ id: id }, $scope.viewModel, function (data)
+		{
+			toastr.success('Person removed', 'Success');
+			$scope.viewModel = data;			
+		});		
+	}
+
+	$scope.addNewPerson = function ()
+	{
+		$scope.addPerson = !$scope.addPerson;
+	}
+
+	$scope.newPerson = { stName: '', stRole: '' };
+
+	$scope.editPerson = function (mdl)
+	{
+		$scope.addPerson = true;
+		$scope.newPerson = mdl;
+	}
+
+	$scope.saveNewPerson = function ()
+	{
+		$scope.stPersonName_fail = invalidCheck($scope.newPerson.stName);
+		$scope.stPersonRole_fail = invalidCheck($scope.newPerson.stRole);
+
+		if (!$scope.stPersonName_fail &&
+			!$scope.stPersonRole_fail)
+		{
+			$scope.addPerson = false;
+
+			$scope.viewModel.updateCommand = "newPerson";
+			$scope.viewModel.anexedEntity = $scope.newPerson;
+
+			Api.UserMeeting.update({ id: id }, $scope.viewModel, function (data)
+			{
+				$scope.newPerson = { stName: '', stRole: '' };
+				toastr.success('Person saved', 'Success');
+				$scope.viewModel = data;				
+			},
+			function (response) {
+				toastr.error(response.data.message, 'Error');
+			});
+		}		
 	}
 
 }]);

@@ -25,6 +25,7 @@ namespace DataModel
 
 			schedules = LoadSchedules(db);
 			stateChanges = LoadStateChanges(db);
+			people = LoadPeople(db);
 
 			return this;
 		}
@@ -72,6 +73,17 @@ namespace DataModel
 			}
 
 			return ret;
+		}
+
+		List<UserMeetingPerson> LoadPeople(BuildingBoxDB db)
+		{
+			var lst = (from e in db.UserMeetingPeople
+					   where e.fkMeeting == this.id
+					   select e).
+					   OrderByDescending(y => y.id).
+					   ToList();
+			
+			return lst;
 		}
 	}
 }
