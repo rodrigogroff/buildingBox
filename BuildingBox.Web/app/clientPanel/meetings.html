@@ -38,18 +38,22 @@
 						<table class="table table-hover">
 							<thead>
 								<tr>
+									<th width="150px" ng-show="bAdmin == true">Client</th>
 									<th width="160px">Scheduled Date</th>
 									<th width="120px">GMT</th>
-									<th width="160px">State</th>
-									<th>Motivation</th>
-									<th>Location</th>
+									<th width="120px">State</th>
+									<th width="100px">Invitations</th>
+									<th width="220px">Motivation</th>
+									<th width="220px">Location</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tr data-ng-repeat="mdl in list">
+								<td ng-show="bAdmin == true">{{mdl.sfkUser}}</td>
 								<td>{{ mdl.sdtLog }}</td>
 								<td>{{ mdl.sfkGMT }}</td>
 								<td>{{ mdl.sfkState }}</td>
+								<td>{{ mdl.people.length }}</td>
 								<td>{{ mdl.stMeetingMotivation }}</td>
 								<td>{{ mdl.stMeetingDetails }}</td>
 								<td>

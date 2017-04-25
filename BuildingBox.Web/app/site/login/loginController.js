@@ -4,9 +4,7 @@ angular.module('app.controllers').controller('LoginController',
 function ($scope, $rootScope, $location, AuthService, $state)
 {
 	$rootScope.loggedIn = undefined;
-	$rootScope.showLogo = false;
-	
-
+	$rootScope.showLogo = false;	
 	$rootScope.btnHomeStyle = '';
 	$rootScope.btnFeatureStyle = '';
 	$rootScope.btnCustomStyle = '';
@@ -39,11 +37,7 @@ function ($scope, $rootScope, $location, AuthService, $state)
 			AuthService.login($scope.loginData).then(function (response)
 			{
 				$scope.showScreen = true;
-								
-				if (response.userType == '1')
-					$state.go('clientPanel');
-				else if (response.userType == '2')
-					$state.go('userPanel');
+				$state.go('clientPanel');				
 			},
 			function (err) {
 				$scope.loading = false;

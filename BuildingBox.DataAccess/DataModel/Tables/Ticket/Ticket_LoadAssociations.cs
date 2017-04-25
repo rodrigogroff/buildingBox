@@ -10,6 +10,11 @@ namespace DataModel
 		{
 			var contract = db.UserContract(fkContract);
 
+			var user = db.GetCurrentUser();
+
+			sfkUser = db.User(this.fkUserOpen).stContactEmail;
+			fkClientType = user.fkClientType;
+
 			sfkState = new EnumTicketState().Get((long)fkTicketState).stName;
 			sdtCreation = GetDateTimeString(dtCreation);
 			sdtLog = GetDateTimeString(dtLog);

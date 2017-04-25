@@ -6,6 +6,7 @@ function ($scope, AuthService, $state, ngHistoricoFiltro, Api, ngSelects, $rootS
 {
 	$rootScope.loggedIn = true;
 
+	$scope.bAdmin = false;
 	$scope.loading = false;
 	$scope.campos = {
 		selects: {
@@ -37,6 +38,11 @@ function ($scope, AuthService, $state, ngHistoricoFiltro, Api, ngSelects, $rootS
 		{
 			$scope.list = data.results;
 			$scope.total = data.count;
+
+			if (data.results.length > 0)
+				if (data.results[0].fkClientType != 1)
+					$scope.bAdmin = true;
+
 			$scope.loading = false;
 		});
 	}

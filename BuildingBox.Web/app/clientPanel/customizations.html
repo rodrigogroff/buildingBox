@@ -38,6 +38,7 @@
 						<table class="table table-hover" width="700px">
 							<thead>
 								<tr>
+									<th width="150px" ng-show="bAdmin == true">Client</th>
 									<th width="150px">Creation Date</th>
 									<th width="120px">Protocol</th>
 									<th width="180px">Contract</th>									
@@ -48,6 +49,7 @@
 								</tr>
 							</thead>
 							<tr data-ng-repeat="mdl in list">
+								<td ng-show="bAdmin == true">{{mdl.sfkUser}}</td>
 								<td>{{ mdl.sdtCreation }}</td>
 								<td>{{ mdl.stProtocol }}</td>
 								<td>{{ mdl.sfkContract }}</td>								

@@ -5,7 +5,7 @@
 			<br />			
 			<ng-logo> </ng-logo>
 			<br />			
-			<tabset class="tabs-leftBlack" style="min-height:320px;font-size:13px;width:1250px;">
+			<tabset class="tabs" style="min-height:320px;font-size:13px;width:1250px;">
 				<tab heading="Tickets" >						
 					<div style="background:rgba(15, 43, 89, 0.35);min-height:500px;color:black">
 						<legend class="legendTop">
@@ -47,16 +47,18 @@
 											<table class="table table-hover">
 												<thead>
 													<tr>
-														<th width="150px">Creation Date</th>
+														<th width="150px" ng-show="bAdmin == true">Client</th>
+														<th width="150px">Creation Date</th>														
 														<th width="100px">State</th>
 														<th width="160px">Contract</th>
 														<th width="90px">Protocol</th>
-														<th>Title</th>
-														<th>Messages</th>
-														<th>Last Update</th>
+														<th width="190px">Title</th>
+														<th width="90px">Messages</th>
+														<th width="150px">Last Update</th>
 													</tr>
 												</thead>
 												<tr ng-click="show(mdl)" data-ng-repeat="mdl in list">
+													<td ng-show="bAdmin == true">{{mdl.sfkUser}}</td>
 													<td>{{ mdl.sdtCreation }}</td>
 													<td>{{ mdl.sfkState }}</td>
 													<td>{{ mdl.sfkContract }}</td>

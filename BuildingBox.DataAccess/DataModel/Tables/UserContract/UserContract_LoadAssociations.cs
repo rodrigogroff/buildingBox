@@ -8,6 +8,11 @@ namespace DataModel
 	{
 		public UserContract LoadAssociations(BuildingBoxDB db)
 		{
+			var user = db.GetCurrentUser();
+
+			sfkUser = db.User(this.fkUser).stContactEmail;
+			fkClientType = user.fkClientType;
+
 			sdtCreation = GetDateTimeString(dtCreation);
 			
 			sfkContractState = new EnumContractState().Get((long)fkContractState).stName;

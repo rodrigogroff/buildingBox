@@ -12,6 +12,9 @@ namespace DataModel
 						sdtCreation,
 						sdtLog;
 
+		public string sfkUser;
+		public long? fkClientType;
+
 		public List<TicketMessage> messages;
 		public List<TicketWorkFlow> attendances;
 	}

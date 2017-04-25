@@ -271,11 +271,6 @@
     <Content Include="app\ticket\ticketController.js" />
     <Content Include="app\site\videos\videos.html" />
     <Content Include="app\site\videos\VideosController.js" />
-    <Content Include="app\userPanel\userPanel.html" />
-    <Content Include="app\userPanel\userPanelController.js" />
-    <Content Include="app\userPanel\_filterContracts.html" />
-    <Content Include="app\userPanel\_filterCustomizations.html" />
-    <Content Include="app\userPanel\_filterTickets.html" />
     <Content Include="app\_shared\filtro\diretivaNgFiltro.js" />
     <Content Include="app\_shared\filtro\templateNgFiltro.html" />
     <Content Include="app\_shared\logo\diretivaNgLogo.js" />

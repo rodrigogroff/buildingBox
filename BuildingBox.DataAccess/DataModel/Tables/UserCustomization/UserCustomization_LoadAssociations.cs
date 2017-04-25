@@ -8,6 +8,11 @@ namespace DataModel
 	{
 		public UserCustomization LoadAssociations(BuildingBoxDB db)
 		{
+			var user = db.GetCurrentUser();
+
+			sfkUser = db.User(this.fkUser).stContactEmail;
+			fkClientType = user.fkClientType;
+
 			var contract = db.UserContract(fkContract);
 
 			sdtCreation = GetDateTimeString(dtCreation);

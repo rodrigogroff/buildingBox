@@ -6,6 +6,9 @@ namespace DataModel
 	{
 		public object anexedEntity;
 
+		public string sfkUser;
+		public long? fkClientType;
+
 		public string updateCommand,
 						sdtLog,
 						sfkState,

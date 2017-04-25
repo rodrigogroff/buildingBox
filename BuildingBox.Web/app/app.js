@@ -14,8 +14,6 @@ var app = angular.module('app', ['ui.bootstrap', 'chieffancypants.loadingBar', '
 	.state('site_videos', { url: '/videos', templateUrl: 'app/site/videos/videos.html', controller: 'VideosController', data: {} })
 	.state('site_customization', { url: '/site_customization', templateUrl: 'app/site/customization/site_customization.html', controller: 'SiteCustomizationController', data: {} })
 	.state('site_simulation', { url: '/simulation', templateUrl: 'app/site/simulation/simulation.html', controller: 'SimulationController', data: {} })
-	
-	.state('userPanel', { url: '/userPanel', templateUrl: 'app/userPanel/userPanel.html', controller: 'UserPanelController', data: {} })
 
 	.state('clientPanel', { url: '/clientPanel', templateUrl: 'app/clientPanel/clientPanel.html', controller: 'ClientPanelController', data: {} })
 	.state('clientPanel.meetings', { url: '/clientPanel_meetings', templateUrl: 'app/clientPanel/meetings.html', controller: 'ClientPanelMeetingsController', data: {} })

@@ -11,6 +11,11 @@ namespace DataModel
 
 		public UserMeeting LoadAssociations(BuildingBoxDB db)
 		{
+			var user = db.GetCurrentUser();
+
+			sfkUser = db.User(this.fkUser).stContactEmail;
+			fkClientType = user.fkClientType;
+
 			sdtLog = GetDateTimeString(
 				new System.DateTime((int)this.nuYear, 
 									(int)fkMonth, 

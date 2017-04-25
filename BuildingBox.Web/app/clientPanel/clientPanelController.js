@@ -5,6 +5,7 @@ function ($scope, $rootScope, AuthService, $state, ngHistoricoFiltro, Api, ngSel
 {
 	$rootScope.loggedIn = true;
 
+	$scope.bAdmin = false;
 	$scope.loading = false;
 	$scope.campos = {
 		selects: {
@@ -15,16 +16,17 @@ function ($scope, $rootScope, AuthService, $state, ngHistoricoFiltro, Api, ngSel
 	$scope.itensporpagina = 15;
 	$scope.list = undefined;
 
-	$scope.search = function () {
+	$scope.search = function ()
+	{
 		$scope.load(0, $scope.itensporpagina);
 		$scope.paginador.reiniciar();
 	}
 
-	$scope.load = function (skip, take) {
+	$scope.load = function (skip, take)
+	{
 		$scope.loading = true;
 
 		var opcoes = { skip: skip, take: take };
-
 		var filtro = ngHistoricoFiltro.filtro.filtroGerado;
 
 		if (filtro)
@@ -32,9 +34,15 @@ function ($scope, $rootScope, AuthService, $state, ngHistoricoFiltro, Api, ngSel
 
 		delete opcoes.selects;
 
-		Api.Ticket.listPage(opcoes, function (data) {
+		Api.Ticket.listPage(opcoes, function (data)
+		{
 			$scope.list = data.results;
 			$scope.total = data.count;
+
+			if (data.results.length > 0)
+				if (data.results[0].fkClientType != 1)
+					$scope.bAdmin = true;
+
 			$scope.loading = false;
 		});
 	}
