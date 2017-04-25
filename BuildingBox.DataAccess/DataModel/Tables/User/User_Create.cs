@@ -12,7 +12,9 @@ namespace DataModel
 
 			if (item.stContactEmail != null)
 			{
-				query = from e in query where e.stContactEmail.ToUpper().Contains(item.stContactEmail.ToUpper()) select e;
+				query = from e in query
+						where e.stContactEmail.ToUpper().Contains(item.stContactEmail.ToUpper())
+						select e;
 			}
 				
 			if (item.id > 0)

@@ -6,16 +6,17 @@ namespace DataModel
 {
 	public partial class Ticket
 	{
+		EnumTicketState ets = new EnumTicketState();
+
 		public Ticket LoadAssociations(BuildingBoxDB db)
 		{
-			var contract = db.UserContract(fkContract);
-
 			var user = db.GetCurrentUser();
+			var contract = db.UserContract(fkContract);			
 
 			sfkUser = db.User(this.fkUserOpen).stContactEmail;
 			fkClientType = user.fkClientType;
 
-			sfkState = new EnumTicketState().Get((long)fkTicketState).stName;
+			sfkState = ets.Get((long)fkTicketState).stName;
 			sdtCreation = GetDateTimeString(dtCreation);
 			sdtLog = GetDateTimeString(dtLog);
 
@@ -46,8 +47,6 @@ namespace DataModel
 
 		List<TicketWorkFlow> LoadAttendances(BuildingBoxDB db)
 		{
-			var ts = new EnumTicketState();
-
 			var lst = (from e in db.TicketWorkFlows
 					   where e.fkTicket == this.id
 					   select e).
@@ -62,8 +61,8 @@ namespace DataModel
 				if (item.sfkUser.Length > 10)
 					item.sfkUser = item.sfkUser.Substring(0, 10) + "...";
 
-				item.sfkOldState = ts.Get((long)item.fkOldState).stName;
-				item.sfkNewState = ts.Get((long)item.fkNewState).stName;
+				item.sfkOldState = ets.Get((long)item.fkOldState).stName;
+				item.sfkNewState = ets.Get((long)item.fkNewState).stName;
 			}
 
 			return lst;

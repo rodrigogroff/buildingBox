@@ -81,7 +81,6 @@ namespace DataModel
 						db.Update(this);
 
 						LoadAssociations(db);
-
 						break;
 					}
 			}

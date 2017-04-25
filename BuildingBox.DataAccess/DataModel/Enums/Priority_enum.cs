@@ -21,11 +21,11 @@ namespace DataModel
 
 		public EnumPriority()
 		{
-			lst.Add(new Priority() { id = 1, stName = "Emergency" });
-			lst.Add(new Priority() { id = 2, stName = "High" });
-			lst.Add(new Priority() { id = 3, stName = "Normal" });
-			lst.Add(new Priority() { id = 4, stName = "Low" });
-			lst.Add(new Priority() { id = 5, stName = "Register" });
+			lst.Add(new Priority { id = 1, stName = "Emergency" });
+			lst.Add(new Priority { id = 2, stName = "High" });
+			lst.Add(new Priority { id = 3, stName = "Normal" });
+			lst.Add(new Priority { id = 4, stName = "Low" });
+			lst.Add(new Priority { id = 5, stName = "Register" });
 		}
 
 		public Priority Get(long _id)

@@ -28,18 +28,18 @@ namespace DataModel
 
 		public EnumMonth()
 		{
-			lst.Add(new Month() { id = January, stName = "January" });
-			lst.Add(new Month() { id = February, stName = "February" });
-			lst.Add(new Month() { id = March, stName = "March" });
-			lst.Add(new Month() { id = April, stName = "April" });
-			lst.Add(new Month() { id = May, stName = "May" });
-			lst.Add(new Month() { id = June, stName = "June" });
-			lst.Add(new Month() { id = July, stName = "July" });
-			lst.Add(new Month() { id = August, stName = "August" });
-			lst.Add(new Month() { id = September, stName = "September" });
-			lst.Add(new Month() { id = October, stName = "October" });
-			lst.Add(new Month() { id = November, stName = "November" });
-			lst.Add(new Month() { id = December, stName = "December" });
+			lst.Add(new Month { id = January, stName = "January" });
+			lst.Add(new Month { id = February, stName = "February" });
+			lst.Add(new Month { id = March, stName = "March" });
+			lst.Add(new Month { id = April, stName = "April" });
+			lst.Add(new Month { id = May, stName = "May" });
+			lst.Add(new Month { id = June, stName = "June" });
+			lst.Add(new Month { id = July, stName = "July" });
+			lst.Add(new Month { id = August, stName = "August" });
+			lst.Add(new Month { id = September, stName = "September" });
+			lst.Add(new Month { id = October, stName = "October" });
+			lst.Add(new Month { id = November, stName = "November" });
+			lst.Add(new Month { id = December, stName = "December" });
 		}
 
 		public Month Get(long _id)

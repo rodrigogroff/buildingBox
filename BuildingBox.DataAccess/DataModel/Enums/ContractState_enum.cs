@@ -22,12 +22,12 @@ namespace DataModel
 
 		public EnumContractState()
 		{
-			lst.Add(new ContractState() { id = PendingStartSetup, stName = "Pending (first setup)" });
-			lst.Add(new ContractState() { id = InitialSetup, stName = "Initial Setup" });
-			lst.Add(new ContractState() { id = PendingUpgradeSetup, stName = "Pending (plan upgrade)" });
-			lst.Add(new ContractState() { id = UpgradeSetup, stName = "Testing" });
-			lst.Add(new ContractState() { id = SolutionReady, stName = "Solution Ready" });
-			lst.Add(new ContractState() { id = Cancelled, stName = "Cancelled" });
+			lst.Add(new ContractState { id = PendingStartSetup, stName = "Pending (first setup)" });
+			lst.Add(new ContractState { id = InitialSetup, stName = "Initial Setup" });
+			lst.Add(new ContractState { id = PendingUpgradeSetup, stName = "Pending (plan upgrade)" });
+			lst.Add(new ContractState { id = UpgradeSetup, stName = "Testing" });
+			lst.Add(new ContractState { id = SolutionReady, stName = "Solution Ready" });
+			lst.Add(new ContractState { id = Cancelled, stName = "Cancelled" });
 		}
 
 		public ContractState Get(long _id)

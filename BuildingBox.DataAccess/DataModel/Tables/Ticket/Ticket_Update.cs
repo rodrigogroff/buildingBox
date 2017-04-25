@@ -17,7 +17,6 @@ namespace DataModel
 						dtLog = DateTime.Now;
 						
 						db.Update(this);
-
 						break;
 					}
 
@@ -36,7 +35,6 @@ namespace DataModel
 						db.Update(this);
 
 						LoadAssociations(db);
-
 						break;
 					}
 
@@ -57,7 +55,6 @@ namespace DataModel
 						db.Update(this);
 
 						LoadAssociations(db);
-
 						break;
 					}
 			}

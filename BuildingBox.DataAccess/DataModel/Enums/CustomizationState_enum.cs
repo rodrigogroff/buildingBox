@@ -24,14 +24,14 @@ namespace DataModel
 
 		public EnumCustomizationState()
 		{
-			lst.Add(new CustomizationState() { id = Solicited, stName = "Solicited" });
-			lst.Add(new CustomizationState() { id = Analysis, stName = "Analysis" });
-			lst.Add(new CustomizationState() { id = Estimative, stName = "Estimative" });
-			lst.Add(new CustomizationState() { id = EstimativeApproval, stName = "Estimate Approval" });
-			lst.Add(new CustomizationState() { id = PendingPayment, stName = "Pending Payment" });
-			lst.Add(new CustomizationState() { id = Execution, stName = "Execution" });
-			lst.Add(new CustomizationState() { id = FinalApproval, stName = "Final Approval" });
-			lst.Add(new CustomizationState() { id = Delivered, stName = "Delivered" });
+			lst.Add(new CustomizationState { id = Solicited, stName = "Solicited" });
+			lst.Add(new CustomizationState { id = Analysis, stName = "Analysis" });
+			lst.Add(new CustomizationState { id = Estimative, stName = "Estimative" });
+			lst.Add(new CustomizationState { id = EstimativeApproval, stName = "Estimate Approval" });
+			lst.Add(new CustomizationState { id = PendingPayment, stName = "Pending Payment" });
+			lst.Add(new CustomizationState { id = Execution, stName = "Execution" });
+			lst.Add(new CustomizationState { id = FinalApproval, stName = "Final Approval" });
+			lst.Add(new CustomizationState { id = Delivered, stName = "Delivered" });
 		}
 
 		public CustomizationState Get(long _id)

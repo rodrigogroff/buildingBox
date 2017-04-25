@@ -1,6 +1,5 @@
 ﻿using LinqToDB;
 using Newtonsoft.Json;
-using System.Linq;
 
 namespace DataModel
 {
@@ -31,7 +30,6 @@ namespace DataModel
 						this.stPassword = ent.stNewPassword;
 
 						db.Update(this);
-
 						break;
 					}
 
@@ -42,7 +40,6 @@ namespace DataModel
 						db.Update(this);
 
 						resetPassword = this.stPassword;
-
 						break;
 					}
 			}

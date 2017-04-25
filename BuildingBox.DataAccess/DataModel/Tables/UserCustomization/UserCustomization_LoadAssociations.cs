@@ -51,6 +51,8 @@ namespace DataModel
 
 		List<UserCustomizationStateChange> LoadStateChanges(BuildingBoxDB db)
 		{
+			var ecs = new EnumCustomizationState();
+
 			var lst = (from e in db.UserCustomizationStateChanges
 					   where e.fkCustomization == this.id
 					   select e).
@@ -61,7 +63,7 @@ namespace DataModel
 			{
 				item.sdtLog = GetDateTimeString(item.dtLog);
 				item.sfkUser = db.User(item.fkUser).stContactEmail;
-				item.sfkState = new EnumCustomizationState().Get((long)item.fkState).stName;
+				item.sfkState = ecs.Get((long)item.fkState).stName;
 			}
 
 			return lst;

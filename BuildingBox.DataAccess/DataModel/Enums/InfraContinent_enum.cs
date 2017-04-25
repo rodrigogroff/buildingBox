@@ -20,10 +20,10 @@ namespace DataModel
 
 		public EnumInfraContinent()
 		{
-			lst.Add(new InfraContinent() { id = America, stName = "America" });
-			lst.Add(new InfraContinent() { id = Europe, stName = "Europe" });
-			lst.Add(new InfraContinent() { id = Australia, stName = "Australia" });
-			lst.Add(new InfraContinent() { id = Asia, stName = "Asia" });
+			lst.Add(new InfraContinent { id = America, stName = "America" });
+			lst.Add(new InfraContinent { id = Europe, stName = "Europe" });
+			lst.Add(new InfraContinent { id = Australia, stName = "Australia" });
+			lst.Add(new InfraContinent { id = Asia, stName = "Asia" });
 		}
 
 		public InfraContinent Get(long _id)

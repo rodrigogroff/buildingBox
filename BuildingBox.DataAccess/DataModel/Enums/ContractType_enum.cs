@@ -21,11 +21,11 @@ namespace DataModel
 
 		public EnumContractType()
 		{
-			lst.Add(new ContractType() { id = Economy, stName = "Economy (up to 30 users)" });
-			lst.Add(new ContractType() { id = Standard, stName = "Standard (up to 90 users)" });
-			lst.Add(new ContractType() { id = Advanced, stName = "Advanced (up to 170 users)" });
-			lst.Add(new ContractType() { id = Premium, stName = "Premium (up to 350 users)" });
-			lst.Add(new ContractType() { id = Master, stName = "Master (up to 800 users)" });
+			lst.Add(new ContractType { id = Economy, stName = "Economy (up to 30 users)" });
+			lst.Add(new ContractType { id = Standard, stName = "Standard (up to 90 users)" });
+			lst.Add(new ContractType { id = Advanced, stName = "Advanced (up to 170 users)" });
+			lst.Add(new ContractType { id = Premium, stName = "Premium (up to 350 users)" });
+			lst.Add(new ContractType { id = Master, stName = "Master (up to 800 users)" });
 		}
 
 		public ContractType Get(long _id)

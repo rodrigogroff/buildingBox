@@ -21,11 +21,11 @@ namespace DataModel
 
 		public EnumTicketState()
 		{
-			lst.Add(new TicketState() { id = Pending, stName = "Pending" });
-			lst.Add(new TicketState() { id = Analysis, stName = "Analysis" });
-			lst.Add(new TicketState() { id = Answered, stName = "Answered" });
-			lst.Add(new TicketState() { id = Closed, stName = "Closed" });
-			lst.Add(new TicketState() { id = Cancelled, stName = "Cancelled" });
+			lst.Add(new TicketState { id = Pending, stName = "Pending" });
+			lst.Add(new TicketState { id = Analysis, stName = "Analysis" });
+			lst.Add(new TicketState { id = Answered, stName = "Answered" });
+			lst.Add(new TicketState { id = Closed, stName = "Closed" });
+			lst.Add(new TicketState { id = Cancelled, stName = "Cancelled" });
 		}
 
 		public TicketState Get(long _id)

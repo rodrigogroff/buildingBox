@@ -9,10 +9,10 @@ namespace DataModel
 		{
 			var user = db.GetCurrentUser();
 
-			fkTicketState = EnumTicketState.Analysis;
-			stProtocol = GetProtocol();
-			dtCreation = DateTime.Now;
 			fkUserOpen = user.id;
+			stProtocol = GetProtocol();
+			fkTicketState = EnumTicketState.Analysis;			
+			dtCreation = DateTime.Now;			
 			dtLog = DateTime.Now;
 			
 			id = Convert.ToInt64(db.InsertWithIdentity(this));

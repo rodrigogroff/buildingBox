@@ -1,7 +1,6 @@
 ﻿using LinqToDB;
 using Newtonsoft.Json;
 using System;
-using System.Linq;
 
 namespace DataModel
 {
@@ -57,7 +56,6 @@ namespace DataModel
 						db.Update(this);
 
 						LoadAssociations(db);
-
 						break;
 					}
 
@@ -74,7 +72,6 @@ namespace DataModel
 							db.Update(ent);
 
 						LoadAssociations(db);
-
 						break;
 					}
 
@@ -85,7 +82,6 @@ namespace DataModel
 						db.Delete(ent);
 
 						LoadAssociations(db);
-
 						break;
 					}				
 			}

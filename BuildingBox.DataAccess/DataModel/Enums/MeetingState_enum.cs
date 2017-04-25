@@ -20,10 +20,10 @@ namespace DataModel
 
 		public EnumMeetingState()
 		{
-			lst.Add(new MeetingState() { id = PendingConfirmation, stName = "Pending Confirmation" });
-			lst.Add(new MeetingState() { id = Confirmed, stName = "Confirmed" });
-			lst.Add(new MeetingState() { id = Done, stName = "Done" });
-			lst.Add(new MeetingState() { id = Cancelled, stName = "Cancelled" });
+			lst.Add(new MeetingState { id = PendingConfirmation, stName = "Pending Confirmation" });
+			lst.Add(new MeetingState { id = Confirmed, stName = "Confirmed" });
+			lst.Add(new MeetingState { id = Done, stName = "Done" });
+			lst.Add(new MeetingState { id = Cancelled, stName = "Cancelled" });
 		}
 
 		public MeetingState Get(long _id)
