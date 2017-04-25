@@ -11,7 +11,7 @@
 						<tr>
 							<td width="20px"></td>
 							<td>
-								Meeting <i class="fa fa-spinner fa-spin" ng-show="loading"></i>
+								<span ng-show="viewModel.id == 0">New </span> Meeting <i class="fa fa-spinner fa-spin" ng-show="loading"></i>
 							</td>
 							<td width="20px"></td>
 						</tr>
@@ -46,8 +46,138 @@
 										</td>
 										<td></td>
 									</tr>
-									
+									<tr height="40px">
+										<td></td>
+										<td>
+											<b>Year</b>
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="nuYear_fail">!</button>
+										</td>
+										<td>
+											<table>
+												<tr>
+													<td width="90px">
+														<input type="number" class="form-control input-transparent" maxlength="100" ng-model="viewModel.nuYear" min="1976" max="2099">
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											<b>Month</b>
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="fkMonth_fail">!</button>
+										</td>
+										<td>
+											<input type="hidden" style="width:100%" ui-select2="selectMonth" ng-model="viewModel.fkMonth" />
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											<b>Date and Time</b>
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="nuDayHourMinute_fail">!</button>
+										</td>
+										<td>
+											<table>
+												<tr>
+													<td width="50px">Day</td>
+													<td width="90px"><input type="number" class="form-control input-transparent" maxlength="100" ng-model="viewModel.nuDay" min="1" max="31"></td>
+													<td width="20px"></td>
+													<td width="50px">Hour</td>
+													<td width="90px"><input type="number" class="form-control input-transparent" maxlength="100" ng-model="viewModel.nuHour" min="1" max="23"></td>
+													<td width="20px"></td>
+													<td width="60px">Minute</td>
+													<td width="90px"><input type="number" class="form-control input-transparent" maxlength="100" ng-model="viewModel.nuMinute" min="0" max="59"></td>
+												</tr>
+											</table>
+										</td>
+										<td></td>
+									</tr>
 									<tr height="32px"></tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											<b>Motivation</b>
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="stMeetingMotivation_fail">!</button>
+										</td>
+										<td>
+											<input type="text" class="form-control input-transparent" maxlength="100" ng-model="viewModel.stMeetingMotivation">
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											<b>Location</b>
+										</td>
+										<td>
+											<button class="btn btn-xs btn-danger" ng-show="fkPlace_fail">!</button>
+										</td>
+										<td>
+											<input type="hidden" style="width:100%" ui-select2="selectMeetingPlace" ng-model="viewModel.fkMeetingPlace" />
+										</td>
+										<td></td>
+									</tr>
+									<tr height="40px">
+										<td></td>
+										<td>
+											<b>Link / URL / App</b>
+										</td>
+										<td>											
+										</td>
+										<td>
+											<input type="text" class="form-control input-transparent" maxlength="100" ng-model="viewModel.stMeetingDetails">
+										</td>
+										<td></td>
+									</tr>
+									<tr height="32px"></tr>
+								</table>
+							</div>
+						</tab>
+						<tab heading="Schedules" disabled="true" ng-if="viewModel.id == undefined"></tab>
+						<tab heading="Schedules [{{viewModel.schedules.length}}]" ng-if="viewModel.id > 0">
+							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
+								<table width="100%">
+									<tr height="12px"></tr>
+									<tr>
+										<td width="20px"></td>
+										<td>
+											<legend style="color:white">
+												Schedules History
+											</legend>
+											<div ng-show="viewModel.schedules.length > 0">
+												<br />
+												<table class="table table-hover" style="width:100%">
+													<thead>
+														<tr>
+															<th width="110px">Date</th>
+															<th width="90px">User</th>															
+															<th width="140px">Meeting Schedule</th>
+															<th width="140px">State</th>															
+														</tr>
+													</thead>
+													<tr data-ng-repeat="mdl in viewModel.schedules">
+														<td>{{ mdl.sdtLog }}</td>
+														<td>{{ mdl.sfkUser }}</td>														
+														<td>{{ mdl.stDate }}</td>
+														<td>{{ mdl.sfkState }}</td>
+													</tr>
+												</table>
+											</div>
+										</td>
+										<td width="20px"></td>
+									</tr>
 								</table>
 							</div>
 						</tab>

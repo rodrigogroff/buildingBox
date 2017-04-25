@@ -28,53 +28,6 @@ angular.module('app.services', ['ngResource'])
 	return confirmacao;
 }])
 
-.service('$informacao', ['$modal', '$rootScope', '$q', function ($modal, $rootScope, $q) {
-
-	var deferred;
-	var scope = $rootScope.$new();
-
-	scope.resposta = function (res) {
-		deferred.resolve(res);
-		confirmacao.hide();
-	}
-
-	var confirmacao = $modal({ template: 'app/_shared/templateInformacao.html', scope: scope, show: false });
-	var parentShow = confirmacao.show;
-
-	confirmacao.exibir = function (titulo, mensagem) {
-		scope.titulo = titulo;
-		scope.mensagem = mensagem;
-		deferred = $q.defer();
-		parentShow();
-		return deferred.promise;
-	}
-
-	return confirmacao;
-}])
-
-.service('$mensagemErro', ['$modal', '$rootScope', '$q', function ($modal, $rootScope, $q) {
-
-	var deferred;
-	var scope = $rootScope.$new();
-
-	scope.fechar = function () {
-		janela.hide();
-	}
-
-	var janela = $modal({ template: 'app/_shared/templateMensagemErro.html', scope: scope, show: false });
-	var parentShow = janela.show;
-
-	janela.exibir = function (titulo, mensagem) {
-		scope.titulo = titulo;
-		scope.mensagem = mensagem;
-		deferred = $q.defer();
-		parentShow();
-		return deferred.promise;
-	}
-
-	return janela;
-}])
-
 .factory('Api', ['$resource', function ($resource)
 {
 	var opcoes = {
@@ -95,6 +48,7 @@ angular.module('app.services', ['ngResource'])
 		InfraCountry: $resource('api/infraCountry/:id', {}, opcoes),
 		InfraContinent: $resource('api/infraContinent/:id', {}, opcoes),		
 		GMT: $resource('api/gmt/:id', {}, opcoes),
+		Month: $resource('api/month/:id', {}, opcoes),
 		Ticket: $resource('api/ticket/:id', {}, opcoes),
 		TicketState: $resource('api/ticketState/:id', {}, opcoes),
 		MeetingState: $resource('api/meetingState/:id', {}, opcoes),

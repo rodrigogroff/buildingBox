@@ -8,7 +8,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$scope.selectTicketState = ngSelects.obterConfiguracao(Api.TicketState, {});
 	$scope.selectContract = ngSelects.obterConfiguracao(Api.UserContract, {});
 	
-	$scope.viewModel = {};
+	$scope.viewModel = { id: 0 };
 
 	var id = ($stateParams.id) ? parseInt($stateParams.id) : 0;
 
@@ -16,15 +16,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 
 	function init()
 	{
-		AuthService.fillAuthData();
-
-		$scope.authentication = AuthService.authentication;
-
-		if (!AuthService.authentication.isAuth) {
-			$rootScope.loggedIn = false;
-			$location.path('/login');
-		}
-		else if (id > 0)
+		if (id > 0)
 		{
 			$scope.loading = true;
 			Api.Ticket.get({ id: id }, function (data)
@@ -36,9 +28,6 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 				if (response.status === 404) { toastr.error('Invalid ID', 'Error'); }
 				$scope.list();
 			});
-		}
-		else {
-			$scope.viewModel = { };
 		}
 	}
 

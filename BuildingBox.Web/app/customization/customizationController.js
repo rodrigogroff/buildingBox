@@ -8,7 +8,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$scope.selectUserContract = ngSelects.obterConfiguracao(Api.UserContract, { });
 	$scope.selectCustomizationState = ngSelects.obterConfiguracao(Api.CustomizationState, {});
 
-	$scope.viewModel = {};
+	$scope.viewModel = { id: 0 };
 
 	var id = ($stateParams.id) ? parseInt($stateParams.id) : 0;
 
@@ -16,10 +16,6 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 
 	function init()
 	{
-		AuthService.fillAuthData();
-
-		$scope.authentication = AuthService.authentication;
-
 		if (id > 0)
 		{
 			$scope.loading = true;
@@ -34,8 +30,6 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 				$scope.list();
 			});
 		}
-		else 			
-			$scope.viewModel = { };
 	}
 
 	var invalidCheck = function (element) {

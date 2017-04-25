@@ -12,7 +12,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$scope.selectCity = ngSelects.obterConfiguracao(Api.InfraCity, { scope: $scope, filtro: { campo: 'fkCountry', valor: 'viewModel.fkCountry' } });
 	$scope.selectContractState = ngSelects.obterConfiguracao(Api.ContractState, {});
 
-	$scope.viewModel = {};
+	$scope.viewModel = { id: 0 };
 
 	var id = ($stateParams.id) ? parseInt($stateParams.id) : 0;
 
@@ -20,15 +20,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 
 	function init()
 	{
-		AuthService.fillAuthData();
-
-		$scope.authentication = AuthService.authentication;
-
-		if (!AuthService.authentication.isAuth) {
-			$rootScope.loggedIn = false;
-			$location.path('/login');
-		}
-		else if (id > 0)
+		if (id > 0)
 		{
 			$scope.loading = true;
 			
@@ -42,8 +34,6 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 				$scope.list();
 			});
 		}
-		else 			
-			$scope.viewModel = { };
 	}
 
 	var invalidCheck = function (element) {

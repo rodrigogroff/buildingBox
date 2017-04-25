@@ -8,8 +8,9 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$scope.selectMeetingState = ngSelects.obterConfiguracao(Api.MeetingState, {});
 	$scope.selectMeetingPlace = ngSelects.obterConfiguracao(Api.MeetingPlace, {});
 	$scope.selectGMT = ngSelects.obterConfiguracao(Api.GMT, {});
+	$scope.selectMonth = ngSelects.obterConfiguracao(Api.Month, {});
 	
-	$scope.viewModel = {};
+	$scope.viewModel = { id: 0, nuYear: 0 };
 
 	var id = ($stateParams.id) ? parseInt($stateParams.id) : 0;
 
@@ -17,15 +18,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 
 	function init()
 	{
-		AuthService.fillAuthData();
-
-		$scope.authentication = AuthService.authentication;
-
-		if (!AuthService.authentication.isAuth) {
-			$rootScope.loggedIn = false;
-			$location.path('/login');
-		}
-		else if (id > 0)
+		if (id > 0)
 		{
 			$scope.loading = true;
 			
@@ -39,8 +32,12 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 				$scope.list();
 			});
 		}
-		else 			
-			$scope.viewModel = { };
+		else
+		{
+			var currentDate = new Date();
+
+			$scope.viewModel.nuYear = currentDate.getFullYear();
+		}
 	}
 
 	var invalidCheck = function (element) {
@@ -56,8 +53,20 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$scope.save = function ()
 	{
 		$scope.fkGMT_fail = $scope.viewModel.fkGMT == undefined;
+		$scope.fkMonth_fail = $scope.viewModel.fkMonth == undefined;
+		$scope.fkPlace_fail = $scope.viewModel.fkMeetingPlace == undefined;
+		$scope.nuYear_fail = invalidCheck($scope.viewModel.nuYear);
+		$scope.stMeetingMotivation_fail = invalidCheck($scope.viewModel.stMeetingMotivation);
 		
-		if (!$scope.fkGMT_fail)
+		$scope.nuDayHourMinute_fail = invalidCheck($scope.viewModel.nuDay) ||
+									  invalidCheck($scope.viewModel.nuHour) ||
+								      invalidCheck($scope.viewModel.nuMinute);
+		
+		if (!$scope.fkGMT_fail && 
+			!$scope.fkMonth_fail && 
+			!$scope.nuYear_fail &&
+			!$scope.stMeetingMotivation_fail &&
+			!$scope.nuDayHourMinute_fail )
 		{
 			if (id > 0)
 			{
@@ -76,7 +85,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 			{
 				Api.UserMeeting.add($scope.viewModel, function (data) {
 					toastr.success('Meeting added!', 'Success');
-					$state.go('clientPanel');
+					$state.go('meeting', { id: data.id });
 				},
 				function (response) {
 					toastr.error(response.data.message, 'Error');

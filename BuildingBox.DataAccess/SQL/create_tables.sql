@@ -9,6 +9,7 @@ DROP TABLE public."UserCustomizationStateChange";
 DROP TABLE public."UserCustomizationEstimateLog";
 DROP TABLE public."UserMeeting";
 DROP TABLE public."UserMeetingPerson";
+DROP TABLE public."UserMeetingSchedule";
 
 CREATE TABLE public."User"
 (
@@ -229,4 +230,22 @@ WITH (
 TABLESPACE pg_default;
 
 ALTER TABLE public."UserMeetingPerson"
+    OWNER to postgres;
+
+CREATE TABLE public."UserMeetingSchedule"
+(
+    id bigserial NOT NULL,
+	"fkMeeting" bigint,
+	"fkUser" bigint,
+	"fkState" bigint,
+	"dtLog" timestamp without time zone,
+	"stDate" character varying(200),
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."UserMeetingSchedule"
     OWNER to postgres;

@@ -10,8 +10,7 @@ function ($scope, AuthService, $state, ngHistoricoFiltro, Api, ngSelects, $rootS
 	$scope.campos = {};
 
 	$scope.itensporpagina = 15;
-	$scope.list = undefined;
-
+	
 	$scope.search = function () {
 		$scope.load(0, $scope.itensporpagina);
 		$scope.paginador.reiniciar();

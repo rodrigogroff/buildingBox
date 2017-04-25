@@ -30,6 +30,7 @@ namespace DataModel
 		public ITable<UserCustomizationStateChange> UserCustomizationStateChanges { get { return this.GetTable<UserCustomizationStateChange>(); } }
 		public ITable<UserMeeting>                  UserMeetings                  { get { return this.GetTable<UserMeeting>(); } }
 		public ITable<UserMeetingPerson>            UserMeetingPeople             { get { return this.GetTable<UserMeetingPerson>(); } }
+		public ITable<UserMeetingSchedule>          UserMeetingSchedules          { get { return this.GetTable<UserMeetingSchedule>(); } }
 
 		public BuildingBoxDB()
 		{
@@ -189,6 +190,17 @@ namespace DataModel
 		[Column,     Nullable] public bool?  bConfirmed { get; set; } // boolean
 	}
 
+	[Table(Schema="public", Name="UserMeetingSchedule")]
+	public partial class UserMeetingSchedule
+	{
+		[PrimaryKey, Identity] public long      id        { get; set; } // bigint
+		[Column,     Nullable] public long?     fkMeeting { get; set; } // bigint
+		[Column,     Nullable] public long?     fkUser    { get; set; } // bigint
+		[Column,     Nullable] public long?     fkState   { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtLog     { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public string    stDate    { get; set; } // character varying(200)
+	}
+
 	public static partial class TableExtensions
 	{
 		public static Ticket Find(this ITable<Ticket> table, long id)
@@ -252,6 +264,12 @@ namespace DataModel
 		}
 
 		public static UserMeetingPerson Find(this ITable<UserMeetingPerson> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static UserMeetingSchedule Find(this ITable<UserMeetingSchedule> table, long id)
 		{
 			return table.FirstOrDefault(t =>
 				t.id == id);

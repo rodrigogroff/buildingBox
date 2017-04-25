@@ -9,6 +9,16 @@ namespace DataModel
 		public string updateCommand,
 						sdtLog,
 						sfkState,
+						sfkGMT,
 						sfkPlace;
+
+		public List<UserMeetingSchedule> schedules = new List<UserMeetingSchedule>();
+	}
+
+	public partial class UserMeetingSchedule
+	{
+		public string sdtLog,
+						sfkUser,
+						sfkState;
 	}
 }
