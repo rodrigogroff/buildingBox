@@ -19,6 +19,7 @@ namespace DataModel
 		public EnumMeetingPlace()
 		{
 			lst.Add(new MeetingPlace() { id = Internet, stName = "Internet" });
+			lst.Add(new MeetingPlace() { id = Local, stName = "Local / Premises" });
 		}
 
 		public MeetingPlace Get(long _id)

@@ -28,12 +28,15 @@ namespace DataModel
 					{
 						var oldMeeting = db.UserMeeting(id);
 
+						fkMeetingState = fkNewMeetingState;
+
 						if (oldMeeting.fkGMT != this.fkGMT ||
 							oldMeeting.nuYear != this.nuYear ||
 							oldMeeting.fkMonth != this.fkMonth ||
 							oldMeeting.nuDay != this.nuDay ||
 							oldMeeting.nuHour != this.nuHour ||
-							oldMeeting.nuMinute != this.nuMinute )
+							oldMeeting.nuMinute != this.nuMinute ||
+							oldMeeting.fkMeetingState != fkMeetingState)
 						{
 							db.Insert(new UserMeetingSchedule
 							{

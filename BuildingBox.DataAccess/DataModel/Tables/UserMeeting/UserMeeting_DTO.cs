@@ -12,7 +12,10 @@ namespace DataModel
 						sfkGMT,
 						sfkPlace;
 
+		public long? fkNewMeetingState;
+
 		public List<UserMeetingSchedule> schedules = new List<UserMeetingSchedule>();
+		public List<UserMeetingSchedule> stateChanges = new List<UserMeetingSchedule>();
 	}
 
 	public partial class UserMeetingSchedule
