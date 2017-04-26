@@ -20,6 +20,7 @@ namespace DataModel
 
 		public List<UserContractState> states = new List<UserContractState>();
 		public List<UserContractBill> pendingBills = new List<UserContractBill>();
+		public List<UserContractBill> bills = new List<UserContractBill>();
 	}
 
 	public partial class UserContractState
@@ -33,7 +34,14 @@ namespace DataModel
 	{
 		public string sdtLog,
 						snuMonth,
+						sdtPayment,
 						snuValue;
 
+		public List<BillDetail> details = new List<BillDetail>();
+	}
+
+	public partial class BillDetail
+	{
+		public string snuValue;
 	}
 }

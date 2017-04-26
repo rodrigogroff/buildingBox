@@ -20,12 +20,19 @@ namespace DataModel
 			{
 				dtLog = DateTime.Now,
 				fkContract = this.id,
-				fkContractState = this.fkContractState,
+				fkContractState = EnumContractState.ContractCreated,
 				fkUser = user.id,
 			});
 
-			var bill_id = Convert.ToInt64(
-				db.InsertWithIdentity(new UserContractBill
+			db.Insert(new UserContractState
+			{
+				dtLog = DateTime.Now,
+				fkContract = this.id,
+				fkContractState = EnumContractState.PendingFirstPayment,
+				fkUser = user.id,
+			});
+
+			var bill_id = Convert.ToInt64( db.InsertWithIdentity(new UserContractBill
 				{
 					fkUser = user.id,
 					fkUserContract = this.id,
@@ -37,7 +44,7 @@ namespace DataModel
 					stBillId = GetBillId(),
 				}));
 
-			InsertContractDetails(db, bill_id, fkContractType);
+			InsertContractDetails(db, bill_id, (long)fkContractType);
 
 			return true;
 		}

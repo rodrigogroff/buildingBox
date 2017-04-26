@@ -78,12 +78,38 @@ namespace DataModel
 			{
 				case EnumContractType.Economy:
 					{
-						db.Insert(new BillDetail
-						{
-							fkUserContractBill = bill_id,
-							nuValue = 100,
-							stItem = ""
-						});
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 9000, stItem = "Software License" });
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 5200, stItem = "4 Cores (ASP.NET + Database)" });
+						break;
+					}
+
+				case EnumContractType.Standard:
+					{
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 9000, stItem = "Software License" });
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 10400, stItem = "6 Cores (ASP.NET + Database)" });
+						break;
+					}
+
+				case EnumContractType.Advanced:
+					{
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 15000, stItem = "Software License" });
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 41600, stItem = "16 Cores (ASP.NET + Database)" });
+						break;
+					}
+
+				case EnumContractType.Premium:
+					{
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 25000, stItem = "Software License" });
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 20800, stItem = "8 Cores (Database)" });
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 41600, stItem = "16 Cores (ASP.NET)" });
+						break;
+					}
+
+				case EnumContractType.Master:
+					{
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 35000, stItem = "Software License" });
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 20800, stItem = "8 Cores (Database)" });
+						db.Insert(new BillDetail { fkUserContractBill = bill_id, nuValue = 83200, stItem = "24 Cores (ASP.NET)" });
 						break;
 					}
 			}			

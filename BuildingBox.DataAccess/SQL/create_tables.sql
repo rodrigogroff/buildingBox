@@ -258,6 +258,7 @@ CREATE TABLE public."UserContractBill"
 (
     id bigserial NOT NULL,
 	"dtLog" timestamp without time zone,
+	"dtPayment" timestamp without time zone,
 	"fkUser" bigint,
 	"fkUserContract" bigint,
 	"nuYear" bigint,

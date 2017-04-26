@@ -23,7 +23,8 @@ namespace DataModel
 			stName = stProtocol + " - " + sfkCity;
 
 			states = LoadStates(db);
-			pendingBills = LoadPendingBills(db);
+			pendingBills = LoadBills(db, true);
+			bills = LoadBills(db, false);
 
 			return this;
 		}
@@ -46,10 +47,12 @@ namespace DataModel
 			return lst;
 		}
 
-		List<UserContractBill> LoadPendingBills(BuildingBoxDB db)
+		List<UserContractBill> LoadBills(BuildingBoxDB db, bool pending)
 		{
 			var lst = (from e in db.UserContractBills
 					   where e.fkUserContract == this.id
+					   where pending == false || e.bPending == true
+					   where e.bCancelled == false
 					   select e).
 					   OrderByDescending(y => y.id).
 					   ToList();
@@ -60,13 +63,18 @@ namespace DataModel
 			{
 				item.sdtLog = GetDateTimeString(item.dtLog);
 				item.snuMonth = em.Get((long)item.nuMonth).stName;
+				item.sdtPayment = GetDateTimeString(item.dtPayment);
 
-				var totAmount = (from e in db.BillDetails
-								 where e.fkUserContractBill == item.id
-								 select e).
-								 Sum(y => y.nuValue);
+				item.details = (from e in db.BillDetails
+								where e.fkUserContractBill == item.id
+								select e).ToList();
 
-				item.snuValue = GetMoneyString(totAmount);
+				item.snuValue = GetMoneyString(item.details.Sum(y=>y.nuValue));
+
+				foreach (var detail in item.details)
+				{
+					detail.snuValue = GetMoneyString(detail.nuValue);
+				}
 			}
 
 			return lst;

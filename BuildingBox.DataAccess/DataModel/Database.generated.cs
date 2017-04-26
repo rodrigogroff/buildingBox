@@ -113,7 +113,7 @@ namespace DataModel
 		[PrimaryKey, Identity] public long      id              { get; set; } // bigint
 		[Column,     Nullable] public long?     fkContractState { get; set; } // bigint
 		[Column,     Nullable] public DateTime? dtCreation      { get; set; } // timestamp (6) without time zone
-		[Column,     Nullable] public string    stProtocol      { get; set; } // character varying(20)
+		[Column,     Nullable] public string    stProtocol      { get; set; } // character varying(200)
 		[Column,     Nullable] public string    stDNS           { get; set; } // character varying(200)
 		[Column,     Nullable] public long?     fkUser          { get; set; } // bigint
 		[Column,     Nullable] public long?     fkContractType  { get; set; } // bigint
@@ -137,6 +137,7 @@ namespace DataModel
 		[Column,     Nullable] public bool?     bPending       { get; set; } // boolean
 		[Column,     Nullable] public bool?     bCancelled     { get; set; } // boolean
 		[Column,     Nullable] public string    stBillId       { get; set; } // character varying(12)
+		[Column,     Nullable] public DateTime? dtPayment      { get; set; } // timestamp (6) without time zone
 	}
 
 	[Table(Schema="public", Name="UserContractState")]
