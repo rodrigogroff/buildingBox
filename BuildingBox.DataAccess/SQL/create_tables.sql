@@ -10,6 +10,8 @@ DROP TABLE public."UserCustomizationEstimateLog";
 DROP TABLE public."UserMeeting";
 DROP TABLE public."UserMeetingPerson";
 DROP TABLE public."UserMeetingSchedule";
+DROP TABLE public."UserContractBill";
+DROP TABLE public."BillDetail";
 
 CREATE TABLE public."User"
 (
@@ -251,3 +253,41 @@ TABLESPACE pg_default;
 
 ALTER TABLE public."UserMeetingSchedule"
     OWNER to postgres;
+
+CREATE TABLE public."UserContractBill"
+(
+    id bigserial NOT NULL,
+	"dtLog" timestamp without time zone,
+	"fkUser" bigint,
+	"fkUserContract" bigint,
+	"nuYear" bigint,
+	"nuMonth" bigint,
+	"bPending" boolean,
+	"bCancelled" boolean,
+	"stBillId" character varying(12),	
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."UserContractBill"
+    OWNER to postgres;
+
+CREATE TABLE public."BillDetail"
+(
+    id bigserial NOT NULL,
+	"fkUserContractBill" bigint,
+	"stItem" character varying(99),	
+	"nuValue" bigint,
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."BillDetail"
+    OWNER to postgres;
+	

@@ -12,7 +12,7 @@ function ($scope, $rootScope, $location, AuthService, $stateParams, $state, Api,
 	$scope.selectCity = ngSelects.obterConfiguracao(Api.InfraCity, { scope: $scope, filtro: { campo: 'fkCountry', valor: 'viewModel.fkCountry' } });
 	$scope.selectContractState = ngSelects.obterConfiguracao(Api.ContractState, {});
 
-	$scope.viewModel = { id: 0 };
+	$scope.viewModel = { };
 
 	var id = ($stateParams.id) ? parseInt($stateParams.id) : 0;
 

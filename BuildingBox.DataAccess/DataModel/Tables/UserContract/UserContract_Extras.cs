@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using LinqToDB;
 
 namespace DataModel
 {
@@ -28,6 +29,21 @@ namespace DataModel
 			return ret;
 		}
 
+		public string GetBillId()
+		{
+			var ret = "";
+			var stProtocolFormat = "999999999";
+
+			if (stProtocolFormat != null)
+				foreach (var i in stProtocolFormat)
+					if (Char.IsDigit(i))
+						ret += RandomNumber(0, 9).ToString();
+					else
+						ret += i;
+
+			return this.id.ToString().PadLeft(3,'0') + ret;
+		}
+
 		public string GetDateTimeString(DateTime? _dt)
 		{
 			if (_dt == null)
@@ -54,6 +70,23 @@ namespace DataModel
 			if (ret.Length >= 7) ret = ret.Insert(ret.Length - 6, ".");
 
 			return ret;
+		}
+
+		public void InsertContractDetails(BuildingBoxDB db, long? bill_id, long fkContractType)
+		{
+			switch (fkContractType)
+			{
+				case EnumContractType.Economy:
+					{
+						db.Insert(new BillDetail
+						{
+							fkUserContractBill = bill_id,
+							nuValue = 100,
+							stItem = ""
+						});
+						break;
+					}
+			}			
 		}
 	}
 }

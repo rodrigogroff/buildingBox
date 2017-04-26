@@ -19,6 +19,7 @@ namespace DataModel
 						snuContractValue;
 
 		public List<UserContractState> states = new List<UserContractState>();
+		public List<UserContractBill> pendingBills = new List<UserContractBill>();
 	}
 
 	public partial class UserContractState
@@ -26,5 +27,13 @@ namespace DataModel
 		public string sdtLog,
 						sfkUser,
 						sfkContractState;
+	}
+
+	public partial class UserContractBill
+	{
+		public string sdtLog,
+						snuMonth,
+						snuValue;
+
 	}
 }

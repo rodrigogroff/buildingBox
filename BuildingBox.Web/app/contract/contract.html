@@ -158,10 +158,10 @@
 										</td>
 										<td></td>
 									</tr>
-									<tr height="40px">
+									<tr height="40px" ng-show="viewModel.id > 0">
 										<td></td>
 										<td>
-											<b>Current Value</b>
+											<b>Contract Value</b>
 										</td>
 										<td></td>
 										<td>
@@ -233,8 +233,29 @@
 								</table>
 							</div>
 						</tab>						
-						<tab heading="Billing" disabled="true" ng-if="viewModel.id == undefined"></tab>
-						<tab heading="Billing" ng-if="viewModel.id > 0">
+						<tab heading="Pending Bills" disabled="true" ng-if="viewModel.id == undefined"></tab>
+						<tab heading="Pending Bills" ng-if="viewModel.id > 0">
+							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
+								<table class="table table-hover" style="width:600px" ng-show="viewModel.pendingBills.length > 0">
+									<thead>
+										<tr>
+											<th width="140px">Solicited</th>
+											<th>Month</th>
+											<th>Year</th>
+											<th>Value</th>
+										</tr>
+									</thead>
+									<tr data-ng-repeat="mdl in viewModel.pendingBills">
+										<td>{{ mdl.sdtLog }}</td>
+										<td>{{ mdl.snuMonth }}</td>
+										<td>{{ mdl.nuYear }}</td>
+										<td>{{ mdl.snuValue }}</td>
+									</tr>
+								</table>
+							</div>
+						</tab>
+						<tab heading="Bills History" disabled="true" ng-if="viewModel.id == undefined"></tab>
+						<tab heading="Bills History" ng-if="viewModel.id > 0">
 							<div style="width:100%;min-height:400px;background:rgba(15, 43, 89, 0.25);">
 								<table>
 									<thead>
@@ -247,7 +268,7 @@
 										</tr>
 									</thead>
 									<tr height="24px"></tr>
-									
+
 								</table>
 							</div>
 						</tab>

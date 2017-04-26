@@ -19,11 +19,13 @@ namespace DataModel
 	/// </summary>
 	public partial class BuildingBoxDB : LinqToDB.Data.DataConnection
 	{
+		public ITable<BillDetail>                   BillDetails                   { get { return this.GetTable<BillDetail>(); } }
 		public ITable<Ticket>                       Tickets                       { get { return this.GetTable<Ticket>(); } }
 		public ITable<TicketMessage>                TicketMessages                { get { return this.GetTable<TicketMessage>(); } }
 		public ITable<TicketWorkFlow>               TicketWorkFlows               { get { return this.GetTable<TicketWorkFlow>(); } }
 		public ITable<User>                         Users                         { get { return this.GetTable<User>(); } }
 		public ITable<UserContract>                 UserContracts                 { get { return this.GetTable<UserContract>(); } }
+		public ITable<UserContractBill>             UserContractBills             { get { return this.GetTable<UserContractBill>(); } }
 		public ITable<UserContractState>            UserContractStates            { get { return this.GetTable<UserContractState>(); } }
 		public ITable<UserCustomization>            UserCustomizations            { get { return this.GetTable<UserCustomization>(); } }
 		public ITable<UserCustomizationEstimateLog> UserCustomizationEstimateLogs { get { return this.GetTable<UserCustomizationEstimateLog>(); } }
@@ -44,6 +46,15 @@ namespace DataModel
 		}
 
 		partial void InitDataContext();
+	}
+
+	[Table(Schema="public", Name="BillDetail")]
+	public partial class BillDetail
+	{
+		[PrimaryKey, Identity] public long   id                 { get; set; } // bigint
+		[Column,     Nullable] public long?  fkUserContractBill { get; set; } // bigint
+		[Column,     Nullable] public string stItem             { get; set; } // character varying(99)
+		[Column,     Nullable] public long?  nuValue            { get; set; } // bigint
 	}
 
 	[Table(Schema="public", Name="Ticket")]
@@ -102,7 +113,7 @@ namespace DataModel
 		[PrimaryKey, Identity] public long      id              { get; set; } // bigint
 		[Column,     Nullable] public long?     fkContractState { get; set; } // bigint
 		[Column,     Nullable] public DateTime? dtCreation      { get; set; } // timestamp (6) without time zone
-		[Column,     Nullable] public string    stProtocol      { get; set; } // character varying(200)
+		[Column,     Nullable] public string    stProtocol      { get; set; } // character varying(20)
 		[Column,     Nullable] public string    stDNS           { get; set; } // character varying(200)
 		[Column,     Nullable] public long?     fkUser          { get; set; } // bigint
 		[Column,     Nullable] public long?     fkContractType  { get; set; } // bigint
@@ -112,6 +123,20 @@ namespace DataModel
 		[Column,     Nullable] public long?     fkCity          { get; set; } // bigint
 		[Column,     Nullable] public long?     nuBillingDay    { get; set; } // bigint
 		[Column,     Nullable] public long?     nuContractValue { get; set; } // bigint
+	}
+
+	[Table(Schema="public", Name="UserContractBill")]
+	public partial class UserContractBill
+	{
+		[PrimaryKey, Identity] public long      id             { get; set; } // bigint
+		[Column,     Nullable] public DateTime? dtLog          { get; set; } // timestamp (6) without time zone
+		[Column,     Nullable] public long?     fkUser         { get; set; } // bigint
+		[Column,     Nullable] public long?     fkUserContract { get; set; } // bigint
+		[Column,     Nullable] public long?     nuYear         { get; set; } // bigint
+		[Column,     Nullable] public long?     nuMonth        { get; set; } // bigint
+		[Column,     Nullable] public bool?     bPending       { get; set; } // boolean
+		[Column,     Nullable] public bool?     bCancelled     { get; set; } // boolean
+		[Column,     Nullable] public string    stBillId       { get; set; } // character varying(12)
 	}
 
 	[Table(Schema="public", Name="UserContractState")]
@@ -205,6 +230,12 @@ namespace DataModel
 
 	public static partial class TableExtensions
 	{
+		public static BillDetail Find(this ITable<BillDetail> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
 		public static Ticket Find(this ITable<Ticket> table, long id)
 		{
 			return table.FirstOrDefault(t =>
@@ -230,6 +261,12 @@ namespace DataModel
 		}
 
 		public static UserContract Find(this ITable<UserContract> table, long id)
+		{
+			return table.FirstOrDefault(t =>
+				t.id == id);
+		}
+
+		public static UserContractBill Find(this ITable<UserContractBill> table, long id)
 		{
 			return table.FirstOrDefault(t =>
 				t.id == id);

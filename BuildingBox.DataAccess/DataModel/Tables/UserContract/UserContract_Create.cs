@@ -12,17 +12,32 @@ namespace DataModel
 			fkUser = user.id;
 			dtCreation = DateTime.Now;
 			stProtocol = GetProtocol();
-			fkContractState = EnumContractState.PendingStartSetup;
+			fkContractState = EnumContractState.PendingFirstPayment;
 
 			id = Convert.ToInt64(db.InsertWithIdentity(this));
 
-			db.Insert(new UserContractState()
+			db.Insert(new UserContractState
 			{
 				dtLog = DateTime.Now,
 				fkContract = this.id,
-				fkContractState = EnumContractState.PendingStartSetup,
+				fkContractState = this.fkContractState,
 				fkUser = user.id,
 			});
+
+			var bill_id = Convert.ToInt64(
+				db.InsertWithIdentity(new UserContractBill
+				{
+					fkUser = user.id,
+					fkUserContract = this.id,
+					bCancelled = false,
+					bPending = true,
+					dtLog = DateTime.Now,
+					nuMonth = DateTime.Now.Month,
+					nuYear = DateTime.Now.Year,
+					stBillId = GetBillId(),
+				}));
+
+			InsertContractDetails(db, bill_id, fkContractType);
 
 			return true;
 		}
