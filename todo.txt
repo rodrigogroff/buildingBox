@@ -1,20 +1,14 @@
 
-- Register
+- registrar dominio no 'godaddy'
 
-	+ Meetings  (schedule) -> $ pushed to next billing
+https://br.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=buildingbox
 
-	+ Customization [/contract]
+- criar email no zoho mail, informando o host comprado
 
-		(client delivers analysis over documentation)
-			(total hours estimated by building box)
-				(approved hours by client)
-					(pending payment (pay first method))
+https://workplace.zoho.com/biz/mailsignup.do?plan=free
 
-						+ New project (maintenance) in client DevKit
-							(execution)
-							(working hours registered) 
-							(bugs reported (re-work free))
-							(homologation)
-								(version accepted)
-									(devkit upgraded)
-									
+
+- forgot your password no login / cria nova senha e envia por email
+- mandar email para meetings
+- mandar email quando criar um contrato
+- mandar email quando criar uma customization
