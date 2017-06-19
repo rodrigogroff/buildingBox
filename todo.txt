@@ -6,7 +6,7 @@ https://br.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToC
 - criar email no zoho mail, informando o host comprado
 
 https://workplace.zoho.com/biz/mailsignup.do?plan=free
-
+    
 
 - 'forgot your password?' no login / informa email, envia / se email existe, cria nova senha randomica e a envia por email / 
 - mandar email para meetings 
