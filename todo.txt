@@ -1,5 +1,5 @@
 
-- registrar dominio no 'godaddy'
+- registrar dominio no 'godaddy' 
 
 https://br.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=buildingbox
 
