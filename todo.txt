@@ -3,7 +3,7 @@
 
 https://br.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=buildingbox
 
-- criar email no zoho mail, informando o host comprado
+- criar email no zoho mail, informando o host comprado 
 
 https://workplace.zoho.com/biz/mailsignup.do?plan=free
       
